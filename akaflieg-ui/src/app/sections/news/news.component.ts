@@ -7,7 +7,6 @@ import {NewsItem} from "./news-item";
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-
   private news: NewsItem[] = [];
 
   constructor() { }

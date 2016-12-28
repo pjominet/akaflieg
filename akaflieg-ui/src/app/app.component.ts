@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import 'rxjs/add/operator/map';
+import {AppService} from "./app.service";
 
 @Component({
   selector: 'app-root',
@@ -8,14 +9,26 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private title = 'app works!';
+  private arr: any[] = [];
 
-  constructor(private http: Http) {
+  newItem: any = {};
+
+  constructor(private http: Http,
+              private serv: AppService) {
   }
 
   ngOnInit(): void {
-    this.http.get("http://localhost:8080/news/test")
-      .map((res: Response) => res.text())
-      .subscribe(data => this.title = data);
+    this.getAllNews();
+  }
+
+  getAllNews() {
+    this.serv.getAllNews()
+      .subscribe(data => this.arr = data);
+  }
+
+  addNewsElement() {
+    this.serv.addNewElement(this.newItem.header, this.newItem.body)
+      .subscribe(data => this.getAllNews(),
+        err => console.log(err));
   }
 }
