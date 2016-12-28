@@ -12,6 +12,7 @@ import { PlanesComponent } from './sections/planes/planes.component';
 import { SchoolingComponent } from './sections/schooling/schooling.component';
 import { AffiliatesComponent } from './sections/affiliates/affiliates.component';
 import { ContactComponent } from './sections/contact/contact.component';
+import {AppService} from "./app.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { ContactComponent } from './sections/contact/contact.component';
     FormsModule,
     HttpModule
   ],
-  providers: [MainPageService],
+  providers: [MainPageService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
