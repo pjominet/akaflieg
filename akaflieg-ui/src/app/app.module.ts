@@ -13,6 +13,9 @@ import { SchoolingComponent } from './sections/schooling/schooling.component';
 import { AffiliatesComponent } from './sections/affiliates/affiliates.component';
 import { ContactComponent } from './sections/contact/contact.component';
 import {AppService} from "./app.service";
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import {AppService} from "./app.service";
     PlanesComponent,
     SchoolingComponent,
     AffiliatesComponent,
-    ContactComponent
+    ContactComponent,
+    UserDashboardComponent,
+    PrivacyPolicyComponent,
+    TermsOfUseComponent
   ],
   imports: [
     BrowserModule,
