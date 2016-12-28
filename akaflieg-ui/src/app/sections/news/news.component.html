@@ -1,3 +1,9 @@
-<p>
-  news works!
-</p>
+<div *ngFor="let ne of arr">
+  <h3>{{ne.header}}</h3>
+  <p>{{ne.body}}</p>
+</div>
+<form name="addForm" id="addForm" (ngSubmit)="addNewsElement()">
+  <input type="text" [(ngModel)]="newItem.header" name="itemHeader">
+  <input type="text" [(ngModel)]="newItem.body" name="itemBody">
+  <button type="submit">Add</button>
+</form>
