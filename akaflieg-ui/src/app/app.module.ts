@@ -12,10 +12,14 @@ import {SchoolingComponent} from './sections/schooling/schooling.component';
 import {AffiliatesComponent} from './sections/affiliates/affiliates.component';
 import {ContactComponent} from './sections/contact/contact.component';
 import {AppService} from "./app.service";
-import {UserDashboardComponent} from './user-dashboard/user-dashboard.component';
+import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.component';
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {TermsOfUseComponent} from './terms-of-use/terms-of-use.component';
 import {AppRoutingModule} from "./app-routing";
+import { DashboardCmsComponent } from './dashboard/dashboard-cms/dashboard-cms.component';
+import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-home.component';
+import { DashboardShareComponent } from './dashboard/dashboard-share/dashboard-share.component';
+import { DashboardWeatherComponent } from './dashboard/dashboard-weather/dashboard-weather.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import {AppRoutingModule} from "./app-routing";
     ContactComponent,
     UserDashboardComponent,
     PrivacyPolicyComponent,
-    TermsOfUseComponent
+    TermsOfUseComponent,
+    DashboardCmsComponent,
+    DashboardHomeComponent,
+    DashboardShareComponent,
+    DashboardWeatherComponent
   ],
   imports: [
     BrowserModule,

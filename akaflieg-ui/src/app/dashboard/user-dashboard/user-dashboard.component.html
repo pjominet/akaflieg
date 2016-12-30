@@ -1,0 +1,59 @@
+<div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-dashboard navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header page-scroll">
+      <a class="navbar-brand page-scroll" href="#profileHome" ng-click="dashboard.selectTab(1)">Willkommen {{dashboard.dummy.name}}</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#cms" ng-click="dashboard.selectTab(4)">Wetter und Thermik</a>
+        </li>
+        <li>
+          <a href="#profile" ng-click="dashboard.selectTab(2)">Freigebene Inhalte</a>
+        </li>
+        <li>
+          <a href="#cms" ng-click="dashboard.selectTab(3)">Content Management</a>
+        </li>
+        <li>
+          <a href="index.html">Ausloggen</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- Default View -->
+  <dashboard-home ng-show="dashboard.isSelected(1)"></dashboard-home>
+  <!-- Weather Widget -->
+  <dashboard-weather ng-show="dashboard.isSelected(4)"></dashboard-weather>
+  <!-- Share -->
+  <dashboard-share ng-show="dashboard.isSelected(2)"></dashboard-share>
+  <!-- CMS -->
+  <dashboard-cms ng-show="dashboard.isSelected(3)"></dashboard-cms>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="copyright">Copyright &copy; Akaflieg Köln e.V. 2016</span>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline social-buttons">
+          <li><a href="https://twitter.com/Akaflieg" target="_blank"><i class="fa fa-twitter"></i></a>
+          </li>
+          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+          </li>
+          <li><a href="https://plus.google.com/113051736365017647290" target="_blank"><i class="fa fa-google-plus-official"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
