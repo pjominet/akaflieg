@@ -1,0 +1,27 @@
+@import '../../app.component';
+
+/* --- Dashboard Navbar --- */
+.navbar-dashboard {
+  background-color: $default;
+  border-color: transparent;
+}
+.navbar-dashboard .nav li a {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: white;
+}
+.navbar-dashboard .nav li a:hover,
+.navbar-dashboard .nav li a:focus{
+  color: $default-light;
+  outline: none;
+}
+.navbar-dashboard .navbar-brand {
+  color: white;
+}
+.navbar-dashboard .navbar-brand:hover,
+.navbar-dashboard .navbar-brand:focus,
+.navbar-dashboard .navbar-brand:active,
+.navbar-dashboard .navbar-brand.active {
+  color: white;
+}
