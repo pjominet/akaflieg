@@ -54,9 +54,9 @@
   width: 80px;
   height: 80px;
   position: absolute;
-  background-color: #326c95;
+  background-color: $default;
   color: white;
-  border-radius: 100%;
+  @include border-radius(100%);
   border: 7px solid #e1e1e1;
   text-align: center;
 }
