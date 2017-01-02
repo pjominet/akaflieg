@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard-weather',
+  selector: 'dashboard-weather',
   templateUrl: './dashboard-weather.component.html',
   styleUrls: ['./dashboard-weather.component.scss']
 })

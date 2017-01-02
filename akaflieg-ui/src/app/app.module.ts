@@ -27,7 +27,6 @@ import {AppService} from "./app.service";
 import {MainPageService} from "./main-page/main-page.service";
 /* --- Routing --- */
 import {AppRoutingModule} from "./app-routing";
-import {DashboardRoutingModule} from "./dashboard/dashboard-routing"
 
 
 @NgModule({
@@ -52,8 +51,7 @@ import {DashboardRoutingModule} from "./dashboard/dashboard-routing"
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-    DashboardRoutingModule
+    AppRoutingModule
   ],
   providers: [MainPageService, AppService],
   bootstrap: [AppComponent]
