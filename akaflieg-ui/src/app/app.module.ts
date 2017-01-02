@@ -3,7 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {RouterModule, Routes} from "@angular/router";
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -28,6 +27,7 @@ import {AppService} from "./app.service";
 import {MainPageService} from "./main-page/main-page.service";
 /* --- Routing --- */
 import {AppRoutingModule} from "./app-routing";
+import {DashboardRoutingModule} from "./dashboard/dashboard-routing"
 
 
 @NgModule({
@@ -52,7 +52,8 @@ import {AppRoutingModule} from "./app-routing";
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DashboardRoutingModule
   ],
   providers: [MainPageService, AppService],
   bootstrap: [AppComponent]
