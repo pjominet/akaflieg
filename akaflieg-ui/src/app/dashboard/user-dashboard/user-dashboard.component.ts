@@ -12,4 +12,11 @@ export class UserDashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  private dummy = {
+    name: 'Max Muster',
+    username: 'mmuster',
+    email: 'max@muster.de',
+    access: 'Verwalter'
+  };
+
 }

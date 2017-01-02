@@ -4,18 +4,18 @@
 <nav class="navbar navbar-default navbar-dashboard navbar-fixed-top">
   <div class="container">
     <div class="navbar-header page-scroll">
-      <a class="navbar-brand page-scroll" href="#profileHome" ng-click="dashboard.selectTab(1)">Willkommen {{dashboard.dummy.name}}</a>
+      <a class="navbar-brand page-scroll" href="#profileHome">Willkommen</a>
     </div>
     <div>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#cms" ng-click="dashboard.selectTab(4)">Wetter und Thermik</a>
+          <a href="#cms">Wetter und Thermik</a>
         </li>
         <li>
-          <a href="#profile" ng-click="dashboard.selectTab(2)">Freigebene Inhalte</a>
+          <a href="#profile">Freigebene Inhalte</a>
         </li>
         <li>
-          <a href="#cms" ng-click="dashboard.selectTab(3)">Content Management</a>
+          <a href="#cms">Content Management</a>
         </li>
         <li>
           <a href="index.html">Ausloggen</a>
@@ -27,13 +27,13 @@
 
 <main>
   <!-- Default View -->
-  <dashboard-home ng-show="dashboard.isSelected(1)"></dashboard-home>
+  <dashboard-home></dashboard-home>
   <!-- Weather Widget -->
-  <dashboard-weather ng-show="dashboard.isSelected(4)"></dashboard-weather>
+  <dashboard-weather></dashboard-weather>
   <!-- Share -->
-  <dashboard-share ng-show="dashboard.isSelected(2)"></dashboard-share>
+  <dashboard-share></dashboard-share>
   <!-- CMS -->
-  <dashboard-cms ng-show="dashboard.isSelected(3)"></dashboard-cms>
+  <dashboard-cms></dashboard-cms>
 </main>
 
 <footer>
