@@ -26,13 +26,9 @@ import {TermsOfUseComponent} from './terms-of-use/terms-of-use.component';
 /* --- Services --- */
 import {AppService} from "./app.service";
 import {MainPageService} from "./main-page/main-page.service";
+/* --- Routing --- */
+import {AppRoutingModule} from "./app-routing";
 
-const appRoutes: Routes = [
-  {path: 'user-dashboard', component: UserDashboardComponent},
-  {path: 'privacy-policy', component: PrivacyPolicyComponent},
-  {path: 'terms-of-use', component: TermsOfUseComponent},
-  {path: '', redirectTo: '/main-page', pathMatch: 'full'}
-];
 
 @NgModule({
   declarations: [
@@ -56,7 +52,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [MainPageService, AppService],
   bootstrap: [AppComponent]
