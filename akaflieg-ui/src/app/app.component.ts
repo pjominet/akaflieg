@@ -10,18 +10,18 @@ declare var $:any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  private arr: any[] = [];
+  private dataArray: any[] = [];
 
   newItem: any = {};
 
   constructor(private http: Http,
-              private serv: AppService) {
+              private appService: AppService) {
   }
 
   ngOnInit(): void {
     this.getAllNews();
 
-    //---- jQuery-Bootstrap Features ----//
+    /* ---- jQuery-Bootstrap Features ---- */
     $(document).ready(function() {
       // page scrolling feature (requires jquery.easing)
       $('a.page-scroll').bind('click', function(event) {
@@ -53,12 +53,12 @@ export class AppComponent implements OnInit {
   }
 
   getAllNews() {
-    this.serv.getAllNews()
-      .subscribe(data => this.arr = data);
+    this.appService.getAllNews()
+      .subscribe(data => this.dataArray = data);
   }
 
   addNewsElement() {
-    this.serv.addNewElement(this.newItem.header, this.newItem.body)
+    this.appService.addNewElement(this.newItem.header, this.newItem.body)
       .subscribe(data => this.getAllNews(),
         err => console.log(err));
   }
