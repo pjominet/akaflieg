@@ -15,11 +15,10 @@ const appRoutes: Routes = [
   {path: 'termsOfUse', component: TermsOfUseComponent},
   {path: 'dashboard', component: UserDashboardComponent,
     children: [
-    {path: 'home', component: DashboardHomeComponent},
+    {path: '', component: DashboardHomeComponent},
     {path: 'cms', component: DashboardCmsComponent},
     {path: 'share', component: DashboardShareComponent},
     {path: 'weather', component: DashboardWeatherComponent},
-    {path: '', redirectTo: '/home', pathMatch: 'full'}
   ]},
   {path: '', redirectTo: '/index', pathMatch: 'full'}
 ];

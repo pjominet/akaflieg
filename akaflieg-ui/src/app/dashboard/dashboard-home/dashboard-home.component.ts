@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardHomeComponent implements OnInit {
 
+  private dummy = {
+    name: 'Max Muster',
+    username: 'mmuster',
+    email: 'max@muster.de',
+    access: 'Verwalter'
+  };
+
   constructor() { }
 
   ngOnInit() {
