@@ -22,6 +22,7 @@ import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard
 /* --- Other --- */
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {TermsOfUseComponent} from './terms-of-use/terms-of-use.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 /* --- Services --- */
 import {AppService} from "./app.service";
 import {MainPageService} from "./main-page/main-page.service";
@@ -45,7 +46,8 @@ import {AppRoutingModule} from "./app-routing";
     DashboardShareComponent,
     DashboardWeatherComponent,
     PrivacyPolicyComponent,
-    TermsOfUseComponent
+    TermsOfUseComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
