@@ -12,7 +12,7 @@
           <a routerLink="./weather">Wetter und Thermik</a>
         </li>
         <li>
-          <a routerLink="./share">Freigebene Inhalte</a>
+          <a routerLink="./share">Projekte und Öffentliches</a>
         </li>
         <li>
           <a routerLink="./cms">Content Management</a>
@@ -27,14 +27,6 @@
 
 <main>
   <router-outlet></router-outlet>
-  <!--&lt;!&ndash; Default View &ndash;&gt;-->
-  <!--<dashboard-home></dashboard-home>-->
-  <!--&lt;!&ndash; Weather Widget &ndash;&gt;-->
-  <!--<dashboard-weather></dashboard-weather>-->
-  <!--&lt;!&ndash; Share &ndash;&gt;-->
-  <!--<dashboard-share></dashboard-share>-->
-  <!--&lt;!&ndash; CMS &ndash;&gt;-->
-  <!--<dashboard-cms></dashboard-cms>-->
 </main>
 
 <footer>
@@ -53,8 +45,19 @@
           </li>
         </ul>
       </div>
+      <div class="col-md-4">
+        <ul class="list-inline quicklinks">
+          <li><a href="#privacPolicy">Datenschutzbestimmungen</a>
+          </li>
+          <li><a href="#termsOfUse">Impressum</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>
+
+<privacy-policy></privacy-policy>
+<terms-of-use></terms-of-use>
 
 </div>
