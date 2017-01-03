@@ -24,14 +24,14 @@
   color: white;
   font-size: 12px;
 }
-.navbar-main .nav li a {
+.navbar-main .nav > li > a {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
   color: white;
 }
-.navbar-main .nav li a:hover,
-.navbar-main .nav li a:focus{
+.navbar-main .nav > li > a:hover,
+.navbar-main .nav > li > a:focus{
   color: $default-light;
   outline: none;
 }
@@ -42,7 +42,7 @@
   background-color: $default-light;
 }
 
-.navbar-main .navbar-nav li a#interna-link {
+.navbar-main .navbar-nav > li > a#interna-link {
   margin-left: 75px;
   border-left: solid 1px white;
 }

@@ -1,14 +1,21 @@
 /* --- General --- */
 $default: #326c95;
-$default-light: lightskyblue;
+$default-light: #87cefa;
 $default-danger: #e74c3c;
-$bg-default: white;
+$bg-default: #fff;
 $bg-alt: #eee;
+$bg-default-translucent: rgba(255,255,255,.8);
 
 /* --- Text --- */
 $text-default: #222;
 $text-light: #777;
 
 /* --- Buttons --- */
-$btn-file-default: seagreen;
+$btn-file-default: #2e8b57;
 $btn-file-hover: #31814a;
+
+/* --- Social Media --- */
+$fb-default: #3b5998;
+$fb-light: #496ebc;
+$tw-default: #55acee;
+$tw-light: #59b5fa;

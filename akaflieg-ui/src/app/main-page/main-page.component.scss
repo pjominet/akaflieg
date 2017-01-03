@@ -1,1 +1,62 @@
 @import '../app.component';
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:active,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: transparent;
+  color: $default-light;
+}
+
+.dropdown-header {
+  color: $default;
+}
+
+#login-drop {
+  min-width: 250px;
+  padding: 14px 14px 0;
+  overflow:hidden;
+  background-color:$bg-default-translucent;
+}
+
+#login-drop .help-block {
+  font-size: 12px
+}
+
+#login-drop .social-buttons {
+  margin: 12px 0
+}
+
+#login-drop .social-buttons a {
+  width: 49%;
+}
+
+#login-drop .form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-fb {
+  color: #fff;
+  background-color:$fb-default;
+}
+
+.btn-fb:hover {
+  color: #fff;
+  background-color:$fb-light;
+}
+
+.btn-tw {
+  color: #fff;
+  background-color:$tw-default;
+}
+
+.btn-tw:hover {
+  color: #fff;
+  background-color:$tw-light;
+}
+
+@media(max-width:768px){
+  #login-drop {
+    background-color: inherit;
+    color: #fff;
+  }
+}
