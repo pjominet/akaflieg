@@ -11,6 +11,7 @@ export class MainPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
     /* ---- jQuery-Bootstrap Features ---- */
     $(document).ready(function() {
       // page scrolling feature (requires jquery.easing)
