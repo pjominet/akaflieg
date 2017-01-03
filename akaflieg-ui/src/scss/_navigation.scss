@@ -32,14 +32,14 @@
 }
 .navbar-main .nav > li > a:hover,
 .navbar-main .nav > li > a:focus{
-  color: $default-light;
+  color: $default-highlight;
   outline: none;
 }
 .navbar-main .navbar-nav > .active > a,
 .navbar-main .navbar-nav > .active > a:hover,
 .navbar-main .navbar-nav > .active > a:focus {
   color: white;
-  background-color: $default-light;
+  background-color: $default-highlight;
 }
 
 .navbar-main .navbar-nav > li > a#interna-link {

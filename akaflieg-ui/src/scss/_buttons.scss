@@ -8,6 +8,7 @@ a.active {
   outline: none;
   color: $default;
 }
+
 .btn-xl {
   color: white;
   background-color: $default;
@@ -15,4 +16,12 @@ a.active {
   font-weight: 700;
   font-size: 18px;
   padding: 20px 40px;
+}
+
+.btn-xl:hover,
+.btn-xl:active,
+.btn-xl:focus {
+  color: white;
+  background-color: $default-light;
+  border-color: $default;
 }

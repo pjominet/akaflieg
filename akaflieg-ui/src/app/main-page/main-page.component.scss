@@ -3,8 +3,20 @@
 .navbar-default .navbar-nav > .open > a:active,
 .navbar-default .navbar-nav > .open > a:focus {
   background-color: transparent;
-  color: $default-light;
+  color: $default-highlight;
 }
+
+.btn-primary {
+  background-color: $default;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: $default-light;
+  border-color: $default;
+}
+
 
 .dropdown-header {
   color: $default;
