@@ -8,6 +8,8 @@ declare var $:any;
 })
 export class MainPageComponent implements OnInit {
 
+  private toggleFooter: string = 'none';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -41,6 +43,20 @@ export class MainPageComponent implements OnInit {
         $('.navbar-toggle:visible').click();
       });
     });
+  }
+
+  toggleFooterExtension (value) {
+    if(value === 'privacy' && this.toggleFooter != 'privacy') {
+      this.toggleFooter = value;
+      return this.toggleFooter;
+    } else if(value === 'terms' && this.toggleFooter != 'terms') {
+      this.toggleFooter = value;
+      return this.toggleFooter;
+    } else {
+      this.toggleFooter = 'none';
+      return this.toggleFooter;
+    }
+
   }
 
 }
