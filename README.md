@@ -1,11 +1,11 @@
 #Akaflieg Köln e.V
 
-#Description
+##Description
 
-#Prerequisites
+##Prerequisites
     * Mysql server with db named akaflieg
     * nodejs
     * gradle
 
-#How to setup
+##How to setup
     * Run npm install
