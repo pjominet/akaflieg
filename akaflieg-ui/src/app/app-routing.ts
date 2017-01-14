@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {TermsOfUseComponent} from './terms-of-use/terms-of-use.component';
 import {DashboardWeatherComponent} from "./dashboard/dashboard-weather/dashboard-weather.component";
@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   {path: 'index', component: MainPageComponent},
   {path: 'privacyPolicy', component: PrivacyPolicyComponent},
   {path: 'termsOfUse', component: TermsOfUseComponent},
-  {path: 'dashboard', component: UserDashboardComponent,
+  {path: 'dashboard', component: DashboardComponent,
     children: [
     {path: '', component: DashboardHomeComponent},
     {path: 'home', component: DashboardHomeComponent},
