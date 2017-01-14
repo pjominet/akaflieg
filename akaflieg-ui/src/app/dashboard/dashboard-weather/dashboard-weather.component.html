@@ -1,15 +1,21 @@
 <section id="weather">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="section-heading">Wetter und Thermik</h2>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-heading">Wetter und Thermik</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>{{weatherBinz.cityName}}</h3>
+                <p>Wolken: {{weatherBinz.cloudsDescription}}</p>
+                <p>Regenwahrscheinlichkeit: {{weatherBinz.rain}}</p>
+            </div>
+            <div class="col-md-6">
+                <p>Außentemperatur: {{weatherBinz.temperature}}°C</p>
+                <p>Windgeschwindigkeit: {{weatherBinz.windSpeed}}</p>
+                <p>Windausrichtung: {{weatherBinz.windDirection}}</p>
+            </div>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-
-
-      </div>
-    </div>
-  </div>
 </section>

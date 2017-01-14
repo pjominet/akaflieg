@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DashboardWeatherService} from './dashboard-weather.service'
+import {WeatherItem} from './weather-item';
 
 @Component({
   selector: 'dashboard-weather',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardWeatherComponent implements OnInit {
 
-  constructor() { }
+  constructor(private weatherService: DashboardWeatherService) {}
 
   ngOnInit() {
+    this.weatherService.getWeatherData().subscribe(
+        data => {
+            const weatherBinz = new WeatherItem(
+                data.name,
+                data.clouds,
+                data.weather[0].description,
+                data.main.temp,
+                data.wind.speed,
+                data.wind.deg,
+                data.rain
+            );
+        }
+    );
   }
 
 }
