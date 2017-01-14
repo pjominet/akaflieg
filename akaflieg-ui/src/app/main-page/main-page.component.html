@@ -1,131 +1,143 @@
-<div id="page-top">
+<div id="page-top" scrollSpy>
 
-<!-- Navigation -->
-<nav id="mainNav" class="navbar navbar-default navbar-main navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header page-scroll">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-sandwich">
-        <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
-      </button>
-      <a class="navbar-brand page-scroll" href="#page-top">Akaflieg Köln e.V.</a>
-    </div>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-main navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#navbar-collapse-sandwich">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Akaflieg Köln e.V.</a>
+            </div>
 
-    <div class="collapse navbar-collapse" id="navbar-collapse-sandwich">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a class="page-scroll" href="#about">Über uns</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#planes">Flugzeuge</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#schooling">Ausbildung</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#news">News</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="#contact">Kontakt</a>
-        </li>
-        <li class="dropdown">
-          <a href="#" id="login-drop-btn" class="dropdown-toggle" data-toggle="dropdown">Interna&nbsp;<span class="caret"></span></a>
-          <ul id="login-drop" class="dropdown-menu">
-            <li><button class="btn btn-primary btn-block" routerLink="/dashboard">Als Gast fortfahren</button></li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <div class="row">
-                <div class="col-md-12">
-                  Login via
-                  <div class="social-buttons">
-                    <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                    <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-                  </div>
-                  oder
-                  <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                    <div class="form-group">
-                      <label class="sr-only" for="exampleInputEmail2">Email</label>
-                      <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                      <label class="sr-only" for="exampleInputPassword2">Passwort</label>
-                      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Passwort" required>
-                      <div class="help-block text-right"><a href="#">Passwort vergessen?</a></div>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-primary btn-block">Einloggen</button>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox">&nbsp;eingeloggt bleiben
-                      </label>
-                    </div>
-                  </form>
+            <div class="collapse navbar-collapse" id="navbar-collapse-sandwich">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a pageScroll href="#about">Über uns</a>
+                    </li>
+                    <li>
+                        <a pageScroll href="#planes">Flugzeuge</a>
+                    </li>
+                    <li>
+                        <a pageScroll href="#schooling">Ausbildung</a>
+                    </li>
+                    <li>
+                        <a pageScroll href="#news">News</a>
+                    </li>
+                    <li>
+                        <a pageScroll href="#contact">Kontakt</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" id="login-drop-btn" class="dropdown-toggle"
+                           data-toggle="dropdown">Interna&nbsp;<span class="caret"></span></a>
+                        <ul id="login-drop" class="dropdown-menu">
+                            <li>
+                                <button class="btn btn-primary btn-block" routerLink="/dashboard">Als Gast fortfahren
+                                </button>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Login via
+                                        <div class="social-buttons">
+                                            <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                            <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                        </div>
+                                        oder
+                                        <form class="form" role="form" method="post" action="login"
+                                              accept-charset="UTF-8" id="login-nav">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="exampleInputEmail2">Email</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail2"
+                                                       placeholder="Email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="exampleInputPassword2">Passwort</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword2"
+                                                       placeholder="Passwort" required>
+                                                <div class="help-block text-right"><a href="#">Passwort vergessen?</a>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-block">Einloggen
+                                                </button>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox">&nbsp;eingeloggt bleiben
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Willkommen bei der Akaflieg Köln!</div>
+                <div class="intro-heading">Spa&szlig; am gemeinsamem Fliegen</div>
+                <a href="#about" pageScroll class="btn btn-primary btn-xl">Erfahre mehr</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Body processed by Angular -->
+    <main>
+        <!-- About Section -->
+        <app-about></app-about>
+        <!-- Planes Section -->
+        <app-planes></app-planes>
+        <!-- Schooling Section -->
+        <app-schooling></app-schooling>
+        <!-- News Section -->
+        <app-news></app-news>
+        <!-- Affiliates -->
+        <app-affiliates></app-affiliates>
+        <!-- Contact Section -->
+        <app-contact></app-contact>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Akaflieg Köln e.V. 2016</span>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://twitter.com/Akaflieg" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="https://plus.google.com/113051736365017647290" target="_blank"><i
+                                class="fa fa-google-plus-official"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#privacyPolicy" pageScroll
+                               (click)="togglePrivacyExtension()">Datenschutzbestimmungen</a>
+                        </li>
+                        <li><a href="#termsOfUse" pageScroll
+                               (click)="toggleTermsExtension()">Impressum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<!-- Header -->
-<header>
-  <div class="container">
-    <div class="intro-text">
-      <div class="intro-lead-in">Willkommen bei der Akaflieg Köln!</div>
-      <div class="intro-heading">Spa&szlig; am gemeinsamem Fliegen</div>
-      <a href="#about" class="page-scroll btn btn-primary btn-xl">Erfahre mehr</a>
-    </div>
-  </div>
-</header>
-
-<!-- Body processed by Angular -->
-<main>
-  <!-- About Section -->
-  <app-about></app-about>
-  <!-- Planes Section -->
-  <app-planes></app-planes>
-  <!-- Schooling Section -->
-  <app-schooling></app-schooling>
-  <!-- News Section -->
-  <app-news></app-news>
-  <!-- Affiliates -->
-  <app-affiliates></app-affiliates>
-  <!-- Contact Section -->
-  <app-contact></app-contact>
-</main>
-
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <span class="copyright">Copyright &copy; Akaflieg Köln e.V. 2016</span>
-      </div>
-      <div class="col-md-4">
-        <ul class="list-inline social-buttons">
-          <li><a href="https://twitter.com/Akaflieg" target="_blank"><i class="fa fa-twitter"></i></a>
-          </li>
-          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-          </li>
-          <li><a href="https://plus.google.com/113051736365017647290" target="_blank"><i class="fa fa-google-plus-official"></i></a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <ul class="list-inline quicklinks">
-          <li><a href="#privacyPolicy" class="page-scroll" (click)="toggleFooterExtension('privacy')">Datenschutzbestimmungen</a>
-          </li>
-          <li><a href="#termsOfUse" class="page-scroll" (click)="toggleFooterExtension('terms')">Impressum</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<privacy-policy *ngIf="toggleFooter === 'privacy'"></privacy-policy>
-<terms-of-use *ngIf="toggleFooter === 'terms'"></terms-of-use>
+    <privacy-policy *ngIf="togglePrivacy"></privacy-policy>
+    <terms-of-use *ngIf="toggleTerms"></terms-of-use>
 
 </div>

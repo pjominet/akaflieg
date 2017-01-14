@@ -1,61 +1,59 @@
-import { Component, OnInit } from '@angular/core';
-declare var $:any;
+import {Component, OnInit, AfterViewInit} from '@angular/core';
+import { ScrollSpyService } from 'ng2-scrollspy';
+declare var $: any;
 
 @Component({
-  selector: 'main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss']
+    selector: 'main-page',
+    templateUrl: './main-page.component.html',
+    styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit,AfterViewInit {
 
-  private toggleFooter: string = 'none';
+    private togglePrivacy: boolean = false;
+    private toggleTerms: boolean = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
-
-    /* ---- jQuery-Bootstrap Features ---- */
-    $(document).ready(function() {
-      // page scrolling feature (requires jquery.easing)
-      $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-          scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 1250, 'easeInOutExpo');
-        event.preventDefault();
-      });
-
-      // scroll spy (requires bootstrap.js)
-      $('body').scrollspy({
-        target: '.navbar-fixed-top',
-        offset: 51
-      });
-
-      // offset when scrolling
-      $('#mainNav').affix({
-        offset: {
-          top: 100
-        }
-      });
-
-      // hamburger menu toggle
-      $('.navbar-collapse ul li a').click(function(){
-        $('.navbar-toggle:visible').click();
-      });
-    });
-  }
-
-  toggleFooterExtension (value) {
-    if(value === 'privacy' && this.toggleFooter != 'privacy') {
-      this.toggleFooter = value;
-      return this.toggleFooter;
-    } else if(value === 'terms' && this.toggleFooter != 'terms') {
-      this.toggleFooter = value;
-      return this.toggleFooter;
-    } else {
-      this.toggleFooter = 'none';
-      return this.toggleFooter;
+    constructor(private scrollSpyService: ScrollSpyService) {
     }
 
-  }
+    ngOnInit(): void {
+
+        /* ---- jQuery-Bootstrap Features ---- */
+        $(document).ready(function () {
+            // scroll spy (requires bootstrap.js)
+            $('body').scrollspy({
+                target: '.navbar-fixed-top',
+                offset: 51
+            });
+
+            // create navbar when scrolling
+            $('#mainNav').affix({
+                offset: {
+                    top: 100
+                }
+            });
+
+            // hamburger menu toggle
+            $('.navbar-collapse ul li a').click(function () {
+                $('.navbar-toggle:visible').click();
+            });
+        });
+    }
+
+    ngAfterViewInit() {
+        this.scrollSpyService.getObservable('window').subscribe((e: any) => {
+            console.log('ScrollSpy::window: ', e);
+        });
+    }
+
+    togglePrivacyExtension() {
+        this.toggleTerms = false;
+        this.togglePrivacy = !this.togglePrivacy;
+        return !this.togglePrivacy;
+    }
+
+    toggleTermsExtension() {
+        this.togglePrivacy = false;
+        this.toggleTerms = !this.toggleTerms;
+        return !this.toggleTerms;
+    }
 }

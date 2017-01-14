@@ -3,6 +3,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
+import { ScrollSpyModule } from 'ng2-scrollspy';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -14,7 +16,7 @@ import {SchoolingComponent} from './sections/schooling/schooling.component';
 import {AffiliatesComponent} from './sections/affiliates/affiliates.component';
 import {ContactComponent} from './sections/contact/contact.component';
 /* --- Dashboard --- */
-import {UserDashboardComponent} from './dashboard/user-dashboard/user-dashboard.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.component';
 import {DashboardHomeComponent} from './dashboard/dashboard-home/dashboard-home.component';
 import {DashboardShareComponent} from './dashboard/dashboard-share/dashboard-share.component';
@@ -28,35 +30,38 @@ import {AppService} from "./app.service";
 import {MainPageService} from "./main-page/main-page.service";
 /* --- Routing --- */
 import {AppRoutingModule} from "./app-routing";
+import {DashboardWeatherService} from "./dashboard/dashboard-weather/dashboard-weather.service";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainPageComponent,
-    NewsComponent,
-    AboutComponent,
-    PlanesComponent,
-    SchoolingComponent,
-    AffiliatesComponent,
-    ContactComponent,
-    UserDashboardComponent,
-    DashboardCmsComponent,
-    DashboardHomeComponent,
-    DashboardShareComponent,
-    DashboardWeatherComponent,
-    PrivacyPolicyComponent,
-    TermsOfUseComponent,
-    NotFoundComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule
-  ],
-  providers: [MainPageService, AppService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MainPageComponent,
+        NewsComponent,
+        AboutComponent,
+        PlanesComponent,
+        SchoolingComponent,
+        AffiliatesComponent,
+        ContactComponent,
+        DashboardComponent,
+        DashboardCmsComponent,
+        DashboardHomeComponent,
+        DashboardShareComponent,
+        DashboardWeatherComponent,
+        PrivacyPolicyComponent,
+        TermsOfUseComponent,
+        NotFoundComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+        Ng2PageScrollModule.forRoot(),
+        ScrollSpyModule.forRoot()
+    ],
+    providers: [MainPageService, AppService, DashboardWeatherService],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
