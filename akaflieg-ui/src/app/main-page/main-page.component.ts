@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-declare var $: any;
 
 @Component({
     selector: 'main-page',
@@ -13,16 +12,7 @@ export class MainPageComponent implements OnInit {
 
     constructor() {}
 
-    ngOnInit(): void {
-
-        /* ---- jQuery-Bootstrap Features ---- */
-        $(document).ready(function () {
-            // hamburger menu toggle
-            $('.navbar-collapse ul li a').click(function () {
-                $('.navbar-toggle:visible').click();
-            });
-        });
-    }
+    ngOnInit(): void {}
 
     togglePrivacyExtension() {
         this.toggleTerms = false;
