@@ -9,3 +9,6 @@
 
 ##How to setup
     * Run npm install
+    
+##Build correct dist
+    * ng build  --base-href /set/your/path/here
