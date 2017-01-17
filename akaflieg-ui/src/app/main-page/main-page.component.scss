@@ -1,4 +1,5 @@
 @import '../app.component';
+/* --- Main Navbar --- */
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:active,
 .navbar-default .navbar-nav > .open > a:focus {
@@ -6,18 +7,72 @@
   color: $default-highlight;
 }
 
-.btn-primary {
+.navbar-main {
   background-color: $default;
+  border-color: transparent;
 }
-
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus {
-  background-color: $default-light;
+.navbar-main .navbar-brand {
+  color: white;
+}
+.navbar-main .navbar-brand:hover,
+.navbar-main .navbar-brand:focus,
+.navbar-main .navbar-brand:active,
+.navbar-main .navbar-brand.active {
+  color: white;
+}
+.navbar-main .navbar-collapse {
+  border-color: rgba(255, 255, 255, 0.02);
+}
+.navbar-main .navbar-toggle {
+  background-color: $default;
   border-color: $default;
+  text-transform: uppercase;
+  color: white;
+  font-size: 12px;
+}
+.navbar-main .nav > li > a {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: white;
+}
+.navbar-main .nav > li > a:hover,
+.navbar-main .nav > li > a:focus{
+  color: $default-highlight;
+  outline: none;
+}
+.navbar-main .navbar-nav > .active > a,
+.navbar-main .navbar-nav > .active > a:hover,
+.navbar-main .navbar-nav > .active > a:focus {
+  color: white;
+  background-color: $default-highlight;
 }
 
+@media (min-width: 768px) {
+  .navbar-main {
+    background-color: transparent;
+    padding: 25px 0;
+    @include transition(padding 0.3s);
+    border: none;
+  }
+  .navbar-main.affix {
+    background-color: $default;
+    padding: 10px 0;
+  }
+  .navbar-main .navbar-brand {
+    visibility: hidden;
+    @include transition(all 0.3s);
+  }
+  .navbar-main.affix .navbar-brand {
+    visibility: visible;
+    font-size: 2em;
+  }
+  .navbar-main .navbar-nav > .active > a {
+    @include border-radius(3px);
+  }
+}
 
+/* --- Login Dropdown --- */
 .divider {
   background-color: $bg-default;
 }
@@ -44,26 +99,6 @@
 #login-drop .form-group {
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-.btn-fb {
-  color: #fff;
-  background-color:$fb-default;
-}
-
-.btn-fb:hover {
-  color: #fff;
-  background-color:$fb-light;
-}
-
-.btn-gp {
-  color: #fff;
-  background-color:$gp-default;
-}
-
-.btn-gp:hover {
-  color: #fff;
-  background-color:$gp-light;
 }
 
 @media(max-width:768px){
