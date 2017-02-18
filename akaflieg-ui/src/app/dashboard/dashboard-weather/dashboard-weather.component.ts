@@ -8,7 +8,7 @@ import {WeatherItem} from './weather-item';
     styleUrls: ['./dashboard-weather.component.scss']
 })
 export class DashboardWeatherComponent implements OnInit {
-    weatherItem: WeatherItem;
+    weatherItem: WeatherItem = new WeatherItem("", "", "", "", null, null, null, "");
     constructor(private weatherService: DashboardWeatherService) {}
 
     ngOnInit() {
@@ -16,14 +16,21 @@ export class DashboardWeatherComponent implements OnInit {
             data => {
                 this.weatherItem = new WeatherItem(
                     data.name,
+                    data.main.pressure,
                     data.weather[0].description,
+                    data.weather[0].icon,
                     data.main.humidity,
                     data.main.temp,
                     data.wind.speed,
-                    data.wind.deg
+                    this.degToCompass(data.wind.deg)
                 );
-                console.log(this.weatherItem);
             }
         );
+    }
+
+    degToCompass(deg: number): string {
+        let compassCodes =["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+        let interval = Math.floor((deg/22.5)+0.5);
+        return compassCodes[interval % 16];
     }
 }
