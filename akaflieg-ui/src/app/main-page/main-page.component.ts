@@ -19,7 +19,7 @@ export class MainPageComponent implements OnInit {
             // create navbar when scrolling
             $('#mainNav').affix({
                 offset: {
-                    top: 100
+                    top: 300
                 }
             });
         });
