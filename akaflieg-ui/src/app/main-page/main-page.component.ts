@@ -16,7 +16,7 @@ export class MainPageComponent implements OnInit {
     ngOnInit(): void {
         /* ---- jQuery-Bootstrap Features ---- */
         $(document).ready(function () {
-            // create navbar when scrolling
+            // create navbar when scrolling, even on view change
             $('#mainNav').affix({
                 offset: {
                     top: 300
