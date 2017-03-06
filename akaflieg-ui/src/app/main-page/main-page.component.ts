@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+declare var $: any;
 
 @Component({
     selector: 'main-page',
@@ -12,7 +13,17 @@ export class MainPageComponent implements OnInit {
 
     constructor() {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        /* ---- jQuery-Bootstrap Features ---- */
+        $(document).ready(function () {
+            // create navbar when scrolling, even on view change
+            $('#mainNav').affix({
+                offset: {
+                    top: 300
+                }
+            });
+        });
+    }
 
     togglePrivacyExtension() {
         this.toggleTerms = false;

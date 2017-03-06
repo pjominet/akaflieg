@@ -5,16 +5,23 @@
                 <h2 class="section-heading">Wetter und Thermik</h2>
             </div>
         </div>
+        <hr>
         <div class="row">
-            <div class="col-md-6">
-                <h3>{{weatherBinz.cityName}}</h3>
-                <p>Wolken: {{weatherBinz.cloudsDescription}}</p>
-                <p>Regenwahrscheinlichkeit: {{weatherBinz.rain}}</p>
+            <div class="col-md-4">
+                <h3 class="text-muted text-center">{{weatherItem.cityName}}</h3>
+                <img src="http://openweathermap.org/img/w/{{weatherItem.iconName}}.png"
+                     alt="descriptive weather icon"
+                     class="img-responsive img-centered">
             </div>
-            <div class="col-md-6">
-                <p>Außentemperatur: {{weatherBinz.temperature}}°C</p>
-                <p>Windgeschwindigkeit: {{weatherBinz.windSpeed}}</p>
-                <p>Windausrichtung: {{weatherBinz.windDirection}}</p>
+            <div class="col-md-4">
+                <p class="font-larger"><span class="text-muted">Wetter aktuell:</span> {{weatherItem.cloudsDescription}}</p>
+                <p class="font-larger"><span class="text-muted">Luftdruck:</span> {{weatherItem.pressure}} hPa</p>
+                <p class="font-larger"><span class="text-muted">Luftfeuchtigkeit:</span> {{weatherItem.humidity}}%</p>
+            </div>
+            <div class="col-md-4">
+                <p class="font-larger"><span class="text-muted">Außentemperatur:</span> {{weatherItem.temperature}}°C</p>
+                <p class="font-larger"><span class="text-muted">Windgeschwindigkeit:</span> {{weatherItem.windSpeed}} m/s</p>
+                <p class="font-larger"><span class="text-muted">Windausrichtung:</span> {{weatherItem.windDirection}}</p>
             </div>
         </div>
     </div>

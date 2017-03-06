@@ -1,5 +1,9 @@
 @import '../app.component';
 
+.offset_top {
+  margin-top: 5em;
+}
+
 /* --- Dashboard Navbar --- */
 .navbar-dashboard {
   background-color: $default;
