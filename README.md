@@ -15,4 +15,4 @@ This project is build with the Angular2 CLI as Frontend and Java Spring as Backe
     * Run npm install
     
 ###Build correct dist for deployment
-    * ng build /set/your/path/
+    * ng build --base-href /set/your/path/
