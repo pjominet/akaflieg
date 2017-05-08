@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import {NewsItem} from "./news-item";
+import {Component, OnInit} from '@angular/core';
+import {NewsItem} from './news-item';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+    selector: 'app-news',
+    templateUrl: './news.component.html',
+    styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-  private news: NewsItem[] = [];
+    private news: NewsItem[] = [];
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
+    ngOnInit() {
 
-  }
+    }
 
 }

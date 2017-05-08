@@ -1,17 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-declare let $: any;
+declare const $: any;
 
 @Component({
-    selector: 'main-page',
+    selector: 'app-main-page',
     templateUrl: './main-page.component.html',
     styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
 
-    private togglePrivacy: boolean = false;
-    private toggleTerms: boolean = false;
+    private togglePrivacy = false;
+    private toggleTerms = false;
 
-    constructor() {}
+    constructor() {
+    }
 
     ngOnInit(): void {
         /* ---- jQuery-Bootstrap Features ---- */
