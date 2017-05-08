@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from "@angular/http";
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {AppService} from "./app.service";
+import {AppService} from './app.service';
 
 @Component({
     selector: 'app-root',
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        //this.getAllNews();
+        // this.getAllNews();
     }
 
     /*

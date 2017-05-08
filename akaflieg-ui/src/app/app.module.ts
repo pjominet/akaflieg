@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
-import { ScrollSpyModule } from 'ng2-scrollspy';
+import {ScrollSpyModule} from 'ng2-scrollspy';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -26,11 +26,11 @@ import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component'
 import {TermsOfUseComponent} from './terms-of-use/terms-of-use.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 /* --- Services --- */
-import {AppService} from "./app.service";
-import {MainPageService} from "./main-page/main-page.service";
+import {AppService} from './app.service';
+import {MainPageService} from './main-page/main-page.service';
 /* --- Routing --- */
-import {AppRoutingModule} from "./app-routing";
-import {DashboardWeatherService} from "./dashboard/dashboard-weather/dashboard-weather.service";
+import {AppRoutingModule} from './app-routing';
+import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
 
 
 @NgModule({
