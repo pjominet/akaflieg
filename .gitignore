@@ -9,6 +9,9 @@
 # Build Tools
 .gradle
 
+# dependencies
+/node_modules
+
 # misc
 npm-debug.log
 akaflieg-ui.iml
