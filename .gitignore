@@ -1,6 +1,24 @@
-.idea
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+# Build Tools
 .gradle
-gradle
+
+# misc
 npm-debug.log
-akaflieg-server/build
 akaflieg-ui.iml
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
