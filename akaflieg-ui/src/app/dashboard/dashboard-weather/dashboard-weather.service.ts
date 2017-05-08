@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
+import {Http} from '@angular/http';
 import 'rxjs/Rx';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class DashboardWeatherService {
 
-    constructor(private http: Http) {}
+    constructor(private http: Http) {
+    }
 
     getWeatherData(): Observable<any> {
         // 50.405889°, 6.528083° = Dahlemer Binz Flugplatz, unknown to api
@@ -16,7 +17,7 @@ export class DashboardWeatherService {
             .map(response => response.json())
             .catch(error => {
                 console.error(error);
-                return Observable.throw(error.json())
+                return Observable.throw(error.json());
             });
     }
 }

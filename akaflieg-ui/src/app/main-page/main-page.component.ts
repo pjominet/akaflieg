@@ -8,8 +8,8 @@ declare const $: any;
 })
 export class MainPageComponent implements OnInit {
 
-    private togglePrivacy = false;
-    private toggleTerms = false;
+    public togglePrivacy = false;
+    public toggleTerms = false;
 
     constructor() {
     }

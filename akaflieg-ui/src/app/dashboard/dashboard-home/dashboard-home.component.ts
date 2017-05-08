@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'dashboard-home',
+  selector: 'app-dashboard-home',
   templateUrl: './dashboard-home.component.html',
   styleUrls: ['./dashboard-home.component.scss']
 })
 export class DashboardHomeComponent implements OnInit {
 
-  private dummy = {
+  public dummy = {
     name: 'Max Muster',
     username: 'mmuster',
     email: 'max@muster.de',

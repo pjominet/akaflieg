@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'dashboard',
+    selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
 
-    private togglePrivacy: boolean = false;
-    private toggleTerms: boolean = false;
+    public togglePrivacy = false;
+    public toggleTerms = false;
 
     constructor() {
     }

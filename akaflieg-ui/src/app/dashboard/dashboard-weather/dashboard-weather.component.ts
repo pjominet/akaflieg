@@ -1,15 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {DashboardWeatherService} from './dashboard-weather.service'
+import {DashboardWeatherService} from './dashboard-weather.service';
 import {WeatherItem} from './weather-item';
 
 @Component({
-    selector: 'dashboard-weather',
+    selector: 'app-dashboard-weather',
     templateUrl: './dashboard-weather.component.html',
     styleUrls: ['./dashboard-weather.component.scss']
 })
 export class DashboardWeatherComponent implements OnInit {
-    weatherItem: WeatherItem = new WeatherItem("", "", "", "", null, null, null, "");
-    constructor(private weatherService: DashboardWeatherService) {}
+    weatherItem: WeatherItem = new WeatherItem('', '', '', '', null, null, null, '');
+
+    constructor(private weatherService: DashboardWeatherService) {
+    }
 
     ngOnInit() {
         this.weatherService.getWeatherData().subscribe(
@@ -29,8 +31,8 @@ export class DashboardWeatherComponent implements OnInit {
     }
 
     degToCompass(deg: number): string {
-        let compassCodes =["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
-        let interval = Math.floor((deg/22.5)+0.5);
+        const compassCodes = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+        const interval = Math.floor((deg / 22.5) + 0.5);
         return compassCodes[interval % 16];
     }
 }
