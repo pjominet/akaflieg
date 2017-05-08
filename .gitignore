@@ -1,9 +1,6 @@
 .idea
 .gradle
 gradle
-gradlew
-gradlew.bat
-node_modules/
 npm-debug.log
-akaflieg-ui/dist
 akaflieg-server/build
+akaflieg-ui.iml

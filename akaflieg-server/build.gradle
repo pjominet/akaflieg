@@ -1,4 +1,4 @@
-group 'ngflieg'
+group 'akaflieg'
 version '0.0.1'
 
 apply plugin: 'java'
