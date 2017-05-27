@@ -11,7 +11,6 @@ export class AboutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const gmapKey = 'AIzaSyDMb-EA7VWCNijtDppiizhkSBoMXf9Qfz8';
     const label = 'Halle der Akaflieg Köln';
     const zoom = 17;
     const lat = 50.40357;
@@ -27,9 +26,15 @@ export class AboutComponent implements OnInit {
       center: coords
     });
     const marker = new google.maps.Marker({
-      label: label,
       position: coords,
-      map: map
+      map: map,
+      draggable: false,
+    });
+    const infowindow = new google.maps.InfoWindow({
+      content: label
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
     });
   }
 }
