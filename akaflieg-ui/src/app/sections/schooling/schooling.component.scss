@@ -1,1 +1,16 @@
 @import '../sections';
+
+table {
+  margin-bottom: 1em;
+}
+
+table th, td {
+  padding: .9em;
+}
+
+table tr:nth-child(even) {
+  background-color: $bg-alt;
+}
+table tr:nth-child(odd) {
+  background-color: $bg-default;
+}
