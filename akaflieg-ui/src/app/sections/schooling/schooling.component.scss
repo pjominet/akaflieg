@@ -14,3 +14,10 @@ table tr:nth-child(even) {
 table tr:nth-child(odd) {
   background-color: $bg-default;
 }
+
+@media (min-width: 768px) {
+  table {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
