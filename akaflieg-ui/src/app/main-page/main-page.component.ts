@@ -8,8 +8,8 @@ declare const $: any;
 })
 export class MainPageComponent implements OnInit {
 
-    public togglePrivacy = false;
-    public toggleTerms = false;
+    public hidePrivacy = true;
+    public hideTerms = true;
 
     constructor() {
     }
@@ -26,15 +26,13 @@ export class MainPageComponent implements OnInit {
         });
     }
 
-    togglePrivacyExtension() {
-        this.toggleTerms = false;
-        this.togglePrivacy = !this.togglePrivacy;
-        return !this.togglePrivacy;
+    public togglePrivacyExtension(): void {
+        this.hideTerms = true;
+        this.hidePrivacy = !this.hidePrivacy;
     }
 
-    toggleTermsExtension() {
-        this.togglePrivacy = false;
-        this.toggleTerms = !this.toggleTerms;
-        return !this.toggleTerms;
+    public toggleTermsExtension(): void {
+        this.hidePrivacy = true;
+        this.hideTerms = !this.hideTerms;
     }
 }

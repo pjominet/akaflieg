@@ -126,10 +126,9 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
-                        <li><a href="#privacyPolicy" pageScroll
-                               (click)="togglePrivacyExtension()">Datenschutzbestimmungen</a>
-                        </li>
-                        <li><a href="#termsOfUse" pageScroll
+                        <li><a href="#pageEnd" pageScroll
+                               (click)="togglePrivacyExtension()">Datenschutzbestimmungen</a></li>
+                        <li><a href="#pageEnd" pageScroll
                                (click)="toggleTermsExtension()">Impressum</a></li>
                     </ul>
                 </div>
@@ -137,7 +136,8 @@
         </div>
     </footer>
 
-    <privacy-policy *ngIf="togglePrivacy"></privacy-policy>
-    <terms-of-use *ngIf="toggleTerms"></terms-of-use>
+    <privacy-policy [hidden]="hidePrivacy"></privacy-policy>
+    <terms-of-use [hidden]="hideTerms"></terms-of-use>
+    <div id="pageEnd"></div>
 
 </div>
