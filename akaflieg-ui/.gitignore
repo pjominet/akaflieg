@@ -5,6 +5,5 @@
 # dependencies
 /node_modules
 
-# e2e
-/e2e/*.js
-/e2e/*.map
+# other
+akaflieg-ui.iml
