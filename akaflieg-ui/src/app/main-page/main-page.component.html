@@ -138,8 +138,8 @@
         </div>
     </footer>
 
-    <privacy-policy [hidden]="hidePrivacy"></privacy-policy>
-    <terms-of-use [hidden]="hideTerms"></terms-of-use>
+    <privacy-policy *ngIf="!hidePrivacy"></privacy-policy>
+    <terms-of-use *ngIf="!hideTerms"></terms-of-use>
     <div id="pageEnd"></div>
 
 </div>
