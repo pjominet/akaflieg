@@ -1,0 +1,51 @@
+{
+  "impressum": {
+    "vorstand": [
+      {
+        "titel": "Vorsitzender",
+        "name": "Max Muster",
+        "email": "max@muster.de"
+      },
+      {
+        "titel": "Stellv. Vorsitzender, Schriftführer",
+        "name": "max muster",
+        "email": "max@muster.de"
+      },
+      {
+        "titel": "Geschäftsführer",
+        "name": "Max Muster",
+        "email": "max@muster.de"
+      },
+      {
+        "titel": "Vertreter der Studentenschaft",
+        "name": "Max Muster",
+        "email": "max@msuter.de"
+      }
+    ],
+    "beirat": [
+      {
+        "titel": "Ausbildungsleiter",
+        "name": "Siegfried Piontkowski",
+        "email": "piontkowski@akaflieg-koeln.de",
+        "tel": "02241 - 40 71 80",
+        "mobile": "0171 - 109 31 92"
+      },
+      {
+        "titel": "Technischer Leiter",
+        "name": "Rainer Piontkowski",
+        "email": "piontkowski@akaflieg-koeln.de",
+        "tel": "02241 - 40 71 25",
+        "mobile": "0151 - 15 24 15 18"
+      }
+    ],
+    "postanschrift": {
+      "alias": "Peter Leister",
+      "strasse": "Kalk-Mülheimer Strasse 390",
+      "zip": "51065 Köln"
+    },
+    "webadmin": {
+      "name": "Patrick Jominet",
+      "email": "admin@akaflieg-koeln.de"
+    }
+  }
+}
