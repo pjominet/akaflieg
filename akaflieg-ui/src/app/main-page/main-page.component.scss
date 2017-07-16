@@ -2,7 +2,7 @@
 /* --- Main Navbar --- */
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:active,
-.navbar-default .navbar-nav > .open > a:focus {
+.navbar-default .navbar-nav > .open > a:hover {
   background-color: transparent;
   color: $default-highlight;
 }
@@ -16,7 +16,6 @@
   color: white;
 }
 .navbar-main .navbar-brand:hover,
-.navbar-main .navbar-brand:focus,
 .navbar-main .navbar-brand:active,
 .navbar-main .navbar-brand.active {
   color: white;
@@ -37,8 +36,7 @@
   letter-spacing: 1px;
   color: white;
 }
-.navbar-main .nav > li > a:hover,
-.navbar-main .nav > li > a:focus{
+.navbar-main .nav > li > a:hover {
   color: $default-highlight;
   outline: none;
 }
