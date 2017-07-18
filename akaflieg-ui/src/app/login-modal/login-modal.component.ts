@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare const $: any;
 
 @Component({
   selector: 'login-modal',
@@ -10,6 +11,7 @@ export class LoginModalComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
