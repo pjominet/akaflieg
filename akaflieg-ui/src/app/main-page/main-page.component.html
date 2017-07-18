@@ -9,57 +9,12 @@
 
 
             <div class="navbar-header navbar-right pull-right">
-                <!-- BEGIN not working yet
-                <ul class="nav navbar-nav pull-left">
-                    <li class="dropdown">
-                        <a href="#" id="login-drop-btn" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-user fa-lg fa-fw"></i><span class="caret"></span>
-                        </a>
-                        <ul id="login-drop" class="dropdown-menu">
-                            <li>
-                                <button class="btn btn-primary btn-block" routerLink="/dashboard">Als Gast fortfahren</button>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                Login via
-                                <div class="social-buttons">
-                                    <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i>&nbsp;Facebook</a>
-                                    <a href="#" class="btn btn-gp"><i class="fa fa-google-plus"></i>&nbsp;Google</a>
-                                </div>
-                                oder
-                                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                    <div class="form-group">
-                                        <label class="sr-only" for="emailInput">Email</label>
-                                        <input type="email" class="form-control" id="emailInput" placeholder="Email" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="sr-only" for="passwordInput">Passwort</label>
-                                        <input type="password" class="form-control" id="passwordInput" placeholder="Passwort" required>
-                                        <div class="help-block text-right"><a href="#">Passwort vergessen?</a>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-block">Einloggen
-                                        </button>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox">&nbsp;eingeloggt bleiben
-                                        </label>
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                END not working yet -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-sandwich">
                     <span class="sr-only">Toggle navigation</span><i class="fa fa-bars fa-lg"></i>
                 </button>
             </div>
 
             <div class="visible-xs-block clearfix"></div>
-
 
             <div class="collapse navbar-collapse" id="navbar-collapse-sandwich">
                 <ul class="nav navbar-nav navbar-right">
@@ -77,6 +32,10 @@
                     </li>
                     <li>
                         <a pageScroll href="#contact">Kontakt</a>
+                    </li>
+                    <li>
+                        <a data-toggle="modal" href="#loginModal"><i class="fa fa-user fa-lg fa-fw"></i></a>
+                        <login-modal></login-modal>
                     </li>
                 </ul>
             </div>

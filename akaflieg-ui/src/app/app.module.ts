@@ -8,6 +8,7 @@ import {ScrollSpyModule} from 'ng2-scrollspy';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
 /* --- Sections --- */
 import {NewsComponent} from './sections/news/news.component';
 import {AboutComponent} from './sections/about/about.component';
@@ -50,7 +51,8 @@ import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-w
         DashboardWeatherComponent,
         PrivacyPolicyComponent,
         TermsOfUseComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        LoginModalComponent
     ],
     imports: [
         BrowserModule,

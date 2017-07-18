@@ -71,42 +71,6 @@
   }
 }
 
-/* --- Login Dropdown --- */
-.divider {
-  background-color: $bg-default;
-}
-
-#login-drop {
-  min-width: 250px;
-  padding: 14px 14px 0;
-  overflow:hidden;
-  background-color:$bg-default-translucent;
-}
-
-#login-drop .help-block {
-  font-size: 12px
-}
-
-#login-drop .social-buttons {
-  margin: 12px 0
-}
-
-#login-drop .social-buttons a {
-  width: 49%;
-}
-
-#login-drop .form-group {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-@media(max-width:768px){
-  #login-drop {
-    background-color: $bg-default-translucent;
-    color: #fff;
-  }
-}
-
 /* --- Main Header --- */
 header {
   background: $bg-default url('../../assets/img/header-bg.jpg') no-repeat center center scroll;
