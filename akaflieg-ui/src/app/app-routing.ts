@@ -4,7 +4,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {TermsOfUseComponent} from './terms-of-use/terms-of-use.component';
 import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard-weather.component';
-import {DashboardShareComponent} from './dashboard/dashboard-share/dashboard-share.component';
+import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
 import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.component';
 import {DashboardHomeComponent} from './dashboard/dashboard-home/dashboard-home.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
             {path: '', component: DashboardHomeComponent},
             {path: 'home', component: DashboardHomeComponent},
             {path: 'cms', component: DashboardCmsComponent},
-            {path: 'share', component: DashboardShareComponent},
+            {path: 'public', component: DashboardPublicComponent},
             {path: 'weather', component: DashboardWeatherComponent},
         ]
     },

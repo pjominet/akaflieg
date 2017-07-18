@@ -20,7 +20,7 @@ import {ContactComponent} from './sections/contact/contact.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.component';
 import {DashboardHomeComponent} from './dashboard/dashboard-home/dashboard-home.component';
-import {DashboardShareComponent} from './dashboard/dashboard-share/dashboard-share.component';
+import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
 import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard-weather.component';
 /* --- Other --- */
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
@@ -47,7 +47,7 @@ import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-w
         DashboardComponent,
         DashboardCmsComponent,
         DashboardHomeComponent,
-        DashboardShareComponent,
+        DashboardPublicComponent,
         DashboardWeatherComponent,
         PrivacyPolicyComponent,
         TermsOfUseComponent,
