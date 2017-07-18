@@ -9,12 +9,19 @@ import {WeatherItem} from './weather-item';
 })
 export class DashboardWeatherComponent implements OnInit {
     weatherItem: WeatherItem = new WeatherItem('', '', '', '', null, null, null, '');
+    weatherItems = [];
 
     constructor(private weatherService: DashboardWeatherService) {
     }
 
     ngOnInit() {
-        this.weatherService.getWeatherData().subscribe(
+        this.loadWeather();
+    }
+
+    loadWeather(): void {
+        // 50.40°, 6.52° = Dahlemer Binz Flugplatz, unknown to api
+        // 50.42°, 6.57° = Schmidtheim
+        this.weatherService.getWeatherData(50.42, 6.57).subscribe(
             data => {
                 this.weatherItem = new WeatherItem(
                     data.name,
@@ -26,6 +33,23 @@ export class DashboardWeatherComponent implements OnInit {
                     data.wind.speed,
                     this.degToCompass(data.wind.deg)
                 );
+                this.weatherItems.push(this.weatherItem);
+            }
+        );
+        // 50.93, 6.96 = Köln
+        this.weatherService.getWeatherData(50.93, 6.96).subscribe(
+            data => {
+                this.weatherItem = new WeatherItem(
+                    data.name,
+                    data.main.pressure,
+                    data.weather[0].description,
+                    data.weather[0].icon,
+                    data.main.humidity,
+                    data.main.temp,
+                    data.wind.speed,
+                    this.degToCompass(data.wind.deg)
+                );
+                this.weatherItems.push(this.weatherItem);
             }
         );
     }
