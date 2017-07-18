@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 declare const $: any;
 
 @Component({
@@ -6,7 +6,7 @@ declare const $: any;
     templateUrl: './main-page.component.html',
     styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit, AfterViewInit {
 
     public hidePrivacy = true;
     public hideTerms = true;
@@ -15,6 +15,9 @@ export class MainPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
+    }
+
+    ngAfterViewInit(): void {
         /* ---- jQuery-Bootstrap Features ---- */
         $(document).ready(function () {
             // create navbar when scrolling, even on view change
