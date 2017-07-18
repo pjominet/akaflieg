@@ -49,5 +49,6 @@ h6 {
 }
 
 .modal-backdrop {
-  z-index: -1;
+  /* bug fix - no overlay */
+  display: none;
 }
