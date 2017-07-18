@@ -38,6 +38,10 @@ a.active {
   border-color: $default;
 }
 
+.btn-wide {
+  width: 7em;
+}
+
 /* --- Social Media --- */
 ul.social-buttons {
   margin-bottom: 0;
@@ -63,6 +67,8 @@ ul.social-buttons li a:active {
 }
 
 .btn-fb {
+  width: 49%;
+  margin: auto;
   color: #fff;
   background-color:$fb-default;
 }
@@ -73,6 +79,8 @@ ul.social-buttons li a:active {
 }
 
 .btn-gp {
+  width: 49%;
+  margin: auto;
   color: #fff;
   background-color:$gp-default;
 }
