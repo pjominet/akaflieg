@@ -3,23 +3,23 @@
     "vorstand": [
       {
         "titel": "Vorsitzender",
-        "name": "Max Muster",
-        "email": "max@muster.de"
+        "name": "Jan Eßer",
+        "email": ""
       },
       {
         "titel": "Stellv. Vorsitzender, Schriftführer",
-        "name": "max muster",
-        "email": "max@muster.de"
+        "name": "Mara-Linn Becher",
+        "email": ""
       },
       {
         "titel": "Geschäftsführer",
-        "name": "Max Muster",
-        "email": "max@muster.de"
+        "name": "Laurin Schattke",
+        "email": ""
       },
       {
         "titel": "Vertreter der Studentenschaft",
-        "name": "Max Muster",
-        "email": "max@msuter.de"
+        "name": "Patrick Jominet",
+        "email": ""
       }
     ],
     "beirat": [
@@ -39,9 +39,9 @@
       }
     ],
     "postanschrift": {
-      "alias": "Peter Leister",
-      "strasse": "Kalk-Mülheimer Strasse 390",
-      "zip": "51065 Köln"
+      "alias": "c / o Mara-Linn Becher",
+      "strasse": "Dixberg 4",
+      "zip": "51105 Köln"
     },
     "webadmin": {
       "name": "Patrick Jominet",

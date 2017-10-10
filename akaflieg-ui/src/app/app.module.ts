@@ -23,7 +23,7 @@ import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-p
 import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard-weather.component';
 /* --- Other --- */
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
-import {TermsOfUseComponent} from './terms-of-use/terms-of-use.component';
+import {TermsOfUseComponent} from './imprint/imprint.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 /* --- Services --- */
 import {AppService} from './app.service';

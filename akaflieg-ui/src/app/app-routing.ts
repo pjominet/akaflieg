@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
-import {TermsOfUseComponent} from './terms-of-use/terms-of-use.component';
+import {TermsOfUseComponent} from './imprint/imprint.component';
 import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard-weather.component';
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
 import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.component';
