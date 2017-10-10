@@ -3,18 +3,25 @@
     <nav class="navbar navbar-default navbar-dashboard navbar-fixed-top">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand page-scroll" routerLink="./home">Willkommen</a>
+                <a class="navbar-brand page-scroll">Akaflieg Köln e.V.</a>
             </div>
             <div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a routerLink="./weather">Wetter und Thermik</a></li>
                     <li><a routerLink="./public">Projekte und Öffentliches</a></li>
-                    <li><a routerLink="./cms">Content Management</a></li>
-                    <li><a routerLink="/index">Ausloggen</a></li>
+                    <li><a routerLink="./weather">Wetter und Thermik</a></li>
+                    <li>
+                        <a data-toggle="modal" href="#loginModal">
+                            Verwaltung&nbsp;<i class="fa fa-key" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li><a routerLink="/index"><i class="fa fa-lg fa-home" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- has to be outside any relative elements -->
+    <login-modal></login-modal>
 
     <main class="offset_top">
         <router-outlet></router-outlet>
