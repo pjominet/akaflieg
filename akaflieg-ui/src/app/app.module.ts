@@ -24,11 +24,11 @@ import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
 /* --- Other --- */
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
-import {TermsOfUseComponent} from './imprint/imprint.component';
+import {ImprintComponent} from './imprint/imprint.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {StickyModule} from 'ng2-sticky-kit';
 /* --- Services --- */
-import {AppService} from './app.service';
+import {NewsService} from './sections/news/news.service';
 import {MainPageService} from './main-page/main-page.service';
 import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
 /* --- Routing --- */
@@ -50,7 +50,7 @@ import {AppRoutingModule} from './app-routing';
         DashboardProjectsComponent,
         DashboardWeatherComponent,
         PrivacyPolicyComponent,
-        TermsOfUseComponent,
+        ImprintComponent,
         NotFoundComponent,
         LoginModalComponent,
         DashboardPublicComponent
@@ -64,7 +64,7 @@ import {AppRoutingModule} from './app-routing';
         ScrollSpyModule.forRoot(),
         StickyModule
     ],
-    providers: [MainPageService, AppService, DashboardWeatherService],
+    providers: [MainPageService, NewsService, DashboardWeatherService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

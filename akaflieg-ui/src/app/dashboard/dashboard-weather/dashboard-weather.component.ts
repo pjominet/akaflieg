@@ -3,7 +3,7 @@ import {DashboardWeatherService} from './dashboard-weather.service';
 import {WeatherItem} from './weather-item';
 
 @Component({
-    selector: 'dashboard-weather',
+    selector: 'app-dashboard-weather',
     templateUrl: './dashboard-weather.component.html',
     styleUrls: ['./dashboard-weather.component.scss']
 })

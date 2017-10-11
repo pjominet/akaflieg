@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'terms-of-use',
+  selector: 'app-imprint',
   templateUrl: './imprint.component.html',
   styleUrls: ['./imprint.component.scss']
 })
-export class TermsOfUseComponent implements OnInit {
+export class ImprintComponent implements OnInit {
 
   constructor() { }
 
