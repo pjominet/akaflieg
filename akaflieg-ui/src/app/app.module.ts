@@ -19,18 +19,20 @@ import {ContactComponent} from './sections/contact/contact.component';
 /* --- Dashboard --- */
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.component';
-import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
+import {DashboardProjectsComponent} from './dashboard/dashboard-projects/dashboard-projects.component';
 import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard-weather.component';
+import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
 /* --- Other --- */
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {TermsOfUseComponent} from './imprint/imprint.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {StickyModule} from 'ng2-sticky-kit';
 /* --- Services --- */
 import {AppService} from './app.service';
 import {MainPageService} from './main-page/main-page.service';
+import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
 /* --- Routing --- */
 import {AppRoutingModule} from './app-routing';
-import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
 
 
 @NgModule({
@@ -45,12 +47,13 @@ import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-w
         ContactComponent,
         DashboardComponent,
         DashboardCmsComponent,
-        DashboardPublicComponent,
+        DashboardProjectsComponent,
         DashboardWeatherComponent,
         PrivacyPolicyComponent,
         TermsOfUseComponent,
         NotFoundComponent,
-        LoginModalComponent
+        LoginModalComponent,
+        DashboardPublicComponent
     ],
     imports: [
         BrowserModule,
@@ -58,7 +61,8 @@ import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-w
         HttpModule,
         AppRoutingModule,
         Ng2PageScrollModule.forRoot(),
-        ScrollSpyModule.forRoot()
+        ScrollSpyModule.forRoot(),
+        StickyModule
     ],
     providers: [MainPageService, AppService, DashboardWeatherService],
     bootstrap: [AppComponent]

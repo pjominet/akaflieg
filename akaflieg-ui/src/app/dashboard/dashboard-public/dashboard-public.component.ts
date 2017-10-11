@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'dashboard-share',
+  selector: 'app-dashboard-public',
   templateUrl: './dashboard-public.component.html',
   styleUrls: ['./dashboard-public.component.scss']
 })

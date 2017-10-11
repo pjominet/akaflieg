@@ -4,10 +4,11 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {TermsOfUseComponent} from './imprint/imprint.component';
 import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard-weather.component';
-import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
+import {DashboardProjectsComponent} from './dashboard/dashboard-projects/dashboard-projects.component';
 import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.component';
 import {MainPageComponent} from './main-page/main-page.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
 
 const appRoutes: Routes = [
     {path: '404', component: NotFoundComponent},
@@ -17,10 +18,11 @@ const appRoutes: Routes = [
     {
         path: 'dashboard', component: DashboardComponent,
         children: [
-            {path: '', component: DashboardPublicComponent},
+            {path: '', component: DashboardProjectsComponent},
             {path: 'cms', component: DashboardCmsComponent},
-            {path: 'public', component: DashboardPublicComponent},
+            {path: 'projects', component: DashboardProjectsComponent},
             {path: 'weather', component: DashboardWeatherComponent},
+            {path: 'public', component: DashboardPublicComponent},
         ]
     },
     {path: '', redirectTo: '/index', pathMatch: 'full'},

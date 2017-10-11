@@ -10,7 +10,7 @@ export class DashboardWeatherService {
     }
 
     getWeatherData(lat, lon): Observable<any> {
-        return this.http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + lat +'&lon=' + lon +
+        return this.http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon +
             '&APPID=abcbdb8391c5d46d624cb81ecbdd9d91&units=metric&lang=de')
             .map(response => response.json())
             .catch(error => {
