@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Headers, Http, RequestOptions, Response} from '@angular/http';
 
 @Injectable()
-export class AppService {
+export class NewsService {
 
     constructor(private http: Http) {
     }
