@@ -8,11 +8,11 @@
                 <h4 class="modal-title">Zugang Verwaltung</h4>
             </div>
             <div class="modal-body">
-                <form class="form" role="form" (ngSubmit)="f.form.valid && login()" #f="ngForm"
+                <form class="form" (ngSubmit)="f.form.valid && login()" #f="ngForm"
                       novalidate accept-charset="UTF-8" id="login-form">
                     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                         <label class="sr-only" for="usernameInput">Benutzername</label>
-                        <input type="text" class="form-control" id="usernameInput" placeholder="Benutzername"
+                        <input class="form-control" id="usernameInput" placeholder="Benutzername"
                                name="username" required [(ngModel)]="model.username" #username="ngModel">
                     </div>
                     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">

@@ -30,7 +30,7 @@ export class LoginModalComponent implements OnInit {
         this.authenticationService.logout();
 
         // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['./dashboard/weather'] || '/';
+        this.returnUrl = this.route.snapshot.queryParams['/dashboard/weather'] || '/';
     }
 
     login() {

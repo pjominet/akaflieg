@@ -9,6 +9,7 @@ import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.com
 import {MainPageComponent} from './main-page/main-page.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
+import {AuthGuard} from "./authentification/auth.guard";
 
 const appRoutes: Routes = [
     {path: '404', component: NotFoundComponent},
@@ -19,7 +20,7 @@ const appRoutes: Routes = [
         path: 'dashboard', component: DashboardComponent,
         children: [
             {path: '', component: DashboardProjectsComponent},
-            {path: 'cms', component: DashboardCmsComponent},
+            {path: 'cms', component: DashboardCmsComponent, canActivate: [AuthGuard]},
             {path: 'projects', component: DashboardProjectsComponent},
             {path: 'weather', component: DashboardWeatherComponent},
             {path: 'public', component: DashboardPublicComponent},
