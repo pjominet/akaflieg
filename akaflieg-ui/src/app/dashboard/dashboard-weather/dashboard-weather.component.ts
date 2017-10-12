@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DashboardWeatherService} from './dashboard-weather.service';
 import {WeatherItem} from './weather-item';
 
@@ -7,7 +7,7 @@ import {WeatherItem} from './weather-item';
     templateUrl: './dashboard-weather.component.html',
     styleUrls: ['./dashboard-weather.component.scss']
 })
-export class DashboardWeatherComponent implements OnInit, AfterViewInit {
+export class DashboardWeatherComponent implements OnInit {
     weatherItem: WeatherItem;
     weatherItems = [];
 
@@ -15,9 +15,6 @@ export class DashboardWeatherComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-    }
-
-    ngAfterViewInit(): void {
         this.loadWeather();
     }
 
