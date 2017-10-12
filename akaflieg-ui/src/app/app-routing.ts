@@ -11,6 +11,7 @@ import {NotFoundComponent} from './helpers/not-found/not-found.component';
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
 import {AuthGuard} from "./helpers/authentification/auth.guard";
 import {NotAllowedComponent} from "./helpers/not-allowed/not-allowed.component";
+import {LoginComponent} from "./dashboard/login/login.component";
 
 const appRoutes: Routes = [
     {path: '404', component: NotFoundComponent},
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
             {path: 'projects', component: DashboardProjectsComponent},
             {path: 'weather', component: DashboardWeatherComponent},
             {path: 'public', component: DashboardPublicComponent},
+            {path: 'login', component: LoginComponent},
         ]
     },
     {path: '', redirectTo: '/index', pathMatch: 'full'},

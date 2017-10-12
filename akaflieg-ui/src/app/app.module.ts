@@ -8,7 +8,6 @@ import {ScrollSpyModule} from 'ng2-scrollspy';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
-import {LoginModalComponent} from './login-modal/login-modal.component';
 /* --- Sections --- */
 import {NewsComponent} from './sections/news/news.component';
 import {AboutComponent} from './sections/about/about.component';
@@ -22,6 +21,7 @@ import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.com
 import {DashboardProjectsComponent} from './dashboard/dashboard-projects/dashboard-projects.component';
 import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard-weather.component';
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
+import {LoginComponent} from "./dashboard/login/login.component"
 /* --- Other --- */
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {ImprintComponent} from './imprint/imprint.component';
@@ -61,10 +61,10 @@ import {MockBackend} from '@angular/http/testing';
         PrivacyPolicyComponent,
         ImprintComponent,
         NotFoundComponent,
-        LoginModalComponent,
         DashboardPublicComponent,
         AlertComponent,
-        NotAllowedComponent
+        NotAllowedComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,

@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../helpers/authentification/authentification.service';
+import {AuthenticationService} from '../../helpers/authentification/authentification.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AlertService} from '../helpers/alert/alert.service';
+import {AlertService} from '../../helpers/alert/alert.service';
 
 @Component({
-    selector: 'app-login-modal',
-    templateUrl: './login-modal.component.html',
-    styleUrls: ['./login-modal.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
-export class LoginModalComponent implements OnInit {
+export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     stayLoggedIn: boolean;

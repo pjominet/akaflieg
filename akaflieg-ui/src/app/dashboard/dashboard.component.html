@@ -11,7 +11,7 @@
                     <li><a routerLink="./projects">Projekte</a></li>
                     <li><a routerLink="./public">Veröffentlichungen</a></li>
                     <li>
-                        <a data-toggle="modal" href="#loginModal">
+                        <a routerLink="./login">
                             Verwaltung&nbsp;<i class="fa fa-key" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -20,9 +20,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- has to be outside any relative elements -->
-    <app-login-modal></app-login-modal>
 
     <main class="offset_top">
         <router-outlet></router-outlet>
