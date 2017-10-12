@@ -25,7 +25,8 @@ import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-p
 /* --- Other --- */
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {ImprintComponent} from './imprint/imprint.component';
-import {NotFoundComponent} from './not-found/not-found.component';
+import {NotFoundComponent} from './helpers/not-found/not-found.component';
+import {NotAllowedComponent} from './helpers/not-allowed/not-allowed.component';
 import {StickyModule} from 'ng2-sticky-kit';
 import {AlertComponent} from './helpers/alert/alert.component';
 /* --- Services --- */
@@ -33,9 +34,9 @@ import {NewsService} from './sections/news/news.service';
 import {MainPageService} from './main-page/main-page.service';
 import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
 import {AlertService} from './helpers/alert/alert.service';
-import {AuthGuard} from './authentification/auth.guard';
-import {AuthenticationService} from './authentification/authentification.service';
-import {UserService} from './authentification/user.service';
+import {AuthGuard} from './helpers/authentification/auth.guard';
+import {AuthenticationService} from './helpers/authentification/authentification.service';
+import {UserService} from './helpers/authentification/user.service';
 /* --- Routing --- */
 import {AppRoutingModule} from './app-routing';
 /* --- Fake Backend --- */
@@ -62,7 +63,8 @@ import {MockBackend} from '@angular/http/testing';
         NotFoundComponent,
         LoginModalComponent,
         DashboardPublicComponent,
-        AlertComponent
+        AlertComponent,
+        NotAllowedComponent
     ],
     imports: [
         BrowserModule,

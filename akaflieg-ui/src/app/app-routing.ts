@@ -7,12 +7,14 @@ import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard
 import {DashboardProjectsComponent} from './dashboard/dashboard-projects/dashboard-projects.component';
 import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.component';
 import {MainPageComponent} from './main-page/main-page.component';
-import {NotFoundComponent} from './not-found/not-found.component';
+import {NotFoundComponent} from './helpers/not-found/not-found.component';
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
-import {AuthGuard} from "./authentification/auth.guard";
+import {AuthGuard} from "./helpers/authentification/auth.guard";
+import {NotAllowedComponent} from "./helpers/not-allowed/not-allowed.component";
 
 const appRoutes: Routes = [
     {path: '404', component: NotFoundComponent},
+    {path: '401', component: NotAllowedComponent},
     {path: 'index', component: MainPageComponent},
     {path: 'privacyPolicy', component: PrivacyPolicyComponent},
     {path: 'termsOfUse', component: ImprintComponent},
