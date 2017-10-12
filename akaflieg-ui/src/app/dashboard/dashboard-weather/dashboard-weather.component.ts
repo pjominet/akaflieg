@@ -54,7 +54,7 @@ export class DashboardWeatherComponent implements OnInit {
         );
     }
 
-    degToCompass(deg: number): string {
+    private degToCompass(deg: number): string {
         const compassCodes = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
         const interval = Math.floor((deg / 22.5) + 0.5);
         return compassCodes[interval % 16];

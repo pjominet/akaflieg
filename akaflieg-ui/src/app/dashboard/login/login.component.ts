@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../../helpers/authentification/authentification.service';
+import {LoginService} from './login.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService} from '../../helpers/alert/alert.service';
 
@@ -11,26 +11,25 @@ import {AlertService} from '../../helpers/alert/alert.service';
 export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
-    stayLoggedIn: boolean;
+    stayLoggedIn: boolean = false;
     returnUrl: string;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
-                private authenticationService: AuthenticationService,
+                private authenticationService: LoginService,
                 private alertService: AlertService) {
     }
 
     ngOnInit() {
         // login if stay logged in is checked
         if (this.stayLoggedIn) {
-            this.authenticationService.login(this.model.username, this.model.password);
         }
 
         // reset login status
         this.authenticationService.logout();
 
-        // get return url from route parameters
-        this.returnUrl = this.route.snapshot.queryParams['/401'];
+        // get return url from route parameters or default to '/dashboard'
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
     }
 
     login() {
@@ -44,9 +43,5 @@ export class LoginComponent implements OnInit {
                     this.alertService.error(error);
                     this.loading = false;
                 });
-    }
-
-    persistentLogInChanged() {
-        return !this.stayLoggedIn
     }
 }

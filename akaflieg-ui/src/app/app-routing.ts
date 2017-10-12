@@ -9,7 +9,7 @@ import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.com
 import {MainPageComponent} from './main-page/main-page.component';
 import {NotFoundComponent} from './helpers/not-found/not-found.component';
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
-import {AuthGuard} from "./helpers/authentification/auth.guard";
+import {AuthGuard} from "./dashboard/login/auth.guard";
 import {NotAllowedComponent} from "./helpers/not-allowed/not-allowed.component";
 import {LoginComponent} from "./dashboard/login/login.component";
 
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     {
         path: 'dashboard', component: DashboardComponent,
         children: [
-            {path: '', component: DashboardProjectsComponent},
+            {path: '', component: DashboardWeatherComponent},
             {path: 'cms', component: DashboardCmsComponent, canActivate: [AuthGuard]},
             {path: 'projects', component: DashboardProjectsComponent},
             {path: 'weather', component: DashboardWeatherComponent},

@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {BaseRequestOptions, HttpModule} from '@angular/http';
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
 import {ScrollSpyModule} from 'ng2-scrollspy';
+import {StickyModule} from 'ng2-sticky-kit';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -27,16 +28,15 @@ import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component'
 import {ImprintComponent} from './imprint/imprint.component';
 import {NotFoundComponent} from './helpers/not-found/not-found.component';
 import {NotAllowedComponent} from './helpers/not-allowed/not-allowed.component';
-import {StickyModule} from 'ng2-sticky-kit';
 import {AlertComponent} from './helpers/alert/alert.component';
 /* --- Services --- */
 import {NewsService} from './sections/news/news.service';
 import {MainPageService} from './main-page/main-page.service';
 import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
 import {AlertService} from './helpers/alert/alert.service';
-import {AuthGuard} from './helpers/authentification/auth.guard';
-import {AuthenticationService} from './helpers/authentification/authentification.service';
-import {UserService} from './helpers/authentification/user.service';
+import {AuthGuard} from './dashboard/login/auth.guard';
+import {LoginService} from './dashboard/login/login.service';
+import {UserService} from './helpers/user/user.service';
 /* --- Routing --- */
 import {AppRoutingModule} from './app-routing';
 /* --- Fake Backend --- */
@@ -81,7 +81,7 @@ import {MockBackend} from '@angular/http/testing';
         DashboardWeatherService,
         AuthGuard,
         AlertService,
-        AuthenticationService,
+        LoginService,
         UserService,
         fakeBackendProvider,
         MockBackend,

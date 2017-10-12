@@ -8,17 +8,17 @@ import {
     RequestOptions
 } from '@angular/http';
 import {MockBackend, MockConnection} from '@angular/http/testing';
-import {User} from "./authentification/user";
+import {User} from "./user/user";
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
     // array in local storage for registered users
     const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
 
-    // save new user
+    // add new default user
     const newUser = new User();
     newUser.id = users.length + 1;
     newUser.username = 'admin';
-    newUser.password = 'cmstest';
+    newUser.password = 'cms-test';
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
 
@@ -28,7 +28,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
         setTimeout(() => {
 
             // authenticate
-            if (connection.request.url.endsWith('/api/authenticate') && connection.request.method === RequestMethod.Post) {
+            if (connection.request.url.endsWith('/api/login') && connection.request.method === RequestMethod.Post) {
                 // get parameters from post request
                 const params = JSON.parse(connection.request.getBody());
 
@@ -62,29 +62,6 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                 // this security is implemented server side in a real application
                 if (connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     connection.mockRespond(new Response(new ResponseOptions({status: 200, body: users})));
-                } else {
-                    // return 401 not authorised if token is null or invalid
-                    connection.mockRespond(new Response(new ResponseOptions({status: 401})));
-                }
-
-                return;
-            }
-
-            // get user by id
-            if (connection.request.url.match(/\/api\/users\/\d+$/) && connection.request.method === RequestMethod.Get) {
-                // check for fake auth token in header and return user if valid,
-                // this security is implemented server side in a real application
-                if (connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-                    // find user by id in users array
-                    const urlParts = connection.request.url.split('/');
-                    const id = parseInt(urlParts[urlParts.length - 1], 10);
-                    const matchedUsers = users.filter(user => {
-                        return user.id === id;
-                    });
-                    const user = matchedUsers.length ? matchedUsers[0] : null;
-
-                    // respond 200 OK with user
-                    connection.mockRespond(new Response(new ResponseOptions({status: 200, body: user})));
                 } else {
                     // return 401 not authorised if token is null or invalid
                     connection.mockRespond(new Response(new ResponseOptions({status: 401})));
