@@ -1,6 +1,14 @@
-import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
-import { MockBackend, MockConnection } from '@angular/http/testing';
-import {User} from "../authentification/user";
+import {
+    Http,
+    BaseRequestOptions,
+    Response,
+    ResponseOptions,
+    RequestMethod,
+    XHRBackend,
+    RequestOptions
+} from '@angular/http';
+import {MockBackend, MockConnection} from '@angular/http/testing';
+import {User} from "./authentification/user";
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
     // array in local storage for registered users
@@ -53,10 +61,10 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                 // check for fake auth token in header and return users if valid,
                 // this security is implemented server side in a real application
                 if (connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-                    connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: users })));
+                    connection.mockRespond(new Response(new ResponseOptions({status: 200, body: users})));
                 } else {
                     // return 401 not authorised if token is null or invalid
-                    connection.mockRespond(new Response(new ResponseOptions({ status: 401 })));
+                    connection.mockRespond(new Response(new ResponseOptions({status: 401})));
                 }
 
                 return;
@@ -70,14 +78,16 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                     // find user by id in users array
                     const urlParts = connection.request.url.split('/');
                     const id = parseInt(urlParts[urlParts.length - 1], 10);
-                    const matchedUsers = users.filter(user => { return user.id === id; });
+                    const matchedUsers = users.filter(user => {
+                        return user.id === id;
+                    });
                     const user = matchedUsers.length ? matchedUsers[0] : null;
 
                     // respond 200 OK with user
-                    connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: user })));
+                    connection.mockRespond(new Response(new ResponseOptions({status: 200, body: user})));
                 } else {
                     // return 401 not authorised if token is null or invalid
-                    connection.mockRespond(new Response(new ResponseOptions({ status: 401 })));
+                    connection.mockRespond(new Response(new ResponseOptions({status: 401})));
                 }
 
                 return;

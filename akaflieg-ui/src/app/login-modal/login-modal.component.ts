@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../authentification/authentification.service';
+import {AuthenticationService} from '../helpers/authentification/authentification.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AlertService} from '../helpers/alert/alert.service';
 
@@ -29,8 +29,8 @@ export class LoginModalComponent implements OnInit {
         // reset login status
         this.authenticationService.logout();
 
-        // get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['/dashboard/weather'] || '/';
+        // get return url from route parameters
+        this.returnUrl = this.route.snapshot.queryParams['/401'];
     }
 
     login() {
