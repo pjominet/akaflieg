@@ -1,4 +1,4 @@
-package entities;
+package tech.clusterfunk.akaflieg.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
