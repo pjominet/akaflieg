@@ -11,7 +11,7 @@ import {AlertService} from '../../helpers/alert/alert.service';
 export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
-    stayLoggedIn: boolean = false;
+    stayLoggedIn = false;
     returnUrl: string;
 
     constructor(private route: ActivatedRoute,

@@ -8,7 +8,7 @@ export class LoginService {
     }
 
     login(username: string, password: string) {
-        return this.http.post('/api/login', JSON.stringify({username: username, password: password}))
+        return this.http.post('/auth', JSON.stringify({username: username, password: password}))
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 const user = response.json();

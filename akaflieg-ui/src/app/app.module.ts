@@ -22,7 +22,7 @@ import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.com
 import {DashboardProjectsComponent} from './dashboard/dashboard-projects/dashboard-projects.component';
 import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard-weather.component';
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
-import {LoginComponent} from "./dashboard/login/login.component"
+import {LoginComponent} from './dashboard/login/login.component'
 /* --- Other --- */
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {ImprintComponent} from './imprint/imprint.component';
@@ -31,7 +31,6 @@ import {NotAllowedComponent} from './helpers/not-allowed/not-allowed.component';
 import {AlertComponent} from './helpers/alert/alert.component';
 /* --- Services --- */
 import {NewsService} from './sections/news/news.service';
-import {MainPageService} from './main-page/main-page.service';
 import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
 import {AlertService} from './helpers/alert/alert.service';
 import {AuthGuard} from './dashboard/login/auth.guard';
@@ -39,9 +38,6 @@ import {LoginService} from './dashboard/login/login.service';
 import {UserService} from './helpers/user/user.service';
 /* --- Routing --- */
 import {AppRoutingModule} from './app-routing';
-/* --- Fake Backend --- */
-import {fakeBackendProvider} from './helpers/fake-backend';
-import {MockBackend} from '@angular/http/testing';
 
 
 @NgModule({
@@ -76,15 +72,12 @@ import {MockBackend} from '@angular/http/testing';
         StickyModule
     ],
     providers: [
-        MainPageService,
         NewsService,
         DashboardWeatherService,
         AuthGuard,
         AlertService,
         LoginService,
         UserService,
-        fakeBackendProvider,
-        MockBackend,
         BaseRequestOptions
     ],
     bootstrap: [AppComponent]
