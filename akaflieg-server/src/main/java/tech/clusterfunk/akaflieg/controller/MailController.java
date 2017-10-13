@@ -12,12 +12,10 @@ import tech.clusterfunk.akaflieg.services.MailService;
 @RestController("/mail")
 public class MailController {
 
-    private final JavaMailSender sender;
     private MailService mailService;
 
     @Autowired
-    public MailController(JavaMailSender sender, MailService mailService) {
-        this.sender = sender;
+    public MailController(MailService mailService) {
         this.mailService = mailService;
     }
 
@@ -28,6 +26,6 @@ public class MailController {
 
     @PostMapping
     public void sendMail(@RequestBody Email email) {
-       mailService.sendMail(email, sender);
+       mailService.sendMail(email);
     }
 }

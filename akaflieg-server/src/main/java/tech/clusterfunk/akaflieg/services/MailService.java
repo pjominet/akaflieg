@@ -2,6 +2,7 @@ package tech.clusterfunk.akaflieg.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,18 @@ import javax.mail.internet.MimeMessage;
 @Service
 public class MailService {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private JavaMailSender jMailSender;
+
+    @Autowired
+    public MailService(JavaMailSender jMailSender) {
+        this.jMailSender = jMailSender;
+    }
 
     public String info() {
         return "Your carrier pigeon is ready for takeoff.";
     }
 
-    public void sendMail(Email email, JavaMailSender sender) {
+    public void sendMail(Email email) {
         // Create Mail
         Email mail = new Email(
                 email.getSender(),
@@ -29,7 +36,7 @@ public class MailService {
                 email.getPhone());
 
         // Create a default MimeMessage object.
-        MimeMessage message = sender.createMimeMessage();
+        MimeMessage message = jMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
         // Create message
@@ -44,7 +51,7 @@ public class MailService {
         }
 
         logger.info("Sending...");
-        sender.send(message);
+        jMailSender.send(message);
         logger.info("Done!");
     }
 }
