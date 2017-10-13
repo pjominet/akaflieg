@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         // login if stay logged in is checked
         if (this.stayLoggedIn) {
+            this.login()
         }
 
         // reset login status
