@@ -1,12 +1,10 @@
 package tech.clusterfunk.akaflieg.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
-@Table
 @Entity
+@Table(name = "akaUser", schema = "akaflieg")
 public class User {
 
     @Id
@@ -15,6 +13,9 @@ public class User {
     private String username;
     private String password;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<NewsArticle> articles;
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
@@ -22,6 +23,10 @@ public class User {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -39,4 +44,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public List<NewsArticle> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<NewsArticle> articles) {
+        this.articles = articles;
+    }
 }
+
