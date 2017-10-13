@@ -16,18 +16,15 @@
                                 <input type="text" class="form-control" placeholder="Name *" id="nameInput" required
                                        data-validation-required-message="Bitte den Namen angeben."
                                        name="name" [(ngModel)]="model.name" #name="ngModel">
-                                <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
                                 <input type="email" class="form-control" placeholder="Email *" id="emailInput" required
                                        data-validation-required-message="Bitte die Email-Addresse angeben."
                                        name="email" [(ngModel)]="model.email" #email="ngModel">
-                                <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
                                 <input type="tel" class="form-control" placeholder="Telefonnummer" id="phoneInput"
-                                name="phone" [(ngModel)]="model.phone" #phone="ngModel">
-                                <p class="help-block text-danger"></p>
+                                       name="phone" [(ngModel)]="model.phone" #phone="ngModel">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -35,16 +32,27 @@
                                 <textarea class="form-control" placeholder="Nachricht *" id="messageInput" required
                                           data-validation-required-message="Bitte eine Nachricht verfassen."
                                           name="message" [(ngModel)]="model.message" #message="ngModel"></textarea>
-                                <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="clearfix"><p class="text-muted">Felder mit * sind Pflichtfelder</p></div>
-                        <div class="col-lg-12 text-center">
-                            <button type="submit" class="btn btn-primary btn-xl">Nachricht senden</button>
-                            <ng-template [ngIf]="sendStatus === 'waiting'"><br></ng-template>
-                            <ng-template [ngIf]="sendStatus === 'sending'">Senden&nbsp;<i class="fa fa-spinner fa-spin"></i></ng-template>
-                            <ng-template [ngIf]="sendStatus === 'success'">Email erfolgreich versendet</ng-template>
-                            <ng-template [ngIf]="sendStatus === 'fail'">Beim senden ist ein Fehler aufgetreten</ng-template>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-xl"
+                                        [disabled]="sendStatus === 'sending'">Nachricht senden</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <ng-template [ngIf]="sendStatus === 'waiting'">
+                                    <span class="message-block hidden">{{sendStatus}}</span>
+                                </ng-template>
+                                <ng-template [ngIf]="sendStatus === 'success'">
+                                    <span class="message-block">Email erfolgreich versendet</span>
+                                </ng-template>
+                                <ng-template [ngIf]="sendStatus === 'fail'">
+                                    <span class="message-block">Beim senden ist ein Fehler aufgetreten</span>
+                                </ng-template>
+                            </div>
                         </div>
                     </div>
                 </form>
