@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "akaArticle", schema = "akaflieg")
+@Table(name = "akaArticle")
 public class NewsArticle {
 
     @Id
@@ -15,8 +15,8 @@ public class NewsArticle {
     private LocalDate updateDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id", nullable = false)
-    private User creator;
+    @JoinColumn(name="USER_ID", nullable = false)
+    private AkaUser creator;
 
     public long getId() {
         return id;
@@ -34,11 +34,11 @@ public class NewsArticle {
         this.content = content;
     }
 
-    public User getCreator() {
+    public AkaUser getCreator() {
         return creator;
     }
 
-    public void setCreator(User creator) {
+    public void setCreator(AkaUser creator) {
         this.creator = creator;
     }
 }

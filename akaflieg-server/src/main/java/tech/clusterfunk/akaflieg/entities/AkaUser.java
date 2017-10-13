@@ -4,11 +4,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "akaUser", schema = "akaflieg")
-public class User {
+@Table(name = "akaUser")
+public class AkaUser {
 
     @Id
     @GeneratedValue
+    @Column(name = "USER_ID")
     private long id;
     private String username;
     private String password;
@@ -16,7 +17,7 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NewsArticle> articles;
 
-    public User(String username, String password) {
+    public AkaUser(String username, String password) {
         this.username = username;
         this.password = password;
     }

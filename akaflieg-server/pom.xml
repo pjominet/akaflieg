@@ -27,12 +27,6 @@
       <version>LATEST</version>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-      <version>LATEST</version>
-      <scope>compile</scope>
-    </dependency>
 
     <!-- Databases -->
     <dependency>
@@ -41,12 +35,12 @@
       <version>LATEST</version>
       <scope>compile</scope>
     </dependency>
-    <dependency>
+    <!--<dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>LATEST</version>
       <scope>compile</scope>
-    </dependency>
+    </dependency>-->
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
@@ -59,7 +53,6 @@
       <artifactId>spring-boot-starter-security</artifactId>
       <version>LATEST</version>
     </dependency>
-
     <dependency>
       <groupId>io.jsonwebtoken</groupId>
       <artifactId>jjwt</artifactId>
@@ -67,7 +60,7 @@
     </dependency>
   </dependencies>
 
-  <dependencyManagement>
+  <!--<dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -77,5 +70,5 @@
         <type>pom</type>
       </dependency>
     </dependencies>
-  </dependencyManagement>
+  </dependencyManagement>-->
 </project>
