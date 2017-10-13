@@ -36,6 +36,7 @@ import {AlertService} from './helpers/alert/alert.service';
 import {AuthGuard} from './dashboard/login/auth.guard';
 import {LoginService} from './dashboard/login/login.service';
 import {UserService} from './helpers/user/user.service';
+import {ContactService} from './sections/contact/contact.service'
 /* --- Routing --- */
 import {AppRoutingModule} from './app-routing';
 
@@ -78,7 +79,8 @@ import {AppRoutingModule} from './app-routing';
         AlertService,
         LoginService,
         UserService,
-        BaseRequestOptions
+        BaseRequestOptions,
+        ContactService
     ],
     bootstrap: [AppComponent]
 })

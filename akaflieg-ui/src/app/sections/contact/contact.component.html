@@ -8,35 +8,43 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form name="sentMessage" id="contactForm" novalidate>
+                <form name="sentMessage" (ngSubmit)="f.form.valid && sendMail()" #f="ngForm"
+                      id="contact-form" accept-charset="UTF-8" novalidate>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Name *" id="name" required
-                                       data-validation-required-message="Bitte den Namen angeben.">
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+                                <input type="text" class="form-control" placeholder="Name *" id="nameInput" required
+                                       data-validation-required-message="Bitte den Namen angeben."
+                                       name="name" [(ngModel)]="model.name" #name="ngModel">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+                                <input type="email" class="form-control" placeholder="Email *" id="emailInput" required
+                                       data-validation-required-message="Bitte die Email-Addresse angeben."
+                                       name="email" [(ngModel)]="model.email" #email="ngModel">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" id="email" required
-                                       data-validation-required-message="Bitte die Email-Addresse angeben.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Telefonnummer " id="phone">
+                                <input type="tel" class="form-control" placeholder="Telefonnummer" id="phoneInput"
+                                name="phone" [(ngModel)]="model.phone" #phone="ngModel">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Nachricht *" id="message" required
-                                          data-validation-required-message="Bitte eine Nachricht verfassen."></textarea>
+                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !message.valid }">
+                                <textarea class="form-control" placeholder="Nachricht *" id="messageInput" required
+                                          data-validation-required-message="Bitte eine Nachricht verfassen."
+                                          name="message" [(ngModel)]="model.message" #message="ngModel"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="clearfix"><p class="text-muted">Felder mit * sind Pflichtfelder</p></div>
                         <div class="col-lg-12 text-center">
-                            <div id="success"></div>
                             <button type="submit" class="btn btn-primary btn-xl">Nachricht senden</button>
+                            <ng-template [ngIf]="sendStatus === 'waiting'"><br></ng-template>
+                            <ng-template [ngIf]="sendStatus === 'sending'">Senden&nbsp;<i class="fa fa-spinner fa-spin"></i></ng-template>
+                            <ng-template [ngIf]="sendStatus === 'success'">Email erfolgreich versendet</ng-template>
+                            <ng-template [ngIf]="sendStatus === 'fail'">Beim senden ist ein Fehler aufgetreten</ng-template>
                         </div>
                     </div>
                 </form>
