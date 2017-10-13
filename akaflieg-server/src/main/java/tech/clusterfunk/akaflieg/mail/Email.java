@@ -7,53 +7,47 @@ public class Email {
     private String name;
     private String subject;
     private String message;
+    private String phone;
 
-    public Email(String sender, String recipient, String name, String subject, String message) {
+    public Email(String sender, String recipient, String name, String subject, String message, String phone) {
         this.sender = sender;
         this.recipient = recipient;
         this.name = name;
         this.subject = subject;
         this.message = message;
+        this.phone = phone;
     }
 
     public String getSender() {
         return sender;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
-
     public String getRecipient() {
         return recipient;
-    }
-
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getSubject() {
         return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getFullMessage() {
+        String fullMessage = "From: " + name + "\n";
+        if (!phone.isEmpty())
+            fullMessage += "Phone: " + phone + "\n";
+        fullMessage += "\n" + message;
+        return fullMessage;
     }
 
     @Override
@@ -62,6 +56,7 @@ public class Email {
                 "sender='" + sender + '\'' +
                 ", recipient='" + recipient + '\'' +
                 ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
                 ", subject='" + subject + '\'' +
                 ", message='" + message + '\'' +
                 '}';
