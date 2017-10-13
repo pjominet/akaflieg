@@ -8,7 +8,7 @@ export class NewsService {
     }
 
     getAllNews() {
-        return this.http.get('http://localhost:8080/news/test')
+        return this.http.get('http://localhost:8080/news')
             .map((res: Response) => res.json());
     }
 
@@ -16,7 +16,7 @@ export class NewsService {
         const headers = new Headers({'Content-Type': 'application/json'});
         const options = new RequestOptions({headers: headers});
 
-        return this.http.post('http://localhost:8080/news/test',
+        return this.http.post('http://localhost:8080/news/add',
             JSON.stringify({header: header, body: body}), options)
             .map((res: Response) => res.json());
     }

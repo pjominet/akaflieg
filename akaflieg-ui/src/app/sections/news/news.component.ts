@@ -19,7 +19,7 @@ export class NewsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getAllNews();
+        // this.getAllNews();
     }
 
     getAllNews() {
