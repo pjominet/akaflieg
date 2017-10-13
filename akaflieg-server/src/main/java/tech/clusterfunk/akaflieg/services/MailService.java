@@ -22,14 +22,21 @@ public class MailService {
     }
 
     public String info() {
-        return "Your carrier pigeon is ready for takeoff.";
+        return "Akaflieg Köln e.V. Express Mail Service.\n" +
+                "Your ePigeon is ready for takeoff.";
     }
 
     public void sendMail(Email email) {
         // Create Mail
+        String recipient = "";
+        if (email.getRecipient().equals("test")) {
+            recipient = "jompa010@gmail.com";
+        } else if (email.getRecipient().equals("live"))
+            recipient = "info@akaflieg.de";
+
         Email mail = new Email(
                 email.getSender(),
-                email.getRecipient(),
+                recipient,
                 email.getName(),
                 email.getSubject(),
                 email.getMessage(),

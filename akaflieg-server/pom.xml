@@ -67,18 +67,6 @@
     </dependency>
 
     <dependency>
-        <groupId>com.sun.mail</groupId>
-        <artifactId>javax.mail</artifactId>
-        <version>LATEST</version>
-    </dependency>
-
-    <dependency>
-        <groupId>com.sparkjava</groupId>
-        <artifactId>spark-core</artifactId>
-        <version>LATEST</version>
-    </dependency>
-
-    <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
         <version>LATEST</version>
