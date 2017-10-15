@@ -42,10 +42,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()));
     }
 
-    /*@Override
+    @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/mail");
-    }*/
+        web.ignoring().antMatchers("/mail/info");
+    }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
