@@ -33,4 +33,7 @@ public class UserService {
         return this.userRepo.findById(id);
     }
 
+    public AkaUser getUserById(long id) {
+        return userRepo.findById(id);
+    }
 }

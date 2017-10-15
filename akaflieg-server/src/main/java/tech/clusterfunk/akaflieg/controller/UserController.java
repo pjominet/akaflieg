@@ -28,8 +28,8 @@ public class UserController {
         return userService.listUsers();
     }
 
-    @GetMapping("/id")
-    public AkaUser listUser() {
-        return null; // userService.listUsers();
+    @GetMapping("/{id}")
+    public AkaUser getUserById(@PathVariable long id) {
+        return userService.getUserById(id);
     }
 }
