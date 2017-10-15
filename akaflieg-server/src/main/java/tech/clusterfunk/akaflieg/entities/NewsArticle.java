@@ -17,7 +17,7 @@ public class NewsArticle {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="USER_ID", nullable = false)
-    private AkaUser creator;
+    private User creator;
 
     public long getId() {
         return id;
@@ -43,11 +43,11 @@ public class NewsArticle {
         this.content = content;
     }
 
-    public AkaUser getCreator() {
+    public User getCreator() {
         return creator;
     }
 
-    public void setCreator(AkaUser creator) {
+    public void setCreator(User creator) {
         this.creator = creator;
     }
 

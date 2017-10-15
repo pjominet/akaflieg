@@ -2,7 +2,7 @@ package tech.clusterfunk.akaflieg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tech.clusterfunk.akaflieg.entities.AkaUser;
+import tech.clusterfunk.akaflieg.entities.User;
 import tech.clusterfunk.akaflieg.services.UserService;
 
 import java.util.List;
@@ -19,17 +19,17 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public void register(@RequestBody AkaUser user) {
+    public void register(@RequestBody User user) {
         userService.register(user);
     }
 
     @GetMapping
-    public List<AkaUser> listUsers() {
+    public List<User> listUsers() {
         return userService.listUsers();
     }
 
     @GetMapping("/{id}")
-    public AkaUser getUserById(@PathVariable long id) {
+    public User getUserById(@PathVariable long id) {
         return userService.getUserById(id);
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "akaUser", schema = "akaflieg")
-public class AkaUser {
+public class User {
 
     @Id
     @GeneratedValue
@@ -17,9 +17,9 @@ public class AkaUser {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NewsArticle> articles;
 
-    public AkaUser() {}
+    public User() {}
 
-    public AkaUser(String username, String password) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
