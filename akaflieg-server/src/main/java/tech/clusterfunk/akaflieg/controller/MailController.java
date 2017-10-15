@@ -18,12 +18,12 @@ public class MailController {
         this.mailService = mailService;
     }
 
-    @GetMapping
+    @GetMapping("/info")
     public String info() {
         return mailService.info();
     }
 
-    @PostMapping
+    @PostMapping("/send")
     public void sendMail(@RequestBody Email email) {
        mailService.sendMail(email);
     }

@@ -17,6 +17,8 @@ public class AkaUser {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NewsArticle> articles;
 
+    public AkaUser() {}
+
     public AkaUser(String username, String password) {
         this.username = username;
         this.password = password;

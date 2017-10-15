@@ -10,29 +10,18 @@ import tech.clusterfunk.akaflieg.entities.AkaUser;
 import tech.clusterfunk.akaflieg.repository.UserRepository;
 import tech.clusterfunk.akaflieg.services.LoginService;
 
-@RestController("/user")
+@RestController()
 public class LoginController {
 
     private LoginService loginService;
-    private UserRepository userRepo;
-    private BCryptPasswordEncoder bCryptEncoder;
-
 
     @Autowired
-    public LoginController(LoginService loginService, UserRepository userRepo, BCryptPasswordEncoder bCryptEncoder) {
+    public LoginController(LoginService loginService) {
         this.loginService = loginService;
-        this.userRepo = userRepo;
-        this.bCryptEncoder = bCryptEncoder;
-    }
-
-    @GetMapping("/auth")
-    public String login(){
-        return loginService.login();
     }
 
     @PostMapping("/register")
-    public void register(@RequestBody AkaUser user){
-        user.setPassword(bCryptEncoder.encode(user.getPassword()));
-        userRepo.save(user);
+    public void register(@RequestBody AkaUser user) {
+        loginService.register(user);
     }
 }
