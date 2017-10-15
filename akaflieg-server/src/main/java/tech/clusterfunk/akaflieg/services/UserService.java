@@ -29,10 +29,6 @@ public class UserService {
        return this.userRepo.findAll();
     }
 
-    public AkaUser listUser(long id) {
-        return this.userRepo.findById(id);
-    }
-
     public AkaUser getUserById(long id) {
         return userRepo.findById(id);
     }
