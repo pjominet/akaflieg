@@ -10,6 +10,7 @@ public class NewsArticle {
     @Id
     @GeneratedValue
     private long id;
+    private String title;
     private String content;
     private LocalDate creationDate;
     private LocalDate updateDate;
@@ -26,6 +27,14 @@ public class NewsArticle {
         this.id = id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getContent() {
         return content;
     }
@@ -40,5 +49,21 @@ public class NewsArticle {
 
     public void setCreator(AkaUser creator) {
         this.creator = creator;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public LocalDate getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(LocalDate updateDate) {
+        this.updateDate = updateDate;
     }
 }
