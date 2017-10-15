@@ -7,17 +7,17 @@ export class NewsService {
     constructor(private http: Http) {
     }
 
-    getAllNews() {
-        return this.http.get('http://localhost:8080/news')
+    getAll() {
+        return this.http.get('/news')
             .map((res: Response) => res.json());
     }
 
-    addNewElement(header: string, body: string) {
+    addItem(title: string, body: string) {
         const headers = new Headers({'Content-Type': 'application/json'});
         const options = new RequestOptions({headers: headers});
 
-        return this.http.post('http://localhost:8080/news/add',
-            JSON.stringify({header: header, body: body}), options)
+        return this.http.post('/news/add',
+            JSON.stringify({title: title, body: body}), options)
             .map((res: Response) => res.json());
     }
 

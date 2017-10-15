@@ -10,9 +10,8 @@ import 'rxjs/add/operator/map';
     styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-    private news: NewsItem[] = [];
-
-    newsItem: any = {};
+    newsItem: NewsItem;
+    news: NewsItem[] = [];
 
     constructor(private http: Http,
                 private newsService: NewsService) {
@@ -23,13 +22,7 @@ export class NewsComponent implements OnInit {
     }
 
     getAllNews() {
-        this.newsService.getAllNews()
+        this.newsService.getAll()
             .subscribe(data => this.news = data);
-    }
-
-    addNewsElement() {
-        this.newsService.addNewElement(this.newsItem.header, this.newsItem.body)
-            .subscribe(data => this.getAllNews(),
-                err => console.log(err));
     }
 }
