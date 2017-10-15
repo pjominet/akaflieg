@@ -8,11 +8,12 @@ export class LoginService {
     }
 
     login(username: string, password: string) {
-        return this.http.post('/auth', JSON.stringify({username: username, password: password}))
+        return this.http.post('/login', JSON.stringify({username: username, password: password}))
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
-                const user = response.json();
-                if (user && user.token) {
+                const user = response.headers;
+                console.log(user);
+                if (user) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }
