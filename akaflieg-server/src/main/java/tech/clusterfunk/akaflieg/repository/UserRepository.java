@@ -7,4 +7,6 @@ public interface UserRepository extends JpaRepository<AkaUser, Long> {
 
     AkaUser findByUsername(String username);
 
+    AkaUser findById(long id);
+
 }

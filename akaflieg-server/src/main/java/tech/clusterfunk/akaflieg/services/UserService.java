@@ -6,14 +6,16 @@ import org.springframework.stereotype.Service;
 import tech.clusterfunk.akaflieg.entities.AkaUser;
 import tech.clusterfunk.akaflieg.repository.UserRepository;
 
+import java.util.List;
+
 @Service
-public class LoginService {
+public class UserService {
 
     private UserRepository userRepo;
     private BCryptPasswordEncoder bCryptEncoder;
 
     @Autowired
-    public LoginService(UserRepository userRepo, BCryptPasswordEncoder bCryptEncoder) {
+    public UserService(UserRepository userRepo, BCryptPasswordEncoder bCryptEncoder) {
         this.userRepo = userRepo;
         this.bCryptEncoder = bCryptEncoder;
     }
@@ -21,6 +23,14 @@ public class LoginService {
     public void register(AkaUser user) {
         user.setPassword(bCryptEncoder.encode(user.getPassword()));
         userRepo.save(user);
+    }
+
+    public List<AkaUser> listUsers() {
+       return this.userRepo.findAll();
+    }
+
+    public AkaUser listUser(long id) {
+        return this.userRepo.findById(id);
     }
 
 }
