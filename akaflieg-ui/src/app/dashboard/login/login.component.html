@@ -24,12 +24,6 @@
                         <button type="submit" [disabled]="loading" class="btn btn-primary">Einloggen</button>
                         <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="stayLoggedInCheck" [checked]="stayLoggedIn"
-                                   (change)="stayLoggedIn = !stayLoggedIn">&nbsp;eingeloggt bleiben
-                        </label>
-                    </div>
                 </form>
             </div>
         </div>
