@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "title": "Fliegen für einen guten Zweck",
+    "content": "Im Sommer 2016 wurde in Kooperation mit dem Unternehmen Carglass eine Charity Aktion gestartet. Die zusammengekommene Summe von 1387,50€ wurde an das Kinderkrankenhaus Kölngespendet.",
+    "creationDate": "11-09-2016",
+    "image": ""
+  },
+  {
+    "id": 1,
+    "title": "Nasses Fliegerlager",
+    "content": "Leider war das Wetter im Juni und Juli 2016 ziemlich nass und somit ist das Fliegerlager wortwörtlich ins Wasser gefallen.",
+    "creationDate": "23-07-2016",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "title": "Lorem Ipsum",
+    "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    "creationDate": "14-12-2015",
+    "image": ""
+  }
+]

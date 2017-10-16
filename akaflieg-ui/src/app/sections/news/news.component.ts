@@ -10,7 +10,6 @@ import 'rxjs/add/operator/map';
     styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-    newsItem: NewsItem;
     news: NewsItem[] = [];
 
     constructor(private http: Http,
@@ -19,10 +18,16 @@ export class NewsComponent implements OnInit {
 
     ngOnInit() {
         // this.getAllNews();
+        this.getMockNews();
     }
 
     getAllNews() {
         this.newsService.getAll()
+            .subscribe(data => this.news = data);
+    }
+
+    getMockNews() {
+        this.newsService.getMock()
             .subscribe(data => this.news = data);
     }
 }

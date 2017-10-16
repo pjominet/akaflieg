@@ -8,7 +8,7 @@ export class NewsService {
     }
 
     getAll() {
-        return this.http.get('/news')
+        return this.http.get('/news/all')
             .map((res: Response) => res.json());
     }
 
@@ -18,6 +18,11 @@ export class NewsService {
 
         return this.http.post('/news/add',
             JSON.stringify({title: title, body: body}), options)
+            .map((res: Response) => res.json());
+    }
+
+    getMock() {
+        return this.http.get('./assets/data/news-mock.json')
             .map((res: Response) => res.json());
     }
 
