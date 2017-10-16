@@ -27,7 +27,6 @@ import {LoginComponent} from './dashboard/login/login.component'
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 import {ImprintComponent} from './imprint/imprint.component';
 import {NotFoundComponent} from './helpers/not-found/not-found.component';
-import {NotAllowedComponent} from './helpers/not-allowed/not-allowed.component';
 import {AlertComponent} from './helpers/alert/alert.component';
 /* --- Services --- */
 import {NewsService} from './sections/news/news.service';
@@ -61,7 +60,6 @@ import {AppRoutingModule} from './app-routing';
         NotFoundComponent,
         DashboardPublicComponent,
         AlertComponent,
-        NotAllowedComponent,
         LoginComponent
     ],
     imports: [
