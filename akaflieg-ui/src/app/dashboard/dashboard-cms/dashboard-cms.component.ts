@@ -3,6 +3,8 @@ import {User} from '../../helpers/user/user';
 import {UserService} from '../../helpers/user/user.service';
 import {NewsService} from '../../sections/news/news.service';
 import {DashboardCmsService} from './dashboard-cms.service';
+import {LoginService} from '../login/login.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-dashboard-cms',
@@ -19,7 +21,9 @@ export class DashboardCmsComponent implements OnInit {
 
     constructor(private userService: UserService,
                 private newsService: NewsService,
-                private cmsService: DashboardCmsService) {
+                private cmsService: DashboardCmsService,
+                private loginService: LoginService,
+                private router: Router) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -47,5 +51,10 @@ export class DashboardCmsComponent implements OnInit {
             formData.append('cmsFile', file, file.name);
             this.fileToUpload = formData;
         }
+    }
+
+    logout() {
+        this.loginService.logout();
+        this.router.navigate(['/dashboard/login'])
     }
 }
