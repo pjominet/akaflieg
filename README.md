@@ -22,7 +22,7 @@ This project is build with the Angular 4 as Frontend and Java Spring Boot as Bac
     npm start
     
 ### Build correct dist for deployment
-    ng build -prod --base-href /the/correct/path/
+    ng build --prod --bh /correct/path/
     
 ## Backend (akaflieg-server)
 
