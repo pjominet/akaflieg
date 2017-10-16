@@ -13,9 +13,9 @@ public class UploadedFile {
     @Column(name = "FILE_ID")
     private Long id;
 
+    @Column(name = "FILE_NAME")
     private String fileName;
 
-    @JsonIgnore
     @Column(name = "DATA", nullable = false)
     private byte[] data;
 

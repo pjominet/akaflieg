@@ -7,8 +7,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import tech.clusterfunk.akaflieg.entities.NewsArticle;
 import tech.clusterfunk.akaflieg.entities.User;
+import tech.clusterfunk.akaflieg.repository.NewsRepository;
 import tech.clusterfunk.akaflieg.repository.UserRepository;
+
+import java.time.LocalDate;
 
 /**
  * Created by tom on 12/28/16.
@@ -27,7 +31,7 @@ public class AkafliegApplication {
     }
 
     @Bean
-    CommandLineRunner init(UserRepository userRepo, BCryptPasswordEncoder encoder) {
+    CommandLineRunner init(UserRepository userRepo, NewsRepository newsRepo, BCryptPasswordEncoder encoder) {
         return (evt) -> {
             User user = userRepo.findByUsername("test");
             if (user == null) {
@@ -36,9 +40,17 @@ public class AkafliegApplication {
                 u.setUsername("test");
                 u.setPassword(encoder.encode("test"));
                 userRepo.save(u);
+                user = u;
             }else{
                 logger.warn("test user already exists");
             }
+
+            NewsArticle na = new NewsArticle();
+            na.setTitle("TEST POST");
+            na.setContent("This is a test news post, please ignore");
+            na.setCreationDate(LocalDate.now());
+            na.setCreator(user);
+            newsRepo.save(na);
         };
     }
 }

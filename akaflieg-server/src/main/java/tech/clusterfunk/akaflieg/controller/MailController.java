@@ -2,7 +2,7 @@ package tech.clusterfunk.akaflieg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tech.clusterfunk.akaflieg.mail.Email;
+import tech.clusterfunk.akaflieg.dto.EmailDTO;
 import tech.clusterfunk.akaflieg.services.MailService;
 
 @RestController
@@ -22,7 +22,7 @@ public class MailController {
     }
 
     @PostMapping("/send")
-    public void sendMail(@RequestBody Email email) {
-       mailService.sendMail(email);
+    public void sendMail(@RequestBody EmailDTO emailDTO) {
+       mailService.sendMail(emailDTO);
     }
 }

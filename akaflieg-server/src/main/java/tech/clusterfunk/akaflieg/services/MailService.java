@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import tech.clusterfunk.akaflieg.mail.Email;
+import tech.clusterfunk.akaflieg.dto.EmailDTO;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -26,21 +26,21 @@ public class MailService {
                 "Your ePigeon is ready for takeoff.";
     }
 
-    public void sendMail(Email email) {
+    public void sendMail(EmailDTO emailDTO) {
         // Create Mail
         String recipient = "";
-        if (email.getRecipient().equals("test")) {
+        if (emailDTO.getRecipient().equals("test")) {
             recipient = "jompa010@gmail.com";
-        } else if (email.getRecipient().equals("live"))
+        } else if (emailDTO.getRecipient().equals("live"))
             recipient = "info@akaflieg.de";
 
-        Email mail = new Email(
-                email.getSender(),
+        EmailDTO mail = new EmailDTO(
+                emailDTO.getSender(),
                 recipient,
-                email.getName(),
-                email.getSubject(),
-                email.getMessage(),
-                email.getPhone());
+                emailDTO.getName(),
+                emailDTO.getSubject(),
+                emailDTO.getMessage(),
+                emailDTO.getPhone());
 
         // Create a default MimeMessage object.
         MimeMessage message = jMailSender.createMimeMessage();
