@@ -2,21 +2,31 @@ package tech.clusterfunk.akaflieg.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "akaArticle", schema = "akaflieg")
+@Table(name = "AKA_NEWS_ARTICLE", schema = "AKAFLIEG")
 public class NewsArticle {
 
     @Id
     @GeneratedValue
+    @Column(name = "ARTICLE_ID")
     private long id;
+    @Column(name = "TITLE")
     private String title;
+    @Column(name = "CONTENT")
     private String content;
+    @Column(name = "PICTURES")
+    private List<ArticlePicture> pictures;
+    @Column(name = "CREATION_DATE")
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "USER_ID", nullable = false)
     private LocalDate creationDate;
+    @Column(name = "TITLE")
     private LocalDate updateDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="USER_ID", nullable = false)
+    @JoinColumn(name = "USER_ID", nullable = false)
     private User creator;
 
     public long getId() {
@@ -41,6 +51,14 @@ public class NewsArticle {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public List<ArticlePicture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<ArticlePicture> pictures) {
+        this.pictures = pictures;
     }
 
     public User getCreator() {

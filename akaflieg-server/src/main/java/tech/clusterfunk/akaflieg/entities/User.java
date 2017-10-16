@@ -4,14 +4,16 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "akaUser", schema = "akaflieg")
+@Table(name = "AKA_USER", schema = "AKAFLIEG")
 public class User {
 
     @Id
     @GeneratedValue
     @Column(name = "USER_ID")
     private long id;
+    @Column(name = "USERNAME")
     private String username;
+    @Column(name = "PASSWORD")
     private String password;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true)
