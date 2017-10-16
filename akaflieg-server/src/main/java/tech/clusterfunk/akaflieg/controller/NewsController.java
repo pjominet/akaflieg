@@ -2,6 +2,7 @@ package tech.clusterfunk.akaflieg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tech.clusterfunk.akaflieg.dto.NewsArticleDTO;
 import tech.clusterfunk.akaflieg.entities.NewsArticle;
 import tech.clusterfunk.akaflieg.services.NewsService;
 
@@ -19,12 +20,12 @@ public class NewsController {
     }
 
     @GetMapping("/latest")
-    public List<NewsArticle> getLatestNews() {
+    public List<NewsArticleDTO> getLatestNews() {
         return newsService.getLatestNews();
     }
 
     @GetMapping("/all")
-    public List<NewsArticle> getAllNews() {
+    public List<NewsArticleDTO> getAllNews() {
         return newsService.getAllNews();
     }
 

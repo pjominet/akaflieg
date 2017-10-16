@@ -1,6 +1,6 @@
-package tech.clusterfunk.akaflieg.mail;
+package tech.clusterfunk.akaflieg.dto;
 
-public class Email {
+public class EmailDTO {
 
     private String sender;
     private String recipient;
@@ -9,9 +9,9 @@ public class Email {
     private String message;
     private String phone;
 
-    public Email() {}
+    public EmailDTO() {}
 
-    public Email(String sender, String recipient, String name, String subject, String message, String phone) {
+    public EmailDTO(String sender, String recipient, String name, String subject, String message, String phone) {
         this.sender = sender;
         this.recipient = recipient;
         this.name = name;
@@ -78,7 +78,7 @@ public class Email {
 
     @Override
     public String toString() {
-        return "Email{" +
+        return "EmailDTO{" +
                 "sender='" + sender + '\'' +
                 ", recipient='" + recipient + '\'' +
                 ", name='" + name + '\'' +

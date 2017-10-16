@@ -2,7 +2,6 @@ package tech.clusterfunk.akaflieg.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name = "AKA_NEWS_ARTICLE")
@@ -19,16 +18,16 @@ public class NewsArticle {
     @Column(name = "CONTENT")
     private String content;
 
-    @Column(name = "PICTURES")
-    @OneToMany(fetch = FetchType.EAGER)
+    //@Column(name = "PICTURE")
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FILE_ID", nullable = true)
-    private List<UploadedFile> pictures;
+    private UploadedFile picture;
 
     @Column(name = "CREATION_DATE")
     private LocalDate creationDate;
 
     @Column(name = "UPDATE_DATE")
-    private LocalDate updateDate;
+    private LocalDate lastUpdateDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
@@ -61,12 +60,12 @@ public class NewsArticle {
         this.content = content;
     }
 
-    public List<UploadedFile> getPictures() {
-        return pictures;
+    public UploadedFile getPictures() {
+        return picture;
     }
 
-    public void setPictures(List<UploadedFile> pictures) {
-        this.pictures = pictures;
+    public void setPictures(UploadedFile pictures) {
+        this.picture = pictures;
     }
 
     public User getCreator() {
@@ -85,11 +84,11 @@ public class NewsArticle {
         this.creationDate = creationDate;
     }
 
-    public LocalDate getUpdateDate() {
-        return updateDate;
+    public LocalDate getLastUpdateDate() {
+        return lastUpdateDate;
     }
 
-    public void setUpdateDate(LocalDate updateDate) {
-        this.updateDate = updateDate;
+    public void setLastUpdateDate(LocalDate lastUpdateDate) {
+        this.lastUpdateDate = lastUpdateDate;
     }
 }
