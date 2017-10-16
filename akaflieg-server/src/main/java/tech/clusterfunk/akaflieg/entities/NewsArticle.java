@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "AKA_NEWS_ARTICLE", schema = "AKAFLIEG")
+@Table(name = "AKA_NEWS_ARTICLE")
 public class NewsArticle {
 
     @Id
@@ -17,12 +17,12 @@ public class NewsArticle {
     @Column(name = "CONTENT")
     private String content;
     @Column(name = "PICTURES")
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "NEWS_PICTURE_ID", nullable = true)
     private List<ArticlePicture> pictures;
     @Column(name = "CREATION_DATE")
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "USER_ID", nullable = false)
     private LocalDate creationDate;
-    @Column(name = "TITLE")
+    @Column(name = "UPDATE_DATE")
     private LocalDate updateDate;
 
     @ManyToOne(fetch = FetchType.LAZY)

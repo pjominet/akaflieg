@@ -3,7 +3,7 @@ package tech.clusterfunk.akaflieg.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "AKA_NEWS_ARTICLE_PICTURE", schema = "AKAFLIEG")
+@Table(name= "AKA_NEWS_ARTICLE_PICTURE")
 public class ArticlePicture {
 
     @Id
