@@ -32,8 +32,9 @@ public class AkafliegApplication {
             User user = userRepo.findByUsername("test");
             if (user == null) {
                 logger.info("Creating test user");
-                User u = new User("test", "test");
-                u.setPassword(encoder.encode(u.getPassword()));
+                User u = new User();
+                u.setUsername("test");
+                u.setPassword(encoder.encode("test"));
                 userRepo.save(u);
             }else{
                 logger.warn("test user already exists");

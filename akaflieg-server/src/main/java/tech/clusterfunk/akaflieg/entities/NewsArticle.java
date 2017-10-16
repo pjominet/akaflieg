@@ -12,22 +12,30 @@ public class NewsArticle {
     @GeneratedValue
     @Column(name = "ARTICLE_ID")
     private long id;
+
     @Column(name = "TITLE")
     private String title;
+
     @Column(name = "CONTENT")
     private String content;
+
     @Column(name = "PICTURES")
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "NEWS_PICTURE_ID", nullable = true)
-    private List<ArticlePicture> pictures;
+    @JoinColumn(name = "FILE_ID", nullable = true)
+    private List<UploadedFile> pictures;
+
     @Column(name = "CREATION_DATE")
     private LocalDate creationDate;
+
     @Column(name = "UPDATE_DATE")
     private LocalDate updateDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
     private User creator;
+
+    public NewsArticle() {
+    }
 
     public long getId() {
         return id;
@@ -53,11 +61,11 @@ public class NewsArticle {
         this.content = content;
     }
 
-    public List<ArticlePicture> getPictures() {
+    public List<UploadedFile> getPictures() {
         return pictures;
     }
 
-    public void setPictures(List<ArticlePicture> pictures) {
+    public void setPictures(List<UploadedFile> pictures) {
         this.pictures = pictures;
     }
 
