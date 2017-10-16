@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions, Response} from '@angular/http';
+import {User} from './user';
 
 @Injectable()
 export class UserService {
@@ -7,17 +8,25 @@ export class UserService {
     }
 
     getAll() {
-        return this.http.get('/users', this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/users',
+            this.authorize())
+            .map((response: Response) => response.json());
     }
 
     getById(id: number) {
-        return this.http.get('/users/' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/users/' + id,
+            this.authorize())
+            .map((response: Response) => response.json());
     }
 
-    // private helper methods
+    create(user: User) {
+        return this.http.post('/users/register',
+            user, this.authorize())
+            .map((response: Response) => response.json())
+    }
 
-    private jwt() {
-        // create authorization header with jwt token
+    private authorize() {
+        // create authorization header with authorize token
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         if (currentUser && currentUser.token) {
             const headers = new Headers({'Authorization': 'Bearer ' + currentUser.token});
