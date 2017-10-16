@@ -38,20 +38,7 @@
                         <div class="row">
                             <div class="col-lg-12 text-center">
                                 <button type="submit" class="btn btn-primary btn-xl"
-                                        [disabled]="sendStatus === 'sending'">Nachricht senden</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
-                                <ng-template [ngIf]="sendStatus === 'waiting'">
-                                    <span class="message-block hidden">{{sendStatus}}</span>
-                                </ng-template>
-                                <ng-template [ngIf]="sendStatus === 'success'">
-                                    <span class="message-block">Email erfolgreich versendet</span>
-                                </ng-template>
-                                <ng-template [ngIf]="sendStatus === 'fail'">
-                                    <span class="message-block">Beim senden ist ein Fehler aufgetreten</span>
-                                </ng-template>
+                                        [disabled]="sending">Nachricht senden</button>
                             </div>
                         </div>
                     </div>

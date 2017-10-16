@@ -9,25 +9,24 @@ import {AlertService} from '../../helpers/alert/alert.service';
 })
 export class ContactComponent implements OnInit {
     model: any = {};
-    sendStatus: String;
+    sending = false;
 
     constructor(private contactService: ContactService,
                 private alertService: AlertService) {
     }
 
     ngOnInit() {
-        this.sendStatus = 'waiting';
     }
 
     sendMail() {
-        this.sendStatus = 'sending';
+        this.sending = true;
         this.contactService.sendMail(this.model.name, this.model.email, this.model.phone, this.model.message)
             .subscribe(data => {
-                this.sendStatus = 'success';
+                this.sending = false;
+                this.alertService.success('Nachricht erfolgreich versendet')
             }, error => {
                 this.alertService.error(error);
-                this.sendStatus = 'fail';
+                this.sending = false;
             });
     }
-
 }
