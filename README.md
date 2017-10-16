@@ -4,18 +4,28 @@
 
 This is the new web appearance of the Akaflieg Köln e.V. 
 
-This project is build with the Angular2 CLI as Frontend and Java Spring as Backend.
+This project is build with the Angular 4 as Frontend and Java Spring Boot as Backend.
 
 ## Development
 
 ### Prerequisites
-    * nodejs with npm
-    * gradle
+* nodejs with npm
+* Maven
+* Java 1.8 or newer
 
-## Frontend
+## Frontend (akaflieg-ui)
 
 ### How to setup
-    * Run npm install
+    npm install
+    
+### Run locally
+    npm start
     
 ### Build correct dist for deployment
-    * ng build -prod --base-href /set/correct/path/
+    ng build -prod --base-href /the/correct/path/
+    
+## Backend (akaflieg-server)
+
+### How to setup
+
+### Run locally
