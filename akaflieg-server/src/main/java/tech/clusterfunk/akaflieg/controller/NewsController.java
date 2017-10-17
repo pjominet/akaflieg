@@ -2,8 +2,8 @@ package tech.clusterfunk.akaflieg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tech.clusterfunk.akaflieg.dto.NewsArticleDTO;
-import tech.clusterfunk.akaflieg.entities.NewsArticle;
+import tech.clusterfunk.akaflieg.dto.NewsItemDTO;
+import tech.clusterfunk.akaflieg.entities.NewsItem;
 import tech.clusterfunk.akaflieg.services.NewsService;
 
 import java.util.List;
@@ -20,17 +20,17 @@ public class NewsController {
     }
 
     @GetMapping("/latest")
-    public List<NewsArticleDTO> getLatestNews() {
+    public List<NewsItemDTO> getLatestNews() {
         return newsService.getLatestNews();
     }
 
     @GetMapping("/all")
-    public List<NewsArticleDTO> getAllNews() {
+    public List<NewsItemDTO> getAllNews() {
         return newsService.getAllNews();
     }
 
     @PostMapping("/add")
-    public void addNewsArticle(@RequestBody NewsArticle article){
+    public void addNewsArticle(@RequestBody NewsItem article){
         this.newsService.addArticle(article);
     }
 }

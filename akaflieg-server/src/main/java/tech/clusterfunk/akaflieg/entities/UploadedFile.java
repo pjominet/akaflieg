@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "AKA_NEWS_ARTICLE_PICTURE")
+@Table(name= "UPLOADED_FILES")
 public class UploadedFile {
 
     @Id
@@ -24,8 +24,7 @@ public class UploadedFile {
         this.data = data;
     }
 
-    public UploadedFile() {
-    }
+    public UploadedFile() {}
 
     public Long getId() {
         return id;

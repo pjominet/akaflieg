@@ -2,8 +2,8 @@ package tech.clusterfunk.akaflieg.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tech.clusterfunk.akaflieg.dto.NewsArticleDTO;
-import tech.clusterfunk.akaflieg.entities.NewsArticle;
+import tech.clusterfunk.akaflieg.dto.NewsItemDTO;
+import tech.clusterfunk.akaflieg.entities.NewsItem;
 import tech.clusterfunk.akaflieg.repository.NewsRepository;
 
 import java.util.List;
@@ -19,21 +19,21 @@ public class NewsService {
         this.newsRepository = newsRepository;
     }
 
-    public List<NewsArticleDTO> getAllNews() {
+    public List<NewsItemDTO> getAllNews() {
         return newsRepository.findAll()
                 .stream()
-                .map(NewsArticleDTO::fromEntity)
+                .map(NewsItemDTO::fromEntity)
                 .collect(Collectors.toList());
     }
 
-    public List<NewsArticleDTO> getLatestNews() {
+    public List<NewsItemDTO> getLatestNews() {
         return newsRepository.findFirst5ByOrderByCreationDateDesc()
                 .stream()
-                .map(NewsArticleDTO::fromEntity)
+                .map(NewsItemDTO::fromEntity)
                 .collect(Collectors.toList());
     }
 
-    public void addArticle(NewsArticle article) {
+    public void addArticle(NewsItem article) {
         newsRepository.save(article);
     }
 }

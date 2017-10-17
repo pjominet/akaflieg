@@ -1,11 +1,11 @@
 package tech.clusterfunk.akaflieg.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import tech.clusterfunk.akaflieg.entities.NewsArticle;
+import tech.clusterfunk.akaflieg.entities.NewsItem;
 
 import java.time.LocalDate;
 
-public class NewsArticleDTO {
+public class NewsItemDTO {
 
     private long id;
     private String title;
@@ -14,7 +14,7 @@ public class NewsArticleDTO {
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate creationDate;
 
-    public NewsArticleDTO(){}
+    public NewsItemDTO(){}
 
     public long getId() {
         return id;
@@ -48,8 +48,8 @@ public class NewsArticleDTO {
         this.creationDate = creationDate;
     }
 
-    public static NewsArticleDTO fromEntity(NewsArticle article){
-        NewsArticleDTO dto = new NewsArticleDTO();
+    public static NewsItemDTO fromEntity(NewsItem article){
+        NewsItemDTO dto = new NewsItemDTO();
         dto.setId(article.getId());
         dto.setTitle(article.getTitle());
         dto.setContent(article.getContent());

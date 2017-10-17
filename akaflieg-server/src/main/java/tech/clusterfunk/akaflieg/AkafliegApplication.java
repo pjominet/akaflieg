@@ -7,16 +7,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import tech.clusterfunk.akaflieg.entities.NewsArticle;
+import tech.clusterfunk.akaflieg.entities.NewsItem;
 import tech.clusterfunk.akaflieg.entities.User;
 import tech.clusterfunk.akaflieg.repository.NewsRepository;
 import tech.clusterfunk.akaflieg.repository.UserRepository;
 
 import java.time.LocalDate;
 
-/**
- * Created by tom on 12/28/16.
- */
 @SpringBootApplication
 public class AkafliegApplication {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -36,21 +33,21 @@ public class AkafliegApplication {
             User user = userRepo.findByUsername("test");
             if (user == null) {
                 logger.info("Creating test user");
-                User u = new User();
-                u.setUsername("test");
-                u.setPassword(encoder.encode("test"));
-                userRepo.save(u);
-                user = u;
+                User usr = new User();
+                usr.setUsername("test");
+                usr.setPassword(encoder.encode("test"));
+                userRepo.save(usr);
+                user = usr;
             }else{
                 logger.warn("test user already exists");
             }
 
-            NewsArticle na = new NewsArticle();
-            na.setTitle("TEST POST");
-            na.setContent("This is a test news post, please ignore");
-            na.setCreationDate(LocalDate.now());
-            na.setCreator(user);
-            newsRepo.save(na);
+            NewsItem newsItem = new NewsItem();
+            newsItem.setTitle("TEST POST");
+            newsItem.setContent("This is a test news post, please ignore");
+            newsItem.setCreationDate(LocalDate.now());
+            newsItem.setCreator(user);
+            newsRepo.save(newsItem);
         };
     }
 }

@@ -78,7 +78,7 @@ public class EmailDTO {
 
     @Override
     public String toString() {
-        return "EmailDTO{" +
+        return "EmailDTO {" +
                 "sender='" + sender + '\'' +
                 ", recipient='" + recipient + '\'' +
                 ", name='" + name + '\'' +

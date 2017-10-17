@@ -17,7 +17,7 @@ public class User {
     private String password;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<NewsArticle> articles;
+    private List<NewsItem> articles;
 
     public User() {}
 
@@ -45,11 +45,11 @@ public class User {
         this.password = password;
     }
 
-    public List<NewsArticle> getArticles() {
+    public List<NewsItem> getArticles() {
         return articles;
     }
 
-    public void setArticles(List<NewsArticle> articles) {
+    public void setArticles(List<NewsItem> articles) {
         this.articles = articles;
     }
 }

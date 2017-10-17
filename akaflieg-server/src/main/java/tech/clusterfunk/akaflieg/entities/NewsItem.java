@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "AKA_NEWS_ARTICLE")
-public class NewsArticle {
+@Table(name = "NEWS_ITEM")
+public class NewsItem {
 
     @Id
     @GeneratedValue
-    @Column(name = "ARTICLE_ID")
+    @Column(name = "NEWS_ID")
     private long id;
 
     @Column(name = "TITLE")
@@ -18,23 +18,22 @@ public class NewsArticle {
     @Column(name = "CONTENT")
     private String content;
 
-    //@Column(name = "PICTURE")
+    //@Column(name = "IMAGE")
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FILE_ID", nullable = true)
-    private UploadedFile picture;
+    private UploadedFile image;
 
     @Column(name = "CREATION_DATE")
     private LocalDate creationDate;
 
-    @Column(name = "UPDATE_DATE")
-    private LocalDate lastUpdateDate;
+    @Column(name = "LAST_MODIFIED")
+    private LocalDate lastModified;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
     private User creator;
 
-    public NewsArticle() {
-    }
+    public NewsItem() {}
 
     public long getId() {
         return id;
@@ -60,12 +59,12 @@ public class NewsArticle {
         this.content = content;
     }
 
-    public UploadedFile getPictures() {
-        return picture;
+    public UploadedFile getImage() {
+        return image;
     }
 
-    public void setPictures(UploadedFile pictures) {
-        this.picture = pictures;
+    public void setImage(UploadedFile pictures) {
+        this.image = pictures;
     }
 
     public User getCreator() {
@@ -84,11 +83,11 @@ public class NewsArticle {
         this.creationDate = creationDate;
     }
 
-    public LocalDate getLastUpdateDate() {
-        return lastUpdateDate;
+    public LocalDate getLastModified() {
+        return lastModified;
     }
 
-    public void setLastUpdateDate(LocalDate lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
+    public void setLastModified(LocalDate lastModified) {
+        this.lastModified = lastModified;
     }
 }
