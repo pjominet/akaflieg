@@ -7,6 +7,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import tech.clusterfunk.akaflieg.dto.EmailDTO;
+import tech.clusterfunk.akaflieg.util.BasicValidation;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -34,31 +35,37 @@ public class MailService {
         } else if (emailDTO.getRecipient().equals("live"))
             recipient = "info@akaflieg.de";
 
-        EmailDTO mail = new EmailDTO(
-                emailDTO.getSender(),
-                recipient,
-                emailDTO.getName(),
-                emailDTO.getSubject(),
-                emailDTO.getMessage(),
-                emailDTO.getPhone());
+        String sender = emailDTO.getSender();
+        if (BasicValidation.validateEmail(sender)) {
 
-        // Create a default MimeMessage object.
-        MimeMessage message = jMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message);
+            EmailDTO mail = new EmailDTO(
+                    sender,
+                    recipient,
+                    emailDTO.getName(),
+                    emailDTO.getSubject(),
+                    emailDTO.getMessage(),
+                    emailDTO.getPhone());
 
-        // Create message
-        try {
-            helper.setFrom(mail.getSender());
-            helper.setTo(mail.getRecipient());
-            helper.setSubject(mail.getSubject());
-            helper.setText(mail.getFullMessage());
-        } catch (MessagingException mex) {
-            logger.error(mex.toString());
-            mex.printStackTrace();
+            // Create a default MimeMessage object.
+            MimeMessage message = jMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message);
+
+            // Create message
+            try {
+                helper.setFrom(mail.getSender());
+                helper.setTo(mail.getRecipient());
+                helper.setSubject(mail.getSubject());
+                helper.setText(mail.getFullMessage());
+            } catch (MessagingException mex) {
+                logger.error(mex.toString());
+                mex.printStackTrace();
+            }
+
+            logger.info("Sending...");
+            jMailSender.send(message);
+            logger.info("Done!");
+        } else {
+            logger.info("Invalid sender address");
         }
-
-        logger.info("Sending...");
-        jMailSender.send(message);
-        logger.info("Done!");
     }
 }
