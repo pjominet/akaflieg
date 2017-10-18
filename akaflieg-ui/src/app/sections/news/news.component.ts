@@ -37,4 +37,13 @@ export class NewsComponent implements OnInit {
         }
         this.limit += addToLimit;
     }
+
+    public arrayToBase64(index): string {
+        let base64string: string;
+        base64string =  btoa(
+            new Uint8Array(this.news[index].image)
+                .reduce((data, byte) => data + String.fromCharCode(byte), '')
+        );
+        return base64string
+    }
 }

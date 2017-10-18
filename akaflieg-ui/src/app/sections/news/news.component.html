@@ -13,7 +13,7 @@
                         <li *ngIf="i < limit" id="{{newsItem.id}}" [ngClass]="{'timeline-inverted' : o}">
                             <div class="timeline-image">
                                 <img class="img-circle img-responsive"
-                                     src="data:image/png;base64,{{newsItem.image}}"
+                                     src="data:image/png;base64,{{arrayToBase64(i)}}"
                                      alt="news-thumbnail"
                                      *ngIf="newsItem.image.length > 0">
                                 <img class="img-circle img-responsive"
