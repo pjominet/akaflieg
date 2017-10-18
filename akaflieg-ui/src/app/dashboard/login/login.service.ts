@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
+import * as globals from '../../helpers/globals';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch';
@@ -13,7 +14,7 @@ export class LoginService {
     }
 
     login(username: string, password: string): Observable<boolean> {
-        return this.http.post('/login',
+        return this.http.post( globals.dataServiceURI + '/login',
             JSON.stringify({username: username, password: password}), {headers: this.headers})
             .map((response: Response) => {
                 // login successful if there's a authorize token in the response
