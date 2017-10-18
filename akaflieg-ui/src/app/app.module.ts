@@ -7,6 +7,7 @@ import {Ng2PageScrollModule} from 'ng2-page-scroll';
 import {ScrollSpyModule} from 'ng2-scrollspy';
 import {StickyModule} from 'ng2-sticky-kit';
 import {DatePipe} from '@angular/common';
+import {LOCALE_ID} from '@angular/core';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -82,7 +83,8 @@ import {AppRoutingModule} from './app-routing';
         BaseRequestOptions,
         ContactService,
         DashboardCmsService,
-        DatePipe
+        DatePipe,
+        {provide: LOCALE_ID, useValue: 'de-DE'}
     ],
     bootstrap: [AppComponent]
 })
