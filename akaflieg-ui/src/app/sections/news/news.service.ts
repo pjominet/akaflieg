@@ -25,5 +25,4 @@ export class NewsService {
         return this.http.get('./assets/data/news-mock.json')
             .map((res: Response) => res.json());
     }
-
 }

@@ -11,7 +11,7 @@ public class NewsItemDTO {
     private String title;
     private String content;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate creationDate;
 
     public NewsItemDTO(){}

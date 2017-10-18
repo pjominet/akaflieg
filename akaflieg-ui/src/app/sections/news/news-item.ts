@@ -1,7 +1,7 @@
 export class NewsItem {
-    private id: number;
-    private title: string;
-    private content: string;
-    private creationDate: Date;
-    private image: number[];
+    public id: number;
+    public title: string;
+    public content: string;
+    public creationDate: Date;
+    public image: number[];
 }

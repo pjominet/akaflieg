@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsItem} from './news-item';
 import {NewsService} from './news.service';
-import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -11,9 +10,9 @@ import 'rxjs/add/operator/map';
 })
 export class NewsComponent implements OnInit {
     news: NewsItem[] = [];
+    limit = 3;
 
-    constructor(private http: Http,
-                private newsService: NewsService) {
+    constructor(private newsService: NewsService) {
     }
 
     ngOnInit() {
@@ -29,5 +28,13 @@ export class NewsComponent implements OnInit {
     getMockNews() {
         this.newsService.getMock()
             .subscribe(data => this.news = data);
+    }
+
+    loadMore() {
+        let addToLimit = this.limit;
+        if (this.news.length < this.limit + addToLimit) {
+            addToLimit = this.news.length - this.limit;
+        }
+        this.limit += addToLimit;
     }
 }

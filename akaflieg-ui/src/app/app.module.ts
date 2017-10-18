@@ -6,6 +6,7 @@ import {BaseRequestOptions, HttpModule} from '@angular/http';
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
 import {ScrollSpyModule} from 'ng2-scrollspy';
 import {StickyModule} from 'ng2-sticky-kit';
+import {DatePipe} from '@angular/common';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -80,7 +81,8 @@ import {AppRoutingModule} from './app-routing';
         UserService,
         BaseRequestOptions,
         ContactService,
-        DashboardCmsService
+        DashboardCmsService,
+        DatePipe
     ],
     bootstrap: [AppComponent]
 })
