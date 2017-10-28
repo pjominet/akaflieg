@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions, Response} from '@angular/http';
-import * as globals from '../../helpers/globals';
+import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/map'
 
 @Injectable()
 export class ContactService {
-    to = 'test';
+    to = environment.mailTo;
 
     constructor(private http: Http) {
     }
@@ -14,7 +14,7 @@ export class ContactService {
         const headers = new Headers({'Content-Type': 'application/json'});
         const options = new RequestOptions({headers: headers});
 
-        return this.http.post(globals.dataServiceURI + '/mail',
+        return this.http.post(environment.dataServiceURI + '/mail',
             JSON.stringify(
                 {
                     name: name,

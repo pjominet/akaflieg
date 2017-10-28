@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsItem} from './news-item';
 import {NewsService} from './news.service';
+import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -16,8 +17,11 @@ export class NewsComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.getAllNews();
-        this.getMockNews();
+        if (environment.production) {
+            this.getAllNews();
+        } else {
+            this.getMockNews();
+        }
     }
 
     getAllNews() {
