@@ -5,6 +5,7 @@ import {NewsService} from '../../sections/news/news.service';
 import {DashboardCmsService} from './dashboard-cms.service';
 import {LoginService} from '../login/login.service';
 import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Component({
     selector: 'app-dashboard-cms',
@@ -29,21 +30,25 @@ export class DashboardCmsComponent implements OnInit {
 
     ngOnInit() {
         this.editSelect = this.editOptions[0];
-        // this.loadAllUsers();
+        if (environment.production) {
+            this.loadAllUsers();
+        }
     }
 
     private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
+        this.userService.getAll().subscribe(users => {
+            this.users = users;
+        });
     }
 
-    upload() {
+    public upload() {
         if (this.editSelect === 'news') {
-            this.newsService.addItem(this.news.title, this. news.body);
+            this.newsService.addItem(this.news.title, this.news.body);
         }
         this.cmsService.upload(this.fileToUpload);
     }
 
-    getFile(event) {
+    public getFile(event) {
         const fileList = event.target.files;
         if (fileList > 0) {
             const file: File = fileList[0];
@@ -53,8 +58,14 @@ export class DashboardCmsComponent implements OnInit {
         }
     }
 
-    logout() {
+    public logout() {
         this.loginService.logout();
         this.router.navigate(['/dashboard/login'])
+            .then(function () {
+                console.log('Logged out');
+            })
+            .catch(function () {
+                console.log('Logging out failed');
+            });
     }
 }

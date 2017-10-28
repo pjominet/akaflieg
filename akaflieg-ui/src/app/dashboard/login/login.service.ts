@@ -13,7 +13,7 @@ export class LoginService {
     constructor(private http: Http) {
     }
 
-    login(username: string, password: string): Observable<boolean> {
+    public login(username: string, password: string): Observable<boolean> {
         return this.http.post( environment.dataServiceURI + '/login',
             JSON.stringify({username: username, password: password}), {headers: this.headers})
             .map((response: Response) => {
@@ -30,7 +30,7 @@ export class LoginService {
             }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    logout() {
+    public logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
     }

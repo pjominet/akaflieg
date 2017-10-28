@@ -8,12 +8,12 @@ export class NewsService {
     constructor(private http: Http) {
     }
 
-    getAll() {
+    public getAll() {
         return this.http.get( environment.dataServiceURI + '/news/all')
             .map((res: Response) => res.json());
     }
 
-    addItem(title: string, body: string) {
+    public addItem(title: string, body: string) {
         const headers = new Headers({'Content-Type': 'application/json'});
         const options = new RequestOptions({headers: headers});
 
@@ -22,7 +22,7 @@ export class NewsService {
             .map((res: Response) => res.json());
     }
 
-    getMock() {
+    public getMock() {
         return this.http.get(environment.dataServiceURI + './assets/data/news-mock.json')
             .map((res: Response) => res.json());
     }

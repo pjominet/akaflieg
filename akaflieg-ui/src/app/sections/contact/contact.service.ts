@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions, Response} from '@angular/http';
+import {Headers, Http, RequestOptions, Response} from '@angular/http';
 import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/map'
 
 @Injectable()
 export class ContactService {
-    to = environment.mailTo;
+    private to = environment.mailTo;
 
     constructor(private http: Http) {
     }
 
-    sendMail(name: string, from: string, phone: string, message: string) {
+    public sendMail(name: string, from: string, phone: string, message: string) {
         const headers = new Headers({'Content-Type': 'application/json'});
         const options = new RequestOptions({headers: headers});
 

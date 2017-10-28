@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions, Response} from '@angular/http';
+import {Headers, Http, RequestOptions, Response} from '@angular/http';
 import {User} from './user';
 
 @Injectable()
@@ -7,19 +7,19 @@ export class UserService {
     constructor(private http: Http) {
     }
 
-    getAll() {
+    public getAll() {
         return this.http.get('/users',
             this.authorize())
             .map((response: Response) => response.json());
     }
 
-    getById(id: number) {
+    public getById(id: number) {
         return this.http.get('/users/' + id,
             this.authorize())
             .map((response: Response) => response.json());
     }
 
-    create(user: User) {
+    public create(user: User) {
         return this.http.post('/users/register',
             user, this.authorize())
             .map((response: Response) => response.json())

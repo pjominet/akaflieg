@@ -11,6 +11,7 @@ table th, td {
 table tr:nth-child(even) {
   background-color: $bg-alt;
 }
+
 table tr:nth-child(odd) {
   background-color: $bg-default;
 }

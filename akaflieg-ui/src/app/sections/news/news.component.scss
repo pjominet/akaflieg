@@ -6,6 +6,7 @@
   padding: 0;
   position: relative;
 }
+
 .timeline:before {
   top: 0;
   bottom: 0;
@@ -16,19 +17,23 @@
   left: 40px;
   margin-left: -1.5px;
 }
+
 .timeline > li {
   margin-bottom: 50px;
   position: relative;
   min-height: 50px;
 }
+
 .timeline > li:before,
 .timeline > li:after {
   content: " ";
   display: table;
 }
+
 .timeline > li:after {
   clear: both;
 }
+
 .timeline > li .timeline-panel {
   width: 100%;
   float: right;
@@ -36,18 +41,21 @@
   position: relative;
   text-align: left;
 }
+
 .timeline > li .timeline-panel:before {
   border-left-width: 0;
   border-right-width: 15px;
   left: -15px;
   right: auto;
 }
+
 .timeline > li .timeline-panel:after {
   border-left-width: 0;
   border-right-width: 14px;
   left: -14px;
   right: auto;
 }
+
 .timeline > li .timeline-image {
   left: 0;
   margin-left: 0;
@@ -60,42 +68,51 @@
   border: 7px solid #e1e1e1;
   text-align: center;
 }
+
 .timeline > li .timeline-image h4 {
   font-size: 10px;
   margin-top: 12px;
   line-height: 14px;
 }
+
 .timeline > li.timeline-inverted > .timeline-panel {
   float: right;
   text-align: left;
   padding: 0 20px 0 100px;
 }
+
 .timeline > li.timeline-inverted > .timeline-panel:before {
   border-left-width: 0;
   border-right-width: 15px;
   left: -15px;
   right: auto;
 }
+
 .timeline > li.timeline-inverted > .timeline-panel:after {
   border-left-width: 0;
   border-right-width: 14px;
   left: -14px;
   right: auto;
 }
+
 .timeline > li:last-child {
   margin-bottom: 0;
 }
+
 .timeline .timeline-heading h4 {
   margin-top: 0;
   color: inherit;
 }
+
 .timeline .timeline-heading h4.subheading {
   text-transform: none;
 }
+
 .timeline .timeline-body > p,
 .timeline .timeline-body > ul {
   margin-bottom: 0;
 }
+
 @media (min-width: 768px) {
   .timeline:before {
     left: 50%;
@@ -127,6 +144,7 @@
     padding: 0 30px 20px 20px;
   }
 }
+
 @media (min-width: 992px) {
   .timeline > li {
     min-height: 150px;
@@ -148,6 +166,7 @@
     padding: 0 20px 20px;
   }
 }
+
 @media (min-width: 1200px) {
   .timeline > li {
     min-height: 170px;

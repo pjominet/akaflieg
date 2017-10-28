@@ -7,4 +7,14 @@ if (environment.production) {
     enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic().bootstrapModule(AppModule)
+    .then(function () {
+        if (!environment.production) {
+            console.log('bootstrapping app successful')
+        }
+    })
+    .catch(function () {
+        if (!environment.production) {
+            console.log('bootstrapping app failed')
+        }
+    });

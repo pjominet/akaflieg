@@ -24,17 +24,17 @@ export class NewsComponent implements OnInit {
         }
     }
 
-    getAllNews() {
+    private getAllNews() {
         this.newsService.getAll()
             .subscribe(data => this.news = data);
     }
 
-    getMockNews() {
+    private getMockNews() {
         this.newsService.getMock()
             .subscribe(data => this.news = data);
     }
 
-    loadMore() {
+    public loadMore() {
         let addToLimit = this.limit;
         if (this.news.length < this.limit + addToLimit) {
             addToLimit = this.news.length - this.limit;

@@ -9,20 +9,24 @@
   background-color: $default;
   border-color: transparent;
 }
+
 .navbar-dashboard .nav li a {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
   color: white;
 }
+
 .navbar-dashboard .nav li a:hover,
-.navbar-dashboard .nav li a:focus{
+.navbar-dashboard .nav li a:focus {
   color: $default-highlight;
   outline: none;
 }
+
 .navbar-dashboard .navbar-brand {
   color: white;
 }
+
 .navbar-dashboard .navbar-brand:hover,
 .navbar-dashboard .navbar-brand:focus,
 .navbar-dashboard .navbar-brand:active,
@@ -33,6 +37,7 @@
 .navbar-dashboard .navbar-collapse {
   border-color: rgba(255, 255, 255, 0.02);
 }
+
 .navbar-dashboard .navbar-toggle {
   background-color: $default;
   border-color: $default;

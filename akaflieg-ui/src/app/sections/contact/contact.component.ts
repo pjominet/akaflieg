@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
     ngOnInit() {
     }
 
-    sendMail() {
+    public sendMail() {
         this.sending = true;
         this.contactService.sendMail(this.model.name, this.model.email, this.model.phone, this.model.message)
             .subscribe(data => {

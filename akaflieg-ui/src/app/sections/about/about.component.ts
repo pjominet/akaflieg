@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
         this.mapInit(lat, lng, zoom, label);
     }
 
-    mapInit(lat, lng, zoom, label) {
+    private mapInit(lat, lng, zoom, label) {
         const coords = {lat: lat, lng: lng};
 
         const map = new google.maps.Map(document.getElementById('map'), {

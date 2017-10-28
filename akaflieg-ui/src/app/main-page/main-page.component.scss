@@ -11,18 +11,22 @@
   background-color: $default;
   border-color: transparent;
 }
+
 .navbar-main .navbar-brand {
   font-family: 'Courgette', serif;
   color: white;
 }
+
 .navbar-main .navbar-brand:hover,
 .navbar-main .navbar-brand:active,
 .navbar-main .navbar-brand.active {
   color: white;
 }
+
 .navbar-main .navbar-collapse {
   border-color: rgba(255, 255, 255, 0.02);
 }
+
 .navbar-main .navbar-toggle {
   background-color: $default;
   border-color: $default;
@@ -30,16 +34,19 @@
   color: white;
   font-size: 12px;
 }
+
 .navbar-main .nav > li > a {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
   color: white;
 }
+
 .navbar-main .nav > li > a:hover {
   color: $default-highlight;
   outline: none;
 }
+
 .navbar-main .navbar-nav > .active > a,
 .navbar-main .navbar-nav > .active > a:hover,
 .navbar-main .navbar-nav > .active > a:focus {
@@ -83,12 +90,14 @@ header .intro-text {
   padding-top: 100px;
   padding-bottom: 50px;
 }
+
 header .intro-text .intro-lead-in {
   font-family: 'Courgette', serif;
   font-size: 22px;
   line-height: 22px;
   margin-bottom: 25px;
 }
+
 header .intro-text .intro-heading {
   font-family: 'Montserrat', cursive;
   text-transform: uppercase;
@@ -97,6 +106,7 @@ header .intro-text .intro-heading {
   line-height: 35px;
   margin-bottom: 25px;
 }
+
 @media (min-width: 768px) {
   header .intro-text {
     padding-top: 300px;

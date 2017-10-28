@@ -7,7 +7,7 @@ export class DashboardCmsService {
     constructor(private http: Http) {
     }
 
-    upload(file: FormData) {
+    public upload(file: FormData) {
         const headers = new Headers({'Content-Type': 'multipart/form-data'});
         const options = new RequestOptions({headers: headers});
 
