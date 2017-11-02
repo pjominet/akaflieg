@@ -28,7 +28,13 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 result => {
                     if (result === true) {
-                        this.router.navigate(['/dashboard/cms']);
+                        this.router.navigate(['/dashboard/cms'])
+                            .then(function () {
+                                console.log('Redirection successful');
+                            })
+                            .catch(function () {
+                                console.log('Redirection failed');
+                            });
                     } else {
                         this.alertService.error('Benutzername oder Passwort falsch');
                         this.loading = false;

@@ -32,7 +32,7 @@ public class MailService {
         String recipient = "";
         if (emailDTO.getRecipient().equals("test")) {
             recipient = "jompa010@gmail.com";
-        } else if (emailDTO.getRecipient().equals("live"))
+        } else if (emailDTO.getRecipient().equals("info"))
             recipient = "info@akaflieg.de";
 
         String sender = emailDTO.getSender();

@@ -16,10 +16,10 @@ export class AuthGuard implements CanActivate {
         // not logged in so redirect to login page with the return url
         this.router.navigate(['/dashboard/login'])
             .then(function () {
-                console.log('Access granted');
+                console.log('Redirection successful');
             })
             .catch(function () {
-                console.log('Access denied');
+                console.log('Redirection failed');
             });
         return false;
     }
