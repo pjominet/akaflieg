@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -16,10 +17,14 @@ export class AuthGuard implements CanActivate {
         // not logged in so redirect to login page with the return url
         this.router.navigate(['/dashboard/login'])
             .then(function () {
-                console.log('Redirection successful');
+                if (!environment.production) {
+                    console.log('Redirection successful');
+                }
             })
             .catch(function () {
-                console.log('Redirection failed');
+                if (!environment.production) {
+                    console.log('Redirection failed');
+                }
             });
         return false;
     }

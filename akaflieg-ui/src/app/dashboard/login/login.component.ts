@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginService} from './login.service';
 import {Router} from '@angular/router';
 import {AlertService} from '../../helpers/alert/alert.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
     selector: 'app-login',
@@ -30,10 +31,14 @@ export class LoginComponent implements OnInit {
                     if (result === true) {
                         this.router.navigate(['/dashboard/cms'])
                             .then(function () {
-                                console.log('Redirection successful');
+                                if (!environment.production) {
+                                    console.log('Redirection successful');
+                                }
                             })
                             .catch(function () {
-                                console.log('Redirection failed');
+                                if (!environment.production) {
+                                    console.log('Redirection failed');
+                                }
                             });
                     } else {
                         this.alertService.error('Benutzername oder Passwort falsch');
