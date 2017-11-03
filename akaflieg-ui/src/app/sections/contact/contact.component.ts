@@ -20,7 +20,7 @@ export class ContactComponent implements OnInit {
 
     public sendMail() {
         this.sending = true;
-        this.contactService.sendMail(this.model.name, this.model.email, this.model.phone, this.model.message)
+        this.contactService.sendMail(this.model.name, this.model.email, this.model.subject, this.model.message)
             .subscribe(data => {
                 this.sending = false;
                 this.alertService.success('Nachricht erfolgreich versendet')

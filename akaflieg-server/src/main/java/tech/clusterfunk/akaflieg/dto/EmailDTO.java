@@ -7,17 +7,15 @@ public class EmailDTO {
     private String name;
     private String subject;
     private String message;
-    private String phone;
 
     public EmailDTO() {}
 
-    public EmailDTO(String sender, String recipient, String name, String subject, String message, String phone) {
+    public EmailDTO(String sender, String recipient, String name, String subject, String message) {
         this.sender = sender;
         this.recipient = recipient;
         this.name = name;
         this.subject = subject;
         this.message = message;
-        this.phone = phone;
     }
 
     public String getSender() {
@@ -40,10 +38,6 @@ public class EmailDTO {
         return message;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
     public void setSender(String sender) {
         this.sender = sender;
     }
@@ -64,14 +58,8 @@ public class EmailDTO {
         this.message = message;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getFullMessage() {
         String fullMessage = "From: " + name + "\n";
-        if (!phone.isEmpty())
-            fullMessage += "Phone: " + phone + "\n";
         fullMessage += "\n" + message;
         return fullMessage;
     }
@@ -82,7 +70,6 @@ public class EmailDTO {
                 "sender='" + sender + '\'' +
                 ", recipient='" + recipient + '\'' +
                 ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
                 ", subject='" + subject + '\'' +
                 ", message='" + message + '\'' +
                 '}';

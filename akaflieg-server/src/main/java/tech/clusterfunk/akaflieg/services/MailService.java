@@ -28,25 +28,29 @@ public class MailService {
     }
 
     public void sendMail(EmailDTO emailDTO) {
-        // Create Mail
+        // Check recipient
         String recipient = "";
         if (emailDTO.getRecipient().equals("test")) {
             recipient = "jompa010@gmail.com";
         } else if (emailDTO.getRecipient().equals("info"))
             recipient = "info@akaflieg.de";
 
+        // Check subject
+        String subject = emailDTO.getSubject();
+        if (subject.isEmpty())
+            subject = "Kontakt via Webformular";
+
+        // Check if sender address has email address format
         String sender = emailDTO.getSender();
         if (BasicValidation.validateEmail(sender)) {
-
             EmailDTO mail = new EmailDTO(
                     sender,
                     recipient,
                     emailDTO.getName(),
-                    emailDTO.getSubject(),
-                    emailDTO.getMessage(),
-                    emailDTO.getPhone());
+                    subject,
+                    emailDTO.getMessage());
 
-            // Create a default MimeMessage object.
+            // Create mail object
             MimeMessage message = jMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message);
 
@@ -61,7 +65,7 @@ public class MailService {
                 mex.printStackTrace();
             }
 
-            logger.info("Sending...");
+            logger.info("Sending mail...");
             jMailSender.send(message);
             logger.info("Done!");
         } else {

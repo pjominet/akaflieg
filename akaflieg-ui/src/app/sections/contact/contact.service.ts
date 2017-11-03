@@ -10,7 +10,7 @@ export class ContactService {
     constructor(private http: Http) {
     }
 
-    public sendMail(name: string, from: string, phone: string, message: string) {
+    public sendMail(name: string, from: string, subject: string, message: string) {
         const headers = new Headers({'Content-Type': 'application/json'});
         const options = new RequestOptions({headers: headers});
 
@@ -20,8 +20,7 @@ export class ContactService {
                     name: name,
                     sender: from,
                     recipient: this.to,
-                    phone: phone,
-                    subject: 'Kontakt via Webformular',
+                    subject: subject,
                     message: message
                 }), options)
             .map((response: Response) => {
