@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {NewsItem} from './news-item';
 import {NewsService} from './news.service';
 import {environment} from '../../../environments/environment';
@@ -12,6 +12,7 @@ import 'rxjs/add/operator/map';
 export class NewsComponent implements OnInit {
     news: NewsItem[] = [];
     limit = 3;
+    hasMore: boolean;
 
     constructor(private newsService: NewsService) {
     }
@@ -22,6 +23,7 @@ export class NewsComponent implements OnInit {
         } else {
             this.getMockNews();
         }
+        this.hasMore = this.limit < this.news.length;
     }
 
     private getAllNews() {
@@ -35,6 +37,8 @@ export class NewsComponent implements OnInit {
     }
 
     public loadMore() {
+        this.hasMore = this.limit < this.news.length;
+
         let addToLimit = this.limit;
         if (this.news.length < this.limit + addToLimit) {
             addToLimit = this.news.length - this.limit;

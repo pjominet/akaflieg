@@ -35,7 +35,7 @@
                         </li>
                     </ng-container>
                 </ul>
-                <div class="text-center space-top">
+                <div class="text-center space-top" *ngIf="!hasMore">
                     <button class="btn btn-primary btn-xl" (click)="loadMore()">Ältere News ...</button>
                 </div>
             </div>
