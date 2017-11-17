@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NewsItem} from './news-item';
 import {NewsService} from './news.service';
 import {environment} from '../../../environments/environment';
