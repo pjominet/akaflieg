@@ -27,6 +27,7 @@ import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component'
 import {ImprintComponent} from './imprint/imprint.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {StickyModule} from 'ng2-sticky-kit';
+import {CarouselModule} from 'angular4-carousel';
 /* --- Services --- */
 import {NewsService} from './sections/news/news.service';
 import {MainPageService} from './main-page/main-page.service';
@@ -62,7 +63,8 @@ import {AppRoutingModule} from './app-routing';
         AppRoutingModule,
         Ng2PageScrollModule.forRoot(),
         ScrollSpyModule.forRoot(),
-        StickyModule
+        StickyModule,
+        CarouselModule
     ],
     providers: [MainPageService, NewsService, DashboardWeatherService],
     bootstrap: [AppComponent]
