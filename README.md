@@ -4,13 +4,13 @@
 
 This is the new web appearance of the Akaflieg Köln e.V. 
 
-This project is build with the Angular2 CLI as Frontend and Java Spring as Backend.
+This project is build with the Angular4 CLI as Frontend and Java Spring as Backend.
 
 ## Development
 
 ### Prerequisites
     * nodejs with npm
-    * gradle
+    * maven
 
 ## Frontend
 
