@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsItem} from './news-item';
 import {NewsService} from './news.service';
-import {Http} from '@angular/http';
+import {environment} from '../../../environments/environment';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -10,26 +10,48 @@ import 'rxjs/add/operator/map';
     styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-    private news: NewsItem[] = [];
+    news: NewsItem[] = [];
+    limit = 3;
+    hasMore: boolean;
 
-    newsItem: any = {};
-
-    constructor(private http: Http,
-                private newsService: NewsService) {
+    constructor(private newsService: NewsService) {
     }
 
     ngOnInit() {
-        this.getAllNews();
+        if (environment.production) {
+            this.getAllNews();
+        } else {
+            this.getMockNews();
+        }
+        this.hasMore = this.limit < this.news.length;
     }
 
-    getAllNews() {
-        this.newsService.getAllNews()
+    private getAllNews() {
+        this.newsService.getAll()
             .subscribe(data => this.news = data);
     }
 
-    addNewsElement() {
-        this.newsService.addNewElement(this.newsItem.header, this.newsItem.body)
-            .subscribe(data => this.getAllNews(),
-                err => console.log(err));
+    private getMockNews() {
+        this.newsService.getMock()
+            .subscribe(data => this.news = data);
+    }
+
+    public loadMore() {
+        this.hasMore = this.limit < this.news.length;
+
+        let addToLimit = this.limit;
+        if (this.news.length < this.limit + addToLimit) {
+            addToLimit = this.news.length - this.limit;
+        }
+        this.limit += addToLimit;
+    }
+
+    public arrayToBase64(index): string {
+        let base64string: string;
+        base64string =  btoa(
+            new Uint8Array(this.news[index].image)
+                .reduce((data, byte) => data + String.fromCharCode(byte), '')
+        );
+        return base64string
     }
 }

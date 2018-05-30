@@ -1,0 +1,32 @@
+<section id="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-heading">Verwaltung&nbsp;<i class="fa fa-lock" aria-hidden="true"></i></h2>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2">
+                <form class="form" (ngSubmit)="f.form.valid && login()" #f="ngForm"
+                      novalidate accept-charset="UTF-8" id="login-form">
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <label class="sr-only" for="usernameInput">Benutzername</label>
+                        <input type="text" class="form-control" id="usernameInput" placeholder="Benutzername"
+                               name="username" required [(ngModel)]="model.username" #username="ngModel">
+                    </div>
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                        <label class="sr-only" for="passwordInput">Passwort</label>
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Passwort"
+                               name="password" required [(ngModel)]="model.password" #password="ngModel">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" [disabled]="loading" class="btn btn-primary">Einloggen</button>
+                        <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+

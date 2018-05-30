@@ -2,80 +2,93 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="section-heading">Content Management</h2>
+                <h2 class="section-heading">Verwaltung&nbsp;<i class="fa fa-unlock" aria-hidden="true"></i></h2>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form name="CMS" id="cmsForm" enctype="multipart/form-data" method="POST" accept-charset="UTF-8">
+
+                <form name="CMS" id="cmsForm" (ngSubmit)="f.form.valid && upload()" #f="ngForm"
+                      enctype="multipart/form-data" accept-charset="UTF-8">
+
                     <div class="row">
-                        <div class="col-md-12">
-                            <fieldset class="form-group">
-                                <legend>Vorgehensweise</legend>
-                                <div class="method-selection" ng-init="check = 'method1'">
-                                    <label>
-                                        <input type="radio" name="methodRadios" ng-model="check" value="method1"
-                                               checked>
-                                        Händische Eingabe
-                                    </label>
-                                </div>
-                                <div class="method-selection">
-                                    <label>
-                                        <input type="radio" name="methodRadios" ng-model="check" value="method2">
-                                        Vorformatierte Datei einlesen
-                                    </label>
-                                </div>
-                            </fieldset>
-                            <div class="col-md-12" ng-show="check == 'method1'">
-                                <div class="form-group">
-                                    <label for="date-time" class="text-muted">Veröffentlichungsdatum und -zeit
-                                        auswählen</label>
-                                    <input type="datetime-local" class="form-control" id="date-time">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sectionSelect" class="text-muted">Den zu editierenden Bereich
-                                        auswählen</label>
-                                    <select class="form-control" id="sectionSelect">
-                                        <option>News</option>
-                                        <option>Ausbildung - Schnuppern</option>
-                                        <option>Ausbildung - Mitgliedschaft</option>
-                                        <option>Ausbildung - Preise</option>
-                                        <option>Über uns</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="content" class="text-muted">Neuer Content</label>
-                                    <textarea class="form-control" id="content" rows="8"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="img-upload" class="text-muted">Ein Bild hochladen</label>
-                                    <br>
-                                    <label class="btn btn-default btn-file">
-                                        Durchsuchen...
-                                        <input type="file" id="img-upload" accept="*.jpg, *.jpeg, *.png">
-                                    </label>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="editSelect" class="text-muted">
+                                    Den zu editierenden Bereich auswählen
+                                </label>
+                                <select class="form-control" id="editSelect" name="editSelect" [(ngModel)]="editSelect">
+                                    <option [ngValue]="editOptions[0]">News</option>
+                                    <optgroup label="Preise">
+                                        <option [ngValue]="editOptions[1]">Schnuppern</option>
+                                        <option [ngValue]="editOptions[2]">Mitgliedschaft</option>
+                                        <option [ngValue]="editOptions[3]">Fluggebühren</option>
+                                    </optgroup>
+                                </select>
                             </div>
-                            <div class="col-md-12" ng-show="check == 'method2'">
-                                <div class="form-group">
-                                    <label for="img-upload" class="text-muted">Eine preformatierte Datei
-                                        hochladen</label>
-                                    <br>
-                                    <label class="btn btn-default btn-file">
-                                        Durchsuchen...
-                                        <input type="file" id="data-upload" accept="*.txt, *.json">
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div id="success"></div>
-                                    <button type="submit" class="btn btn-primary btn-xl">Erstellen</button>
-                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="date-time" class="text-muted">
+                                    Veröffentlichungsdatum und -zeit auswählen
+                                </label>
+                                <input type="datetime-local" class="form-control" id="date-time">
                             </div>
                         </div>
                     </div>
+
+                    <div class="row" *ngIf="editSelect === 'news'">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="news-title" class="text-muted">News Titel</label>
+                                <input type="text" class="form-control" id="news-title"
+                                       name="title" [(ngModel)]="news.title" #title="ngModel">
+                            </div>
+                            <div class="form-group">
+                                <label for="news-body" class="text-muted">News Text</label>
+                                <textarea class="form-control" id="news-body" rows="8"
+                                          name="body" [(ngModel)]="news.body" #body="ngModel"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="img-upload" class="text-muted">Ein Bild hochladen</label>
+                                <br>
+                                <label class="btn btn-default btn-file">
+                                    Durchsuchen...
+                                    <input type="file" id="img-upload"
+                                           accept="*.jpg, *.jpeg, *.png" (change)="getFile($event)">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="editSelect !== 'news'">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="data-upload" class="text-muted">
+                                    Eine preformatierte Datei hochladen
+                                </label>
+                                <br>
+                                <label class="btn btn-default btn-file">
+                                    Durchsuchen...
+                                    <input type="file" id="data-upload"
+                                           accept="*.txt, *.json, *.csv" (change)="getFile($event)">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary btn-xl">Erstellen</button>
+                        </div>
+                    </div>
                 </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-1">
+                <button class="btn btn-primary btn-xl" (click)="logout()">Logout</button>
             </div>
         </div>
     </div>

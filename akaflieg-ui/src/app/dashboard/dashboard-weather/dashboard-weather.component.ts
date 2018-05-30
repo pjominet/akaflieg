@@ -8,7 +8,7 @@ import {WeatherItem} from './weather-item';
     styleUrls: ['./dashboard-weather.component.scss']
 })
 export class DashboardWeatherComponent implements OnInit {
-    weatherItem: WeatherItem = new WeatherItem('', '', '', '', null, null, null, '');
+    weatherItem: WeatherItem;
     weatherItems = [];
 
     constructor(private weatherService: DashboardWeatherService) {
@@ -54,7 +54,7 @@ export class DashboardWeatherComponent implements OnInit {
         );
     }
 
-    degToCompass(deg: number): string {
+    private degToCompass(deg: number): string {
         const compassCodes = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
         const interval = Math.floor((deg / 22.5) + 0.5);
         return compassCodes[interval % 16];

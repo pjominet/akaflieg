@@ -1,30 +1,52 @@
 <div>
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-dashboard navbar-fixed-top">
+    <nav id="dashNav" class="navbar navbar-default navbar-dashboard navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header page-scroll">
-                <a class="navbar-brand page-scroll">Akaflieg Köln e.V.</a>
+            <div class="navbar-header navbar-left pull-left">
+                <a class="navbar-brand">Vereinsbereich</a>
             </div>
-            <div>
+
+            <div class="navbar-header navbar-right pull-right">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#dashNav-collapse-sandwich">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars fa-lg"></i>
+                </button>
+            </div>
+
+            <div class="visible-xs-block clearfix"></div>
+
+            <div class="collapse navbar-collapse" id="dashNav-collapse-sandwich">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a routerLink="./weather">Wetter und Thermik</a></li>
-                    <li><a routerLink="./projects">Projekte</a></li>
-                    <li><a routerLink="./public">Gallerie</a></li>
-                    <!--
                     <li>
-                        <a data-toggle="modal" href="#loginModal">
+                        <a routerLink="./weather">
+                            Wetter und Thermik
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="./projects">
+                            Projekte
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="./public">
+                            Bilder Gallerie
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="./login">
                             Verwaltung&nbsp;<i class="fa fa-key" aria-hidden="true"></i>
                         </a>
                     </li>
-                    -->
-                    <li><a routerLink="/index"><i class="fa fa-lg fa-home" aria-hidden="true"></i></a></li>
+                    <li>
+                        <a routerLink="/index">
+                            <i class="fa fa-lg fa-home" aria-hidden="true"></i>
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <!-- has to be outside any relative elements -->
-    <app-login-modal></app-login-modal>
 
     <main class="offset_top">
         <router-outlet></router-outlet>

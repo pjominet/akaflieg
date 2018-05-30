@@ -9,55 +9,35 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="timeline">
-                    <li>
-                        <div class="timeline-image">
-                            <img class="img-circle img-responsive"
-                                 src="./assets/img/news_placeholders/gb_aktion_2016.jpg"
-                                 alt="Giving Back Charity">
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>AUGUST 2016</h4>
-                                <h4 class="subheading">Fliegen für einen guten Zweck</h4>
+                    <ng-container *ngFor="let newsItem of news; let i = index; let o = odd;">
+                        <li *ngIf="i < limit" id="{{newsItem.id}}" [ngClass]="{'timeline-inverted' : o}">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive"
+                                     src="data:image/png;base64,{{arrayToBase64(i)}}"
+                                     alt="news-thumbnail"
+                                     *ngIf="newsItem.image.length > 0">
+                                <img class="img-circle img-responsive"
+                                     src="./assets/img/placeholder.png"
+                                     alt="news-thumbnail"
+                                     *ngIf="!(newsItem.image.length > 0)">
                             </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">
-                                    Im Sommer 2016 wurde in Kooperation mit dem Unternehmen Carglass eine Charity Aktion
-                                    gestartet.
-                                    Die zusammengekommene Summe von 1387,50€ wurde an das Kinderkrankenhaus Köln
-                                    gespendet.
-                                    <br>
-                                    <a href="http://www.sobc-germany.de/actions_2016/" target="_blank">Weitere Infos</a>
-                                </p>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>{{newsItem.creationDate | date:'dd. MMMM yyyy'}}</h4>
+                                    <h4 class="subheading">{{newsItem.title}}</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">
+                                        {{newsItem.content}}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="./assets/img/placeholder.png"
-                                 alt="placeholder">
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>JULI 2016</h4>
-                                <h4 class="subheading">Nasses Fliegerlager</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">
-                                    Leider war das Wetter im Juni und Juli 2016 ziemlich nass und somit ist das Fliegerlager
-                                    wortwörtlich ins Wasser gefallen.
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>Ältere
-                                <br>News
-                                <br>...</h4>
-                        </div>
-                    </li>
+                        </li>
+                    </ng-container>
                 </ul>
+                <div class="text-center space-top" *ngIf="!hasMore">
+                    <button class="btn btn-primary btn-xl" (click)="loadMore()">Ältere News ...</button>
+                </div>
             </div>
         </div>
     </div>

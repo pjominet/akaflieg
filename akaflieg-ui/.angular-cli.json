@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "version": "1.0.2",
     "name": "akaflieg-ui"
   },
   "apps": [
@@ -16,7 +15,6 @@
       "polyfills": "polyfills.ts",
       "tsconfig": "tsconfig.app.json",
       "prefix": "app",
-      "mobile": false,
       "styles": [
         "styles.scss"
       ],
@@ -28,8 +26,6 @@
       }
     }
   ],
-  "addons": [],
-  "packages": [],
   "lint": [
     {
       "project": "src/tsconfig.app.json"
@@ -40,5 +36,8 @@
     "component": {
       "inlineTemplate": false
     }
+  },
+  "warnings": {
+    "typescriptMismatch": false
   }
 }

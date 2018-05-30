@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-affiliates',
-  templateUrl: './affiliates.component.html',
-  styleUrls: ['./affiliates.component.scss']
+    selector: 'app-affiliates',
+    templateUrl: './affiliates.component.html',
+    styleUrls: ['./affiliates.component.scss']
 })
 export class AffiliatesComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

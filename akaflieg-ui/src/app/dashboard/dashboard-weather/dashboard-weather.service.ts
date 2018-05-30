@@ -5,13 +5,14 @@ import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class DashboardWeatherService {
+    private apiKey = 'abcbdb8391c5d46d624cb81ecbdd9d91';
 
     constructor(private http: Http) {
     }
 
-    getWeatherData(lat, lon): Observable<any> {
+    public getWeatherData(lat, lon): Observable<any> {
         return this.http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon +
-            '&APPID=abcbdb8391c5d46d624cb81ecbdd9d91&units=metric&lang=de')
+            '&APPID=' + this.apiKey + '&units=metric&lang=de')
             .map(response => response.json())
             .catch(error => {
                 console.error(error);

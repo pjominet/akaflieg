@@ -24,6 +24,7 @@ section#contact .form-control:focus {
   border-color: $default;
   box-shadow: none;
 }
-section#contact .text-danger {
-  color: $default-danger;
+section#contact .message-block {
+  font-size: larger;
+  color: $text-light;
 }
