@@ -7,7 +7,7 @@
 @import '~@ngx-gallery/core/styles/gallery';
 
 /* --- General --- */
-body {
+body, html {
   overflow-x: hidden;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
