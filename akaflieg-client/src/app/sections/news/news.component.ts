@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {NewsItem} from './news-item';
 import {NewsService} from './news.service';
 import {environment} from '../../../environments/environment';
-import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'app-news',
@@ -27,13 +26,13 @@ export class NewsComponent implements OnInit {
     }
 
     private getAllNews() {
-        this.newsService.getAll()
-            .subscribe(data => this.news = data);
+        // this.newsService.getAll()
+        //     .subscribe(data => this.news = data);
     }
 
     private getMockNews() {
-        this.newsService.getMock()
-            .subscribe(data => this.news = data);
+        // this.newsService.getMock()
+        //     .subscribe(data => this.news = data);
     }
 
     public loadMore() {

@@ -1,24 +1,27 @@
+
+import {throwError as observableThrowError, Observable} from 'rxjs';
+
+import {catchError, map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
-import {Headers, Http, Response} from '@angular/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
+
+
+
 
 @Injectable()
 export class LoginService {
-    private headers = new Headers({'Content-Type': 'application/json'});
+    private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
     }
 
     public login(username: string, password: string): Observable<boolean> {
         return this.http.post( environment.dataServiceURI + '/login',
-            JSON.stringify({username: username, password: password}), {headers: this.headers})
-            .map((response: Response) => {
+            JSON.stringify({username: username, password: password}), {headers: this.headers}).pipe(
+            map((response: HttpResponse<any>) => {
                 // login successful if there's a authorize token in the response
-                const token = response.json() && response.json().token;
+                const token = response;
                 console.log(token);
                 if (token) {
                     // store user details and authorize token in local storage to keep user logged in between page refreshes
@@ -27,7 +30,7 @@ export class LoginService {
                 } else {
                     return false
                 }
-            }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+            }),catchError((error: any) => observableThrowError(error.json().error || 'Server error')),);
     }
 
     public logout() {

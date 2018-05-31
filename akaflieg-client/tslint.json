@@ -4,7 +4,7 @@
   ],
   "rules": {
     "callable-types": true,
-    "import-blacklist": [true, "rxjs"],
+    "import-blacklist": [true],
     "import-spacing": true,
     "interface-over-type-literal": true,
     "no-empty-interface": true,

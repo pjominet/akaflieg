@@ -37,7 +37,7 @@ export class DashboardCmsComponent implements OnInit {
 
     private loadAllUsers() {
         this.userService.getAll().subscribe(users => {
-            this.users = users;
+            // this.users = users;
         });
     }
 

@@ -1,17 +1,17 @@
+import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions, Response} from '@angular/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class DashboardCmsService {
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
     }
 
     public upload(file: FormData) {
-        const headers = new Headers({'Content-Type': 'multipart/form-data'});
-        const options = new RequestOptions({headers: headers});
+        const headers = new HttpHeaders({'Content-Type': 'multipart/form-data'});
 
-        this.http.post(environment.dataServiceURI + '/file/upload', file, options)
-            .map((res: Response) => res.json());
+        this.http.post(environment.dataServiceURI + '/file/upload', file).pipe(
+            map((res: HttpResponse<any>) => res));
     }
 }

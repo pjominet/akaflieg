@@ -2,10 +2,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {BaseRequestOptions, HttpModule} from '@angular/http';
-import {Ng2PageScrollModule} from 'ng2-page-scroll';
-import {ScrollSpyModule} from 'ng2-scrollspy';
-import {StickyModule} from 'ng2-sticky-kit';
+import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
 import {LOCALE_ID} from '@angular/core';
 /* --- Main App --- */
@@ -67,11 +64,8 @@ import {AppRoutingModule} from './app-routing';
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule,
-        AppRoutingModule,
-        Ng2PageScrollModule,
-        ScrollSpyModule.forRoot(),
-        StickyModule
+        HttpClientModule,
+        AppRoutingModule
     ],
     providers: [
         NewsService,
@@ -80,7 +74,6 @@ import {AppRoutingModule} from './app-routing';
         AlertService,
         LoginService,
         UserService,
-        BaseRequestOptions,
         ContactService,
         DashboardCmsService,
         DatePipe,
