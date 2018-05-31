@@ -7,6 +7,7 @@ import {DatePipe} from '@angular/common';
 import {LOCALE_ID} from '@angular/core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {NgStickyDirective} from 'ng-sticky';
+import {GalleryModule} from '@ngx-gallery/core';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -69,7 +70,8 @@ import {AppRoutingModule} from './app-routing';
         FormsModule,
         HttpClientModule,
         AppRoutingModule,
-        NgxPageScrollModule
+        NgxPageScrollModule,
+        GalleryModule.forRoot()
     ],
     providers: [
         NewsService,

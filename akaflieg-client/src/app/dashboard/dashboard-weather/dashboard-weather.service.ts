@@ -18,6 +18,6 @@ export class DashboardWeatherService {
             catchError(error => {
                 console.error(error);
                 return observableThrowError(error.json());
-            }),);
+            }));
     }
 }
