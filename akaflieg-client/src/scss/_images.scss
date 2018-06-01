@@ -2,36 +2,3 @@
 .img-centered {
   margin: 0 auto;
 }
-
-.img-planes {
-  border: 7px solid #e1e1e1;
-  width: 140px;
-  height: 140px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .img-planes {
-    width: 170px;
-    height: 170px;
-  }
-}
-
-@media (min-width: 992px) {
-  .img-planes {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .img-planes {
-    width: 250px;
-    height: 250px;
-  }
-}
-
-aside#affiliates img {
-  width: 200px;
-  margin: 50px auto;
-}

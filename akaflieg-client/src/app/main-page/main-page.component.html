@@ -20,21 +20,41 @@
             <div class="collapse navbar-collapse" id="navbar-collapse-sandwich">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a pageScroll href="#about">Über uns</a>
+                        <a pageScroll href="#about"
+                           data-toggle="collapse"
+                           data-target="#navbar-collapse-sandwich.in">
+                            Über uns
+                        </a>
                     </li>
                     <li>
-                        <a pageScroll href="#planes">Flugzeuge</a>
+                        <a pageScroll href="#planes"
+                           data-toggle="collapse"
+                           data-target="#navbar-collapse-sandwich.in">
+                            Flugzeuge
+                        </a>
                     </li>
                     <li>
-                        <a pageScroll href="#schooling">Ausbildung</a>
+                        <a pageScroll href="#schooling"
+                           data-toggle="collapse"
+                           data-target="#navbar-collapse-sandwich.in">
+                            Ausbildung
+                        </a>
                     </li>
                     <!--
                     <li>
-                        <a pageScroll href="#news">News</a>
+                        <a pageScroll href="#news"
+                           data-toggle="collapse"
+                           data-target="#navbar-collapse-sandwich.in">
+                            News
+                        </a>
                     </li>
                     -->
                     <li>
-                        <a pageScroll href="#contact">Kontakt</a>
+                        <a pageScroll href="#contact"
+                           data-toggle="collapse"
+                           data-target="#navbar-collapse-sandwich.in">
+                            Kontakt
+                        </a>
                     </li>
                     <li>
                         <a routerLink="/dashboard/weather">
@@ -52,7 +72,7 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Willkommen bei der Akaflieg Köln!</div>
                 <div class="intro-heading">Spa&szlig; am gemeinsamen Fliegen</div>
-                <a pageScroll href="#about" class="btn btn-primary btn-xl">Erfahre mehr</a>
+                <a pageScroll href="#about" class="btn btn-primary btn-xl no-mobile">Erfahre mehr</a>
             </div>
         </div>
     </header>

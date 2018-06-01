@@ -34,12 +34,16 @@
                                           name="message" [(ngModel)]="model.message" #message="ngModel"></textarea>
                             </div>
                         </div>
-                        <div class="clearfix"><p class="text-muted">Felder mit * sind Pflichtfelder</p></div>
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-xl"
-                                        [disabled]="sending">Nachricht senden</button>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 space-appendix">
+                            <span class="text-muted">Felder mit * sind Pflichtfelder</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-xl"
+                                    [disabled]="sending">Nachricht senden</button>
                         </div>
                     </div>
                 </form>

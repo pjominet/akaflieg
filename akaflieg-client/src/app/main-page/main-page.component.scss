@@ -1,4 +1,5 @@
 @import '../app.component';
+
 /* --- Main Navbar --- */
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:active,
@@ -54,6 +55,10 @@
   background-color: $default-highlight;
 }
 
+.no-mobile {
+  visibility: hidden;
+}
+
 @media (min-width: 768px) {
   .navbar-main {
     background-color: transparent;
@@ -61,27 +66,42 @@
     @include transition(padding 0.3s);
     border: none;
   }
+
   .navbar-main.affix {
     background-color: $default;
     padding: 10px 0;
   }
+
   .navbar-main .navbar-brand {
     visibility: hidden;
     @include transition(all 0.3s);
   }
+
+  .navbar-main.affix .navbar-brand {
+    visibility: visible;
+    font-size: 1.3em;
+  }
+
+  .navbar-main .navbar-nav > .active > a {
+    @include border-radius(3px);
+  }
+
+  .no-mobile {
+    visibility: visible;
+  }
+}
+
+@media (min-width: 1024px) {
   .navbar-main.affix .navbar-brand {
     visibility: visible;
     font-size: 1.8em;
-  }
-  .navbar-main .navbar-nav > .active > a {
-    @include border-radius(3px);
   }
 }
 
 /* --- Main Header --- */
 header {
   background: $bg-default url('../../assets/img/header-bg.jpg') no-repeat center center scroll;
-  background-size: cover;
+  @include background-size(cover);
   text-align: center;
   color: $text-default;
 }
