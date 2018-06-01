@@ -8,3 +8,13 @@ main > h3 {
 main > h4 {
   color: $text-light;
 }
+
+aside {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  aside {
+    display: block;
+  }
+}
