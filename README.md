@@ -14,6 +14,8 @@ This project is build with the Angular 4 as Frontend and Java Spring Boot as Bac
 * Maven
 * Java 1.8 or newer
 
+Switch to the correct dev-branch!
+
 ## Frontend (akaflieg-ui)
 
 ### How to setup
