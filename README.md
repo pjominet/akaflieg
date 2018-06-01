@@ -16,7 +16,7 @@ This project is build with the Angular 4 as Frontend and Java Spring Boot as Bac
 
 Switch to the correct dev-branch!
 
-## Frontend (akaflieg-ui)
+## Frontend (akaflieg-client)
 
 ### How to setup
     npm install
