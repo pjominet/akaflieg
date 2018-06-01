@@ -6,22 +6,6 @@
 *.launch
 .settings/
 
-# Build Tools
-.gradle
-
-# dependencies
-/node_modules
-
-# misc
-npm-debug.log
-akaflieg-ui.iml
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
-testem.log
-/typings
-
 # System Files
 .DS_Store
 Thumbs.db

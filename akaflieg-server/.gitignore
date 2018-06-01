@@ -1,2 +1,5 @@
+# compiled output
+target/
+
+# misc
 akaflieg-server.iml
-target

@@ -5,5 +5,11 @@
 # dependencies
 /node_modules
 
-# other
-akaflieg-ui.iml
+# misc
+akaflieg-client.iml
+npm-debug.log
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+/typings
