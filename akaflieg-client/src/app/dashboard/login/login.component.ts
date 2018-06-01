@@ -30,18 +30,20 @@ export class LoginComponent implements OnInit {
 
         // pass-through if login session is not yet expired
         if (this.authService.isAuthenticated())
-            if (!environment.production) {
-                console.log('No authentication');
-                this.router.navigate(['/dashboard/cms'])
-                    .then(function () {
-                        if (!environment.production)
-                            console.log('Redirection successful');
-                    })
-                    .catch(function () {
-                        if (!environment.production)
-                            console.log('Redirection failed');
-                    });
-            } else this.authService.logout();
+            this.router.navigate(['/dashboard/cms'])
+                .then(function () {
+                    if (!environment.production)
+                        console.log('Redirection successful');
+                })
+                .catch(function () {
+                    if (!environment.production)
+                        console.log('Redirection failed');
+                });
+        else {
+            if (!environment.production)
+                console.log('No pass-through authentication');
+            this.authService.logout();
+        }
     }
 
     // convenience getter for easy access to form fields
