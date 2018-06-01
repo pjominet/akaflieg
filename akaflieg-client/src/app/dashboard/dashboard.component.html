@@ -18,23 +18,31 @@
             <div class="collapse navbar-collapse" id="dashnav-collapse-sandwich">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a routerLink="weather">
+                        <a routerLink="./weather"
+                           data-toggle="collapse"
+                           (click)="menuToggle()">
                             Wetter und Thermik
                         </a>
                     </li>
                     <li>
-                        <a routerLink="projects">
+                        <a routerLink="./projects"
+                           data-toggle="collapse"
+                           (click)="menuToggle()">
                             Projekte
                         </a>
                     </li>
                     <li>
-                        <a routerLink="public">
+                        <a routerLink="./public"
+                           data-toggle="collapse"
+                           (click)="menuToggle()">
                             Bilder Gallerie
                         </a>
                     </li>
                     <!-- disabled until implemented correctly
                     <li>
-                        <a routerLink="login">
+                        <a routerLink="./login"
+                           data-toggle="collapse"
+                           (click)="menuToggle()"
                             Verwaltung&nbsp;<i class="fa fa-key" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -42,7 +50,7 @@
                     <li>
                         <a routerLink="/index">
                             <i class="fa fa-lg fa-home" aria-hidden="true"></i>
-                            &nbsp;
+                            <span class="symbol-spacer"></span>
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -54,5 +62,4 @@
     <main class="offset_top">
         <router-outlet></router-outlet>
     </main>
-
 </div>
