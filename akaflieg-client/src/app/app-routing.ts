@@ -1,8 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
-import {ImprintComponent} from './imprint/imprint.component';
 import {DashboardWeatherComponent} from './dashboard/dashboard-weather/dashboard-weather.component';
 import {DashboardProjectsComponent} from './dashboard/dashboard-projects/dashboard-projects.component';
 import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.component';
@@ -15,8 +13,6 @@ import {LoginComponent} from './dashboard/login/login.component';
 const appRoutes: Routes = [
     {path: '404', component: NotFoundComponent},
     {path: 'index', component: MainPageComponent},
-    {path: 'privacyPolicy', component: PrivacyPolicyComponent},
-    {path: 'termsOfUse', component: ImprintComponent},
     {
         path: 'dashboard', component: DashboardComponent,
         children: [
