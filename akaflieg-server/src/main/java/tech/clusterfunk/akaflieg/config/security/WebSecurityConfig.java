@@ -15,7 +15,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import tech.clusterfunk.akaflieg.security.JWTAuthenticationFilter;
 import tech.clusterfunk.akaflieg.security.JWTAuthorizationFilter;
 
-import static tech.clusterfunk.akaflieg.security.SecurityConstants.SIGN_UP_URL;
+import static tech.clusterfunk.akaflieg.controller.RestURIs.*;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -32,10 +32,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
-                .antMatchers(HttpMethod.GET, "/login").permitAll()
-                .antMatchers(HttpMethod.GET, "/mail/info").permitAll()
-                .antMatchers(HttpMethod.GET, "/news/**").permitAll()
+                .antMatchers(HttpMethod.POST, SIGN_UP_URI).permitAll()
+                .antMatchers(HttpMethod.POST, LOGIN_URI).permitAll()
+                .antMatchers(HttpMethod.GET, MAIL_INFO_URI).permitAll()
+                .antMatchers(HttpMethod.POST, MAIL_SEND_URI).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
