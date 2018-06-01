@@ -30,24 +30,26 @@ public class AkafliegApplication {
     @Bean
     CommandLineRunner init(UserRepository userRepo, NewsRepository newsRepo, BCryptPasswordEncoder encoder) {
         return (evt) -> {
-            User user = userRepo.findByUsername("test");
+            User user = userRepo.findByUsername("aka-admin");
             if (user == null) {
-                logger.info("Creating test user");
-                User usr = new User();
-                usr.setUsername("test");
-                usr.setPassword(encoder.encode("test"));
-                userRepo.save(usr);
-                user = usr;
+                logger.info("Creating user: \"aka-admin\"");
+                User newUser = new User();
+                newUser.setUsername("aka-admin");
+                newUser.setPassword(encoder.encode("AF_webCMS"));
+                userRepo.save(newUser);
+                user = newUser;
             }else{
-                logger.warn("test user already exists");
+                logger.warn("User \"" + user.getUsername() + "\" already exists");
             }
 
+            /* ignored until further notice
             NewsItem newsItem = new NewsItem();
             newsItem.setTitle("TEST POST");
             newsItem.setContent("This is a test news post, please ignore");
             newsItem.setCreationDate(LocalDate.now());
             newsItem.setCreator(user);
             newsRepo.save(newsItem);
+            */
         };
     }
 }

@@ -1,11 +1,9 @@
 package tech.clusterfunk.akaflieg.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name= "UPLOADED_FILES")
+@Table(name = "UPLOADED_FILES")
 public class UploadedFile {
 
     @Id
@@ -24,7 +22,8 @@ public class UploadedFile {
         this.data = data;
     }
 
-    public UploadedFile() {}
+    public UploadedFile() {
+    }
 
     public Long getId() {
         return id;

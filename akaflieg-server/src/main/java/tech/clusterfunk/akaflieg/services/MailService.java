@@ -23,8 +23,7 @@ public class MailService {
     }
 
     public String info() {
-        return "Akaflieg Köln e.V. Express Mail Service.\n" +
-                "Your ePigeon is ready for takeoff.";
+        return "Akaflieg Köln e.V. Express Mail Service";
     }
 
     public void sendMail(EmailDTO emailDTO) {

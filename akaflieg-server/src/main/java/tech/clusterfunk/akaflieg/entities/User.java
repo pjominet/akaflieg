@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "AKA_USER")
+@Table(name = "CMS_USER")
 public class User {
 
     @Id
@@ -16,8 +16,10 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
 
+    /*
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NewsItem> articles;
+    */
 
     public User() {}
 
@@ -45,6 +47,7 @@ public class User {
         this.password = password;
     }
 
+    /*
     public List<NewsItem> getArticles() {
         return articles;
     }
@@ -52,5 +55,6 @@ public class User {
     public void setArticles(List<NewsItem> articles) {
         this.articles = articles;
     }
+    */
 }
 
