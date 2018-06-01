@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginService} from './login.service';
+import {AuthenticationService} from './authentication.service';
 import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
 import {AlertService} from '../../helpers/alert/alert.service';
 import {environment} from '../../../environments/environment';
 
@@ -10,44 +12,65 @@ import {environment} from '../../../environments/environment';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    model: any = {};
+    loginForm: FormGroup;
+    submitted = false;
     loading = false;
 
     constructor(private router: Router,
-                private authenticationService: LoginService,
-                private alertService: AlertService) {
+                private authService: AuthenticationService,
+                private alertService: AlertService,
+                private formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
-        // reset login status
-        this.authenticationService.logout();
+        this.loginForm = this.formBuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required]
+        });
+
+        // pass-through if login session is not yet expired
+        if (this.authService.isAuthenticated())
+            if (!environment.production) {
+                console.log('No authentication');
+                this.router.navigate(['/dashboard/cms'])
+                    .then(function () {
+                        if (!environment.production)
+                            console.log('Redirection successful');
+                    })
+                    .catch(function () {
+                        if (!environment.production)
+                            console.log('Redirection failed');
+                    });
+            } else this.authService.logout();
+    }
+
+    // convenience getter for easy access to form fields
+    get form() {
+        return this.loginForm.controls;
     }
 
     public login() {
+        this.submitted = true;
+        // stop here if form is invalid
+        if (this.loginForm.invalid) return;
+
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
-            .subscribe(
-                result => {
-                    if (result === true) {
-                        this.router.navigate(['/dashboard/cms'])
-                            .then(function () {
-                                if (!environment.production) {
-                                    console.log('Redirection successful');
-                                }
-                            })
-                            .catch(function () {
-                                if (!environment.production) {
-                                    console.log('Redirection failed');
-                                }
-                            });
-                    } else {
-                        this.alertService.error('Benutzername oder Passwort falsch');
-                        this.loading = false;
-                    }
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+        this.authService.login(this.form.username.value, this.form.password.value)
+            .pipe(first()).subscribe(
+            success => {
+                this.router.navigate(['/dashboard/cms'])
+                    .then(function () {
+                        if (!environment.production)
+                            console.log('Redirection successful');
+                    })
+                    .catch(function () {
+                        if (!environment.production)
+                            console.log('Redirection failed');
+                    });
+            },
+            error => {
+                this.alertService.error(error);
+                this.loading = false;
+            });
     }
 }

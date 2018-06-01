@@ -1,7 +1,6 @@
-
-import {map} from 'rxjs/operators';
+import {first} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
-import {HttpHeaders, HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {User} from './user';
 
 @Injectable()
@@ -10,26 +9,14 @@ export class UserService {
     }
 
     public getAll() {
-        return this.http.get('/users').pipe(
-            map((response: HttpResponse<any>) => response));
+        return this.http.get<User[]>('/users').pipe(first());
     }
 
     public getById(id: number) {
-        return this.http.get('/users/' + id).pipe(
-            map((response: HttpResponse<any>) => response));
+        return this.http.get<User>('/users/' + id).pipe(first());
     }
 
     public create(user: User) {
-        return this.http.post('/users/register', user).pipe(
-            map((response: HttpResponse<any>) => response))
-    }
-
-    private authorize() {
-        // create authorization header with authorize token
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (currentUser && currentUser.token) {
-            const headers = new HttpHeaders({'Authorization': 'Bearer ' + currentUser.token});
-            // return new RequestOptions({headers: headers});
-        }
+        return this.http.post<any>('/users/register', user).pipe(first())
     }
 }

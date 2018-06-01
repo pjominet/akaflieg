@@ -3,7 +3,7 @@
     <nav id="dashNav" class="navbar navbar-default navbar-dashboard navbar-fixed-top">
         <div class="container">
             <div class="navbar-header navbar-left pull-left">
-                <a class="navbar-brand">Vereinsbereich</a>
+                <span class="navbar-brand">Akaflieg Köln e.V.</span>
             </div>
 
             <div class="navbar-header navbar-right pull-right">
@@ -19,34 +19,28 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a routerLink="./weather"
-                           data-toggle="collapse"
                            (click)="menuToggle()">
                             Wetter und Thermik
                         </a>
                     </li>
                     <li>
                         <a routerLink="./projects"
-                           data-toggle="collapse"
                            (click)="menuToggle()">
                             Projekte
                         </a>
                     </li>
                     <li>
                         <a routerLink="./public"
-                           data-toggle="collapse"
                            (click)="menuToggle()">
                             Bilder Gallerie
                         </a>
                     </li>
-                    <!-- disabled until implemented correctly
                     <li>
                         <a routerLink="./login"
-                           data-toggle="collapse"
-                           (click)="menuToggle()"
+                           (click)="menuToggle()">
                             Verwaltung&nbsp;<i class="fa fa-key" aria-hidden="true"></i>
                         </a>
                     </li>
-                    -->
                     <li>
                         <a routerLink="/index">
                             <i class="fa fa-lg fa-home" aria-hidden="true"></i>

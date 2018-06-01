@@ -3,7 +3,7 @@ import {User} from '../../helpers/user/user';
 import {UserService} from '../../helpers/user/user.service';
 import {NewsService} from '../../sections/news/news.service';
 import {DashboardCmsService} from './dashboard-cms.service';
-import {LoginService} from '../login/login.service';
+import {AuthenticationService} from '../login/authentication.service';
 import {Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 
@@ -23,28 +23,26 @@ export class DashboardCmsComponent implements OnInit {
     constructor(private userService: UserService,
                 private newsService: NewsService,
                 private cmsService: DashboardCmsService,
-                private loginService: LoginService,
+                private loginService: AuthenticationService,
                 private router: Router) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     ngOnInit() {
         this.editSelect = this.editOptions[0];
-        if (environment.production) {
+        if (environment.production)
             this.loadAllUsers();
-        }
     }
 
     private loadAllUsers() {
         this.userService.getAll().subscribe(users => {
-            // this.users = users;
+            this.users = users;
         });
     }
 
     public upload() {
-        if (this.editSelect === 'news') {
+        if (this.editSelect === 'news')
             this.newsService.addItem(this.news.title, this.news.body);
-        }
         this.cmsService.upload(this.fileToUpload);
     }
 

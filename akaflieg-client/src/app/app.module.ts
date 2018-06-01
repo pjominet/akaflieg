@@ -1,8 +1,9 @@
 /* --- Angular Modules --- */
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
 import {LOCALE_ID} from '@angular/core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
@@ -35,10 +36,11 @@ import {NewsService} from './sections/news/news.service';
 import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
 import {AlertService} from './helpers/alert/alert.service';
 import {AuthGuard} from './dashboard/login/auth.guard';
-import {LoginService} from './dashboard/login/login.service';
+import {AuthenticationService} from './dashboard/login/authentication.service';
 import {UserService} from './helpers/user/user.service';
 import {ContactService} from './sections/contact/contact.service'
 import {DashboardCmsService} from './dashboard/dashboard-cms/dashboard-cms.service';
+import {JwtInterceptor} from './helpers/jwt.interceptor';
 /* --- Routing --- */
 import {AppRoutingModule} from './app-routing';
 
@@ -67,6 +69,7 @@ import {AppRoutingModule} from './app-routing';
     ],
     imports: [
         BrowserModule,
+        ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
         AppRoutingModule,
@@ -78,12 +81,13 @@ import {AppRoutingModule} from './app-routing';
         DashboardWeatherService,
         AuthGuard,
         AlertService,
-        LoginService,
+        AuthenticationService,
         UserService,
         ContactService,
         DashboardCmsService,
         DatePipe,
-        {provide: LOCALE_ID, useValue: 'de-DE'}
+        {provide: LOCALE_ID, useValue: 'de-DE'},
+        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
     ],
     bootstrap: [AppComponent]
 })
