@@ -10,15 +10,17 @@ export class AuthGuard implements CanActivate {
     }
 
     public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        if (!this.authService.isAuthenticated()) {
-            this.router.navigate(['/dashboard/login'])
-                .then(function () {
-                    if (!environment.production) console.log('Redirection successful');
-                })
-                .catch(function () {
-                    if (!environment.production) console.log('Redirection failed');
-                });
-            return false;
-        } return true;
+        // login successful
+        if (localStorage.getItem('currentUser')) return true;
+
+        // not logged in so redirect to login page with the redirect url
+        this.router.navigate(['/dashboard/login'], {queryParams: {redirectUrl: state.url}})
+            .then(function () {
+                if (!environment.production) console.log('Redirection successful');
+            })
+            .catch(function () {
+                if (!environment.production) console.log('Redirection failed');
+            });
+        return false;
     }
 }

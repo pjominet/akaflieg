@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    dataServiceURI: 'https://localhost:8888',
+    dataServiceURI: 'http://localhost:8888',
     mailTo: 'info'
 };

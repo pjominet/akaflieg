@@ -32,10 +32,10 @@ public class AkafliegApplication {
         return (evt) -> {
             User user = userRepo.findByUsername("aka-admin");
             if (user == null) {
-                logger.info("Creating user: \"aka-admin\"");
+                logger.info("Creating user: \"root\"");
                 User newUser = new User();
-                newUser.setUsername("aka-admin");
-                newUser.setPassword(encoder.encode("AF_webCMS"));
+                newUser.setUsername("root");
+                newUser.setPassword(encoder.encode("q1w2e3"));
                 userRepo.save(newUser);
                 user = newUser;
             }else{

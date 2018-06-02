@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from './authentication.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {AlertService} from '../../helpers/alert/alert.service';
@@ -15,8 +15,10 @@ export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     submitted = false;
     loading = false;
+    redirectUrl: string;
 
     constructor(private router: Router,
+                private route: ActivatedRoute,
                 private authService: AuthenticationService,
                 private alertService: AlertService,
                 private formBuilder: FormBuilder) {
@@ -28,22 +30,11 @@ export class LoginComponent implements OnInit {
             password: ['', Validators.required]
         });
 
-        // pass-through if login session is not yet expired
-        if (this.authService.isAuthenticated())
-            this.router.navigate(['/dashboard/cms'])
-                .then(function () {
-                    if (!environment.production)
-                        console.log('Redirection successful');
-                })
-                .catch(function () {
-                    if (!environment.production)
-                        console.log('Redirection failed');
-                });
-        else {
-            if (!environment.production)
-                console.log('No pass-through authentication');
-            this.authService.logout();
-        }
+        // reset login status
+        this.authService.logout();
+
+        // get redirect url from route parameters or default to '/dashboard/cms'
+        this.redirectUrl = this.route.snapshot.queryParams['redirectUrl'] || '/dashboard/cms';
     }
 
     // convenience getter for easy access to form fields
@@ -60,7 +51,8 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.form.username.value, this.form.password.value)
             .pipe(first()).subscribe(
             success => {
-                this.router.navigate(['/dashboard/cms'])
+                console.log(this.redirectUrl + ', token:' + localStorage.getItem('currentUser'));
+                this.router.navigate([this.redirectUrl])
                     .then(function () {
                         if (!environment.production)
                             console.log('Redirection successful');

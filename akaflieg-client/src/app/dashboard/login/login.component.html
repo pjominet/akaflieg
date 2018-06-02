@@ -25,13 +25,13 @@
                                formControlName="password" autocomplete="off">
                     </div>
                     <div *ngIf="submitted && form.password.errors" class="invalid-feedback col-xs-pull-6">
-                        <div *ngIf="form.password.errors.required">Password fehlt!</div>
+                        <div *ngIf="form.password.errors.required">Passwort fehlt!</div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-xs-6 col-md-4 col-md-offset-2">
                         <button type="submit" [disabled]="loading" class="btn btn-primary">Einloggen</button>
-                        <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+                        <span class="symbol-spacer"></span><i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
                     </div>
                 </div>
             </form>
