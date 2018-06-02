@@ -7,7 +7,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
 import {LOCALE_ID} from '@angular/core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
-import {NgStickyDirective} from 'ng-sticky';
+import {NgStickyModule} from 'ng-sticky';
 import {GalleryModule} from '@ngx-gallery/core';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
@@ -64,8 +64,7 @@ import {AppRoutingModule} from './app-routing';
         NotFoundComponent,
         DashboardPublicComponent,
         AlertComponent,
-        LoginComponent,
-        NgStickyDirective
+        LoginComponent
     ],
     imports: [
         BrowserModule,
@@ -74,7 +73,8 @@ import {AppRoutingModule} from './app-routing';
         HttpClientModule,
         AppRoutingModule,
         NgxPageScrollModule,
-        GalleryModule.forRoot()
+        GalleryModule.forRoot(),
+        NgStickyModule
     ],
     providers: [
         NewsService,
