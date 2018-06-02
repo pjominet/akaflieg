@@ -5,8 +5,8 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4242",
-    "build": "ng build --prod --bh $1",
+    "start": "ng serve --aot --port 4242",
+    "build": "ng build --delete-output-path --prod --aot --build-optimizer --output-hashing none --base-href /akaflieg/",
     "lint": "ng lint"
   },
   "private": true,
