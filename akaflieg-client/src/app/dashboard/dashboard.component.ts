@@ -17,6 +17,6 @@ export class DashboardComponent implements OnInit {
     public menuToggle() {
         this.renderer.setElementClass(
             this.elementRef.nativeElement.querySelector('.navbar-collapse'),
-            'in', false);
+            'show', false);
     }
 }

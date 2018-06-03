@@ -1,13 +1,6 @@
 @import '../app.component';
 
 /* --- Main Navbar --- */
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:active,
-.navbar-default .navbar-nav > .open > a:hover {
-  background-color: transparent;
-  color: $default-highlight;
-}
-
 .navbar-main {
   background-color: $default;
   border-color: transparent;
@@ -18,41 +11,27 @@
   color: white;
 }
 
+.navbar-main .navbar-brand {
+  visibility: hidden;
+  @include transition(all 0.3s);
+}
+
 .navbar-main .navbar-brand:hover,
 .navbar-main .navbar-brand:active,
 .navbar-main .navbar-brand.active {
   color: white;
 }
 
-.navbar-main .navbar-collapse {
-  border-color: rgba(255, 255, 255, 0.02);
-}
-
-.navbar-main .navbar-toggle {
-  background-color: $default;
-  border-color: $default;
-  text-transform: uppercase;
-  color: white;
-  font-size: 12px;
-}
-
-.navbar-main .nav > li > a {
+.navbar-main .nav-link {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
   color: white;
 }
 
-.navbar-main .nav > li > a:hover {
+.navbar-main .nav-link:hover {
   color: $default-highlight;
   outline: none;
-}
-
-.navbar-main .navbar-nav > .active > a,
-.navbar-main .navbar-nav > .active > a:hover,
-.navbar-main .navbar-nav > .active > a:focus {
-  color: white;
-  background-color: $default-highlight;
 }
 
 .no-mobile {
@@ -72,18 +51,9 @@
     padding: 10px 0;
   }
 
-  .navbar-main .navbar-brand {
-    visibility: hidden;
-    @include transition(all 0.3s);
-  }
-
   .navbar-main.affix .navbar-brand {
     visibility: visible;
     font-size: 1.3em;
-  }
-
-  .navbar-main .navbar-nav > .active > a {
-    @include border-radius(3px);
   }
 
   .no-mobile {
