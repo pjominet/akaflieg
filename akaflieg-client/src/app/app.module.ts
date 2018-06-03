@@ -35,12 +35,12 @@ import {AlertComponent} from './helpers/alert/alert.component';
 import {NewsService} from './sections/news/news.service';
 import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
 import {AlertService} from './helpers/alert/alert.service';
-import {AuthGuard} from './dashboard/login/auth.guard';
-import {AuthenticationService} from './dashboard/login/authentication.service';
+import {AuthGuard} from './helpers/auth/auth.guard';
+import {AuthenticationService} from './helpers/auth/authentication.service';
 import {UserService} from './helpers/user/user.service';
 import {ContactService} from './sections/contact/contact.service'
 import {DashboardCmsService} from './dashboard/dashboard-cms/dashboard-cms.service';
-import {JwtInterceptor} from './helpers/jwt.interceptor';
+import {JwtInterceptor} from './helpers/auth/jwt.interceptor';
 /* --- Routing --- */
 import {AppRoutingModule} from './app-routing';
 

@@ -7,7 +7,7 @@ import {DashboardCmsComponent} from './dashboard/dashboard-cms/dashboard-cms.com
 import {MainPageComponent} from './main-page/main-page.component';
 import {NotFoundComponent} from './helpers/not-found/not-found.component';
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
-import {AuthGuard} from './dashboard/login/auth.guard';
+import {AuthGuard} from './helpers/auth/auth.guard';
 import {LoginComponent} from './dashboard/login/login.component';
 
 const appRoutes: Routes = [
