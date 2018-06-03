@@ -10,8 +10,9 @@ This project is build with the Angular 4 as Frontend and Java Spring Boot as Bac
 
 ### Prerequisites
 
-* nodejs with npm
-* Maven
+* nodejs 8.x or newer
+* npm
+* Maven 2
 * Java 1.8 or newer
 
 Switch to the correct dev-branch!
@@ -25,10 +26,16 @@ Switch to the correct dev-branch!
     npm start
     
 ### Build correct dist for deployment
-    ng build --prod --bh /correct/path/
+    npm run-script build
+Check if base-href option is correct in package.json 
     
 ## Backend (akaflieg-server)
 
 ### How to setup
+    adapt application.properties
 
 ### Run locally
+    just run the from IDE or start builded JAR
+
+### Build for deployment
+    mvn clean validate package
