@@ -18,12 +18,15 @@
                                     Den zu editierenden Bereich auswählen
                                 </label>
                                 <select class="form-control" id="editSelect" name="editSelect" [(ngModel)]="editSelect">
-                                    <option [ngValue]="editOptions[0]">News</option>
-                                    <optgroup label="Preise">
+                                    <option [ngValue]="editOptions[0]">Über Uns</option>
+                                    <optgroup label="Ausbildung">
                                         <option [ngValue]="editOptions[1]">Schnuppern</option>
                                         <option [ngValue]="editOptions[2]">Mitgliedschaft</option>
                                         <option [ngValue]="editOptions[3]">Fluggebühren</option>
+                                        <option [ngValue]="editOptions[4]">Infos</option>
                                     </optgroup>
+                                    <option [ngValue]="editOptions[5]">Projekte</option>
+                                    <!--<option [ngValue]="editOptions[6]">News</option>-->
                                 </select>
                             </div>
                         </div>

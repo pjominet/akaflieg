@@ -16,7 +16,7 @@ export class DashboardCmsComponent implements OnInit {
     currentUser: User;
     users: User[] = [];
     editSelect: any = {};
-    editOptions = ['news', 'tryout', 'membership', 'prices'];
+    editOptions = ['about', 'tryout', 'membership', 'prices', 'info', 'projects'];
     news: any = {};
     private fileToUpload: FormData;
 
