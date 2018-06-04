@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-
-declare const google: any;
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {} from '@types/googlemaps';
 
 @Component({
     selector: 'app-about',
@@ -9,34 +8,44 @@ declare const google: any;
 })
 export class AboutComponent implements OnInit {
 
+    @ViewChild('gmap') mapElement: any;
+    map: google.maps.Map;
+    label: 'Halle der Akaflieg Köln';
+    zoom: number = 17;
+    lat: number = 50.40357;
+    lng: number = 6.528953;
+
     constructor() {
     }
 
     ngOnInit() {
-        const label = 'Halle der Akaflieg Köln';
-        const zoom = 17;
-        const lat = 50.40357;
-        const lng = 6.528953;
-        this.mapInit(lat, lng, zoom, label);
+        this.initMap();
     }
 
-    private mapInit(lat, lng, zoom, label) {
-        const coords = {lat: lat, lng: lng};
+    private initMap() {
+        const mapProp = {
+            center: new google.maps.LatLng(this.lat, this.lng),
+            zoom: this.zoom,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapProp);
 
-        const map = new google.maps.Map(document.getElementById('map'), {
-            zoom: zoom,
-            center: coords
-        });
+        this.map.setCenter(new google.maps.LatLng(this.lat, this.lng));
+
+        const coords = new google.maps.LatLng(this.lat, this.lng);
+
         const marker = new google.maps.Marker({
             position: coords,
-            map: map,
-            draggable: false,
+            map: this.map,
+            draggable: false
         });
+
         const infowindow = new google.maps.InfoWindow({
-            content: label
+            content: this.label
         });
-        marker.addListener('click', function () {
-            infowindow.open(map, marker);
+
+        marker.addListener('click', () => {
+            infowindow.open(this.map, marker);
         });
     }
 }
