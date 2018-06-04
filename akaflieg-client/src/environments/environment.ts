@@ -6,5 +6,6 @@
 export const environment = {
     production: false,
     dataServiceURI: 'http://localhost:8888',
+    weatherServiceURI: 'http://api.openweathermap.org/data/2.5/weather',
     mailTo: 'test'
 };

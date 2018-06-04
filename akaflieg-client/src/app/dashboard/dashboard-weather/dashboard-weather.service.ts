@@ -3,6 +3,7 @@ import {throwError as observableThrowError, Observable} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class DashboardWeatherService {
@@ -12,7 +13,7 @@ export class DashboardWeatherService {
     }
 
     public getWeatherData(lat, lon): Observable<any> {
-        return this.http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon +
+        return this.http.get(environment.weatherServiceURI + '?lat=' + lat + '&lon=' + lon +
             '&APPID=' + this.apiKey + '&units=metric&lang=de').pipe(
             map(response => response),
             catchError(error => {
