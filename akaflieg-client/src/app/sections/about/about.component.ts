@@ -10,10 +10,6 @@ export class AboutComponent implements OnInit {
 
     @ViewChild('gmap') mapElement: any;
     map: google.maps.Map;
-    label: 'Halle der Akaflieg Köln';
-    zoom: number = 17;
-    lat: number = 50.40357;
-    lng: number = 6.528953;
 
     constructor() {
     }
@@ -23,16 +19,21 @@ export class AboutComponent implements OnInit {
     }
 
     private initMap() {
-        const mapProp = {
-            center: new google.maps.LatLng(this.lat, this.lng),
-            zoom: this.zoom,
+        const label = '<div style="margin-right: .7em">Halle der Akaflieg Köln</div>';
+        const zoom = 17;
+        const lat = 50.40357;
+        const lng = 6.528953;
+
+        const mapOptions = {
+            center: new google.maps.LatLng(lat, lng),
+            zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        this.map = new google.maps.Map(this.mapElement.nativeElement, mapProp);
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
-        this.map.setCenter(new google.maps.LatLng(this.lat, this.lng));
+        this.map.setCenter(new google.maps.LatLng(lat, lng));
 
-        const coords = new google.maps.LatLng(this.lat, this.lng);
+        const coords = new google.maps.LatLng(lat, lng);
 
         const marker = new google.maps.Marker({
             position: coords,
@@ -41,7 +42,7 @@ export class AboutComponent implements OnInit {
         });
 
         const infowindow = new google.maps.InfoWindow({
-            content: this.label
+            content: label
         });
 
         marker.addListener('click', () => {
