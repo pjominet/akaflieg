@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Courgette|Droid+Serif|Roboto:300,400,700');
+@import '~@ngx-gallery/core/styles/gallery';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~font-awesome/css/font-awesome.min.css";
+
 @import 'scss/buttons';
 @import 'scss/footer';
 @import 'scss/images';
 @import 'scss/colors';
 @import 'scss/mixins';
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Courgette|Droid+Serif|Roboto:300,400,700');
-@import '~@ngx-gallery/core/styles/gallery';
 
 /* --- General --- */
 body, html {
@@ -36,12 +39,7 @@ p.large {
   font-size: 16px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   font-weight: 700;
 }

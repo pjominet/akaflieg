@@ -29,13 +29,19 @@
   color: white;
 }
 
-.navbar-main .nav-link:hover {
-  color: $default-highlight;
+.navbar-main .nav-link:hover,
+.navbar-main .nav-link:active,
+.navbar-main .nav-link.active {
+  color: $default-highlight !important;
   outline: none;
 }
 
 .no-mobile {
   visibility: hidden;
+}
+
+.mobile-only {
+  visibility: visible;
 }
 
 @media (min-width: 768px) {
@@ -58,6 +64,10 @@
 
   .no-mobile {
     visibility: visible;
+  }
+
+  .mobile-only {
+    visibility: hidden;
   }
 }
 

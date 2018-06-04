@@ -1,14 +1,13 @@
 /* --- Angular Modules --- */
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {LOCALE_ID, NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
-import {LOCALE_ID} from '@angular/core';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {NgStickyModule} from 'ng-sticky';
 import {GalleryModule} from '@ngx-gallery/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -74,7 +73,8 @@ import {AppRoutingModule} from './app-routing';
         AppRoutingModule,
         NgxPageScrollModule,
         GalleryModule.forRoot(),
-        NgStickyModule
+        NgStickyModule,
+        NgbModule.forRoot()
     ],
     providers: [
         NewsService,

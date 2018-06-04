@@ -9,6 +9,7 @@ declare const $: any;
 })
 export class MainPageComponent implements OnInit {
 
+    public isCollapsed = true;
     public hidePrivacy = true;
     public hideTerms = true;
 
