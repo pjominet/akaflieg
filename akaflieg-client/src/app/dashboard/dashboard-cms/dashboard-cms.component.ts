@@ -13,36 +13,23 @@ import {environment} from '../../../environments/environment';
     styleUrls: ['./dashboard-cms.component.scss']
 })
 export class DashboardCmsComponent implements OnInit {
-    currentUser: User;
-    users: User[] = [];
     editSelect: any = {};
     editOptions = ['about', 'tryout', 'membership', 'prices', 'info', 'projects'];
-    news: any = {};
+    content: any = {};
+    date: any;
+    time: any;
     private fileToUpload: FormData;
 
-    constructor(private userService: UserService,
-                private newsService: NewsService,
-                private cmsService: DashboardCmsService,
+    constructor(private cmsService: DashboardCmsService,
                 private loginService: AuthenticationService,
                 private router: Router) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     ngOnInit() {
         this.editSelect = this.editOptions[0];
-        if (environment.production)
-            this.loadAllUsers();
-    }
-
-    private loadAllUsers() {
-        this.userService.getAll().subscribe(users => {
-            this.users = users;
-        });
     }
 
     public upload() {
-        if (this.editSelect === 'news')
-            this.newsService.addItem(this.news.title, this.news.body);
         this.cmsService.upload(this.fileToUpload);
     }
 

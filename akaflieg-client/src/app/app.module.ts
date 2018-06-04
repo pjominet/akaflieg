@@ -1,6 +1,8 @@
 /* --- Angular Modules --- */
 import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
+import {registerLocaleData} from '@angular/common';
+import localeDe from '@angular/common/locales/de';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
@@ -43,6 +45,7 @@ import {JwtInterceptor} from './helpers/auth/jwt.interceptor';
 /* --- Routing --- */
 import {AppRoutingModule} from './app-routing';
 
+registerLocaleData(localeDe, 'de');
 
 @NgModule({
     declarations: [

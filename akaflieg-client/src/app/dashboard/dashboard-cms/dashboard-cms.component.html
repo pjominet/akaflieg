@@ -14,10 +14,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="editSelect" class="text-muted">
-                                    Den zu editierenden Bereich auswählen
+                                <label for="edit-select" class="text-muted">
+                                    Den zu editierenden Bereich wählen
                                 </label>
-                                <select class="form-control" id="editSelect" name="editSelect" [(ngModel)]="editSelect">
+                                <select class="form-control" id="edit-select" name="editSelect" [(ngModel)]="editSelect">
                                     <option [ngValue]="editOptions[0]">Über Uns</option>
                                     <optgroup label="Ausbildung">
                                         <option [ngValue]="editOptions[1]">Schnuppern</option>
@@ -30,45 +30,48 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
-                                <label for="date-time" class="text-muted">
-                                    Veröffentlichungsdatum und -zeit auswählen
+                                <label for="date-picker" class="text-muted">
+                                    Veröffentlichungsdatum wählen
                                 </label>
-                                <input type="datetime-local" class="form-control" id="date-time">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" [(ngModel)]="date" placeholder="yyyy-mm-dd"
+                                           id="date-picker" ngbDatepicker #d="ngbDatepicker" name="datePicker">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" (click)="d.toggle()" type="button">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="time-picker" class="text-muted">
+                                    Veröffentlichungszeit wählen
+                                </label>
+                                <ngb-timepicker [(ngModel)]="time" [spinners]="false"
+                                                id="time-picker" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row" *ngIf="editSelect === 'news'">
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="news-title" class="text-muted">News Titel</label>
-                                <input type="text" class="form-control" id="news-title"
-                                       name="title" [(ngModel)]="news.title" #title="ngModel">
-                            </div>
-                            <div class="form-group">
-                                <label for="news-body" class="text-muted">News Text</label>
-                                <textarea class="form-control" id="news-body" rows="8"
-                                          name="body" [(ngModel)]="news.body" #body="ngModel"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="img-upload" class="text-muted">Ein Bild hochladen</label>
-                                <br>
-                                <label class="btn btn-default btn-file">
-                                    Durchsuchen...
-                                    <input type="file" id="img-upload"
-                                           accept="*.jpg, *.jpeg, *.png" (change)="getFile($event)">
-                                </label>
+                                <label for="content-body" class="text-muted">Neuer Inhalt</label>
+                                <textarea class="form-control" id="content-body" rows="8"
+                                          name="body" [(ngModel)]="content.body" #body="ngModel"></textarea>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row" *ngIf="editSelect !== 'news'">
-                        <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-auto">
                             <div class="form-group">
                                 <label for="data-upload" class="text-muted">
-                                    Eine preformatierte Datei hochladen
+                                    Eine vorformatierte Datei hochladen
                                 </label>
                                 <br>
                                 <label class="btn btn-default btn-file">
@@ -80,18 +83,15 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-2">
-                            <button type="submit" class="btn btn-primary btn-xl">Erstellen</button>
+                    <div class="row justify-content-between">
+                        <div class="col-md-auto align-self-start">
+                            <button type="submit" class="btn btn-primary btn-xl" id="create">Aktualisieren</button>
+                        </div>
+                        <div class="col-md-auto align-self-end">
+                            <button class="btn btn-secondary" (click)="logout()" id="logout">Logout</button>
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-offset-1 col-lg-1">
-                <button class="btn btn-primary btn-xl" (click)="logout()">Logout</button>
             </div>
         </div>
     </div>
