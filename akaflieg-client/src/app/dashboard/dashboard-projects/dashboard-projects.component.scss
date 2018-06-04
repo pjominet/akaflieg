@@ -1,12 +1,17 @@
 @import '../dashboard.component';
 
 main > h3 {
-  padding-top: 2.7em;
-  margin-top: -2em;
+  margin-top: 1em;
 }
 
 main > h4 {
   color: $text-light;
+  text-transform: none;
+  text-indent: 20px;
+}
+
+main > p {
+  margin-left: 20px;
 }
 
 aside {

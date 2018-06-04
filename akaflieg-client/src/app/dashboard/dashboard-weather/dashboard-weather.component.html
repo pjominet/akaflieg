@@ -6,12 +6,12 @@
             </div>
         </div>
         <hr>
-        <div class="row space-bottom">
+        <div *ngIf="!loading" class="row space-bottom">
             <div class="col-md-4">
                 <h3 class="text-muted text-center">{{weatherItems[0].cityName}}</h3>
                 <img src="http://openweathermap.org/img/w/{{weatherItems[0].iconName}}.png"
                      alt="descriptive weather icon"
-                     class="img-responsive img-centered">
+                     class="img-fluid mx-auto d-block">
             </div>
             <div class="col-md-4">
                 <p class="font-larger">
@@ -41,7 +41,7 @@
                 <h3 class="text-muted text-center">{{weatherItems[1].cityName}}</h3>
                 <img src="http://openweathermap.org/img/w/{{weatherItems[1].iconName}}.png"
                      alt="descriptive weather icon"
-                     class="img-responsive img-centered">
+                     class="img-fluid mx-auto d-block">
             </div>
             <div class="col-md-4">
                 <p class="font-larger">
@@ -69,7 +69,8 @@
         <div class="row space-bottom">
             <div class="col-md-12 text-center">
                 <button class="btn btn-lg btn-wide btn-primary" (click)="loadWeather()">
-                    <i class="fa fa-refresh fa-lg fa-fw"></i>
+                    <i *ngIf="!loading" class="fa fa-refresh fa-lg fa-fw"></i>
+                    <i *ngIf="loading" class="fa fa-refresh fa-lg fa-fw fa-spin"></i>
                 </button>
             </div>
         </div>

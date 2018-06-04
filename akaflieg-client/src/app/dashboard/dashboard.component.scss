@@ -12,34 +12,24 @@
 .navbar-dashboard {
   background-color: $default;
   border-color: transparent;
+  padding: 10px 0;
 }
 
-.navbar-dashboard .nav li a {
+.navbar-dashboard .nav-link {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 1px;
-  color: white;
+  color: white !important;
 }
 
-.navbar-dashboard .nav li a:hover,
-.navbar-dashboard .nav li a:focus {
-  color: $default-highlight;
+.navbar-dashboard .nav-link:hover,
+.navbar-dashboard .nav-link:active,
+.navbar-dashboard .nav-link.active {
+  color: $default-highlight !important;
   outline: none;
 }
 
 .navbar-dashboard .navbar-brand {
   color: white;
   font-family: 'Courgette', serif;
-}
-
-.navbar-dashboard .navbar-collapse {
-  border-color: rgba(255, 255, 255, 0.02);
-}
-
-.navbar-dashboard .navbar-toggle {
-  background-color: $default;
-  border-color: $default;
-  text-transform: uppercase;
-  color: white;
-  font-size: 12px;
 }

@@ -6,6 +6,7 @@ import {Component, ElementRef, OnInit, Renderer} from '@angular/core';
     styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+    public isCollapsed = true;
 
     constructor(private elementRef: ElementRef, private renderer: Renderer) {
     }

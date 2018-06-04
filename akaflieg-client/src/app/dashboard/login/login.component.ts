@@ -12,10 +12,10 @@ import {environment} from '../../../environments/environment';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    loginForm: FormGroup;
-    submitted = false;
-    loading = false;
-    redirectUrl: string;
+    public loginForm: FormGroup;
+    public submitted = false;
+    public loading = false;
+    private redirectUrl: string;
 
     constructor(private router: Router,
                 private route: ActivatedRoute,
@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.form.username.value, this.form.password.value)
             .pipe(first()).subscribe(
             success => {
-                console.log(this.redirectUrl + ', token:' + localStorage.getItem('currentUser'));
                 this.router.navigate([this.redirectUrl])
                     .then(function () {
                         if (!environment.production)
@@ -63,7 +62,9 @@ export class LoginComponent implements OnInit {
                     });
             },
             error => {
-                this.alertService.error(error);
+                if (error.status === 403)
+                    this.alertService.error('Zugang verweigert! Benutzername oder Passwort falsch');
+                console.log(error);
                 this.loading = false;
             });
     }

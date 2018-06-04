@@ -8,8 +8,9 @@ import {WeatherItem} from './weather-item';
     styleUrls: ['./dashboard-weather.component.scss']
 })
 export class DashboardWeatherComponent implements OnInit {
-    weatherItem: WeatherItem;
-    weatherItems = [];
+    public weatherItem: WeatherItem;
+    public weatherItems = [];
+    public loading = false;
 
     constructor(private weatherService: DashboardWeatherService) {
     }
@@ -19,6 +20,7 @@ export class DashboardWeatherComponent implements OnInit {
     }
 
     loadWeather(): void {
+        this.loading = true;
         // 50.40°, 6.52° = Dahlemer Binz Flugplatz, unknown to api
         // 50.42°, 6.57° = Schmidtheim
         this.weatherService.getWeatherData(50.42, 6.57).subscribe(
@@ -52,6 +54,7 @@ export class DashboardWeatherComponent implements OnInit {
                 this.weatherItems.push(this.weatherItem);
             }
         );
+        this.loading = false;
     }
 
     private degToCompass(deg: number): string {
