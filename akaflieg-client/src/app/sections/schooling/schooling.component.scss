@@ -7,7 +7,7 @@ table {
 }
 
 table th, td {
-  padding: .9em;
+  padding: .7em;
 }
 
 table tr:nth-child(even) {
@@ -16,4 +16,10 @@ table tr:nth-child(even) {
 
 table tr:nth-child(odd) {
   background-color: $bg-default;
+}
+
+h5 {
+  font-weight: bold;
+  color: $text-light;
+  font-size: 15px;
 }
