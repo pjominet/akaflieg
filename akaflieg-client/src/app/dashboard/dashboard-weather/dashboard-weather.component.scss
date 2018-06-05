@@ -1,11 +1,15 @@
 @import '../dashboard.component';
 
-.font-larger {
-  font-size: larger;
+p {
+  text-align: center;
 }
 
-@media (max-width: 768px) {
-  p {
-    text-align: center;
+.font-larger {
+  font-size: 15px;
+}
+
+@media (min-width: 1024px) {
+  .font-larger {
+    font-size: larger;
   }
 }

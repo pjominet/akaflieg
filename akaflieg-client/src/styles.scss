@@ -56,11 +56,26 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 3em;
 }
 
+/**
 .modal-backdrop {
-  /* bug fix - no overlay */
+  /* bug fix - no overlay
   display: none;
+}*/
+
+.btn,
+.btn:focus,
+.btn:active,
+.btn.active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-.btn {
-  border: none;
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler.active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }

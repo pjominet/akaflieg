@@ -4,45 +4,49 @@
     <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-dark fixed-top navbar-main"
          ng-sticky [offSet]="0" [addClass]="'affix'" id="navigation">
         <div class="container-fluid">
-            <div class="mr-auto ml-3">
+            <div class="mr-auto ml-4">
                 <a class="navbar-brand" href="#page-top">Akaflieg Köln e.V.</a>
             </div>
 
-            <button type="button" class="navbar-toggler navbar-toggler-right"
+            <button type="button" class="navbar-toggler navbar-toggler-right mr-2"
                     (click)="isCollapsed = !isCollapsed"
                     aria-controls="navbar-hamburger" [attr.aria-expanded]="!isCollapsed">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fa fa-lg fa-bars" aria-hidden="true"></i>
             </button>
 
+            <a routerLink="/dashboard/weather" id="single-link" class="btn navbar-toggler ml-auto mr-md-2">
+                Verein&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </a>
+
             <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="navbar-hamburger">
-                <div class="nav navbar-nav ml-auto mr-3">
-                    <a pageScroll href="#page-top" class="nav-item nav-link"
+                <div class="nav navbar-nav ml-auto mr-4">
+                    <a pageScroll href="#page-top" class="nav-item nav-link ml-auto"
                        (click)="isCollapsed = !isCollapsed">
                         <span class="mobile-only">Top</span>
                     </a>
-                    <a pageScroll href="#about" class="nav-item nav-link"
+                    <a pageScroll href="#about" class="nav-item nav-link ml-auto"
                        (click)="isCollapsed = !isCollapsed">
                         Über uns
                     </a>
-                    <a pageScroll href="#planes" class="nav-item nav-link"
+                    <a pageScroll href="#planes" class="nav-item nav-link ml-auto"
                        (click)="isCollapsed = !isCollapsed">
                         Flugzeuge
                     </a>
-                    <a pageScroll href="#schooling" class="nav-item nav-link"
+                    <a pageScroll href="#schooling" class="nav-item nav-link ml-auto"
                        (click)="isCollapsed = !isCollapsed">
                         Ausbildung
                     </a>
                     <!--
-                    <a pageScroll href="#news" class="nav-item nav-link"
+                    <a pageScroll href="#news" class="nav-item nav-link ml-auto"
                        (click)="isCollapsed = !isCollapsed">
                         News
                     </a>
                     -->
-                    <a pageScroll href="#contact" class="nav-item nav-link"
+                    <a pageScroll href="#contact" class="nav-item nav-link ml-auto"
                        (click)="isCollapsed = !isCollapsed">
                         Kontakt
                     </a>
-                    <a routerLink="/dashboard/weather" class="nav-item nav-link">
+                    <a routerLink="/dashboard/weather" class="nav-item nav-link ml-auto">
                         Verein&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>

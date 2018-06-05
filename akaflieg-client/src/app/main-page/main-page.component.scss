@@ -2,8 +2,31 @@
 
 /* --- Main Navbar --- */
 .navbar-main {
+  background-color: transparent;
+  @include transition(all 0.3s);
+  border: none;
+}
+
+.navbar-main.affix {
   background-color: $default;
-  border-color: transparent;
+  padding: 10px 0;
+}
+
+.navbar-main button {
+  visibility: hidden;
+}
+
+.navbar-main.affix button {
+  visibility: visible;
+}
+
+.navbar-main.affix #single-link {
+  display: none;
+}
+
+.navbar-main.affix .navbar-brand {
+  visibility: visible;
+  font-size: 1.3em;
 }
 
 .navbar-main .navbar-brand {
@@ -44,22 +67,16 @@
   visibility: visible;
 }
 
+@media (max-width: 385px) {
+  .navbar-main #single-link {
+    margin-top: -30px;
+    font-size: 17px;
+  }
+}
+
 @media (min-width: 768px) {
   .navbar-main {
-    background-color: transparent;
     padding: 25px 0;
-    @include transition(padding 0.3s);
-    border: none;
-  }
-
-  .navbar-main.affix {
-    background-color: $default;
-    padding: 10px 0;
-  }
-
-  .navbar-main.affix .navbar-brand {
-    visibility: visible;
-    font-size: 1.3em;
   }
 
   .no-mobile {
@@ -76,6 +93,14 @@
     visibility: visible;
     font-size: 1.8em;
   }
+
+  .navbar-main button {
+    visibility: visible;
+  }
+
+  .navbar-main #single-link {
+    display: none;
+  }
 }
 
 /* --- Main Header --- */
@@ -87,14 +112,14 @@ header {
 }
 
 header .intro-text {
-  padding-top: 100px;
-  padding-bottom: 50px;
+  padding-top: 10vh;
+  padding-bottom: 5vh;
 }
 
 header .intro-text .intro-lead-in {
   font-family: 'Courgette', serif;
-  font-size: 22px;
-  line-height: 22px;
+  font-size: 20px;
+  line-height: 20px;
   margin-bottom: 25px;
 }
 
@@ -109,8 +134,8 @@ header .intro-text .intro-heading {
 
 @media (min-width: 768px) {
   header .intro-text {
-    padding-top: 40vh;
-    padding-bottom: 35vh;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
   }
   header .intro-text .intro-lead-in {
     font-family: 'Courgette', serif;
@@ -125,5 +150,12 @@ header .intro-text .intro-heading {
     font-size: 60px;
     line-height: 60px;
     margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header .intro-text {
+    padding-top: 40vh;
+    padding-bottom: 35vh;
   }
 }

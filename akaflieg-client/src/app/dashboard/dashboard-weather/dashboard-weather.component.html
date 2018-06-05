@@ -6,63 +6,33 @@
             </div>
         </div>
         <hr>
-        <div *ngIf="!loading" class="row space-bottom">
+        <div *ngFor="let item of weatherItems" class="row space-bottom">
             <div class="col-md-4">
-                <h3 class="text-muted text-center">{{weatherItems[0].cityName}}</h3>
-                <img src="http://openweathermap.org/img/w/{{weatherItems[0].iconName}}.png"
+                <h3 class="text-muted text-center">{{item.cityName}}</h3>
+                <img src="https://openweathermap.org/img/w/{{item.iconName}}.png"
                      alt="descriptive weather icon"
                      class="img-fluid mx-auto d-block">
             </div>
             <div class="col-md-4">
                 <p class="font-larger">
-                    <span class="text-muted">Wetter aktuell:</span>&nbsp;{{weatherItems[0].cloudsDescription}}
+                    <span class="text-muted">Wetter&nbsp;aktuell:</span> {{item.cloudsDescription}}
                 </p>
                 <p class="font-larger">
-                    <span class="text-muted">Luftdruck:</span>&nbsp;{{weatherItems[0].pressure}} hPa
+                    <span class="text-muted">Luftdruck:</span>&nbsp;{{item.pressure}}&nbsp;hPa
                 </p>
                 <p class="font-larger">
-                    <span class="text-muted">Luftfeuchtigkeit:</span>&nbsp;{{weatherItems[0].humidity}}%
-                </p>
-            </div>
-            <div class="col-md-4">
-                <p class="font-larger">
-                    <span class="text-muted">Außentemperatur:</span>&nbsp;{{weatherItems[0].temperature}}°C
-                </p>
-                <p class="font-larger">
-                    <span class="text-muted">Windgeschwindigkeit:</span>&nbsp;{{weatherItems[0].windSpeed}}
-                    m/s</p>
-                <p class="font-larger">
-                    <span class="text-muted">Windausrichtung:</span>&nbsp;{{weatherItems[0].windDirection}}
-                </p>
-            </div>
-        </div>
-        <div class="row space-bottom">
-            <div class="col-md-4">
-                <h3 class="text-muted text-center">{{weatherItems[1].cityName}}</h3>
-                <img src="http://openweathermap.org/img/w/{{weatherItems[1].iconName}}.png"
-                     alt="descriptive weather icon"
-                     class="img-fluid mx-auto d-block">
-            </div>
-            <div class="col-md-4">
-                <p class="font-larger">
-                    <span class="text-muted">Wetter aktuell:</span>&nbsp;{{weatherItems[1].cloudsDescription}}
-                </p>
-                <p class="font-larger">
-                    <span class="text-muted">Luftdruck:</span>&nbsp;{{weatherItems[1].pressure}} hPa
-                </p>
-                <p class="font-larger">
-                    <span class="text-muted">Luftfeuchtigkeit:</span>&nbsp;{{weatherItems[1].humidity}}%
+                    <span class="text-muted">Luftfeuchtigkeit:</span>&nbsp;{{item.humidity}}%
                 </p>
             </div>
             <div class="col-md-4">
                 <p class="font-larger">
-                    <span class="text-muted">Außentemperatur:</span>&nbsp;{{weatherItems[1].temperature}}°C
+                    <span class="text-muted">Außentemperatur:</span>&nbsp;{{item.temperature}}°C
                 </p>
                 <p class="font-larger">
-                    <span class="text-muted">Windgeschwindigkeit:</span>&nbsp;{{weatherItems[1].windSpeed}}
-                    m/s</p>
+                    <span class="text-muted">Windgeschwindigkeit:</span>&nbsp;{{item.windSpeed}}&nbsp;m/s
+                </p>
                 <p class="font-larger">
-                    <span class="text-muted">Windausrichtung:</span>&nbsp;{{weatherItems[1].windDirection}}
+                    <span class="text-muted">Windausrichtung:</span>&nbsp;{{item.windDirection}}
                 </p>
             </div>
         </div>
