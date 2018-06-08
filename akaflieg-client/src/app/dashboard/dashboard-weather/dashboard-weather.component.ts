@@ -1,22 +1,29 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {DashboardWeatherService} from './dashboard-weather.service';
 import {WeatherItem} from './weather-item';
+import {AlertService} from '../../helpers/alert/alert.service';
 
 @Component({
     selector: 'app-dashboard-weather',
     templateUrl: './dashboard-weather.component.html',
     styleUrls: ['./dashboard-weather.component.scss']
 })
-export class DashboardWeatherComponent implements OnInit {
+export class DashboardWeatherComponent implements OnInit, AfterViewInit {
     public weatherItem: WeatherItem;
     public weatherItems = [];
     public loading = false;
 
-    constructor(private weatherService: DashboardWeatherService) {
+    constructor(private weatherService: DashboardWeatherService, private alertService: AlertService) {
     }
 
     ngOnInit() {
         this.loadWeather();
+    }
+
+    ngAfterViewInit() {
+        // no weather items, something went wrong
+        if (this.weatherItems.length === 0)
+            this.alertService.error('Fehler: API antwortet nicht. Keine Wetterdaten verfügbar.');
     }
 
     loadWeather(): void {
@@ -54,6 +61,12 @@ export class DashboardWeatherComponent implements OnInit {
                 this.weatherItems.push(this.weatherItem);
             }
         );
+
+        if (this.weatherItems.length === 0) {
+            this.alertService.clear();
+            this.alertService.error('Fehler: API antwortet nicht. Keine Wetterdaten verfügbar.');
+        }
+
         this.loading = false;
     }
 

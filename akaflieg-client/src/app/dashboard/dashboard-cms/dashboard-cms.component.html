@@ -25,8 +25,9 @@
                                         <option [ngValue]="editOptions[3]">Fluggebühren</option>
                                         <option [ngValue]="editOptions[4]">Infos</option>
                                     </optgroup>
-                                    <option [ngValue]="editOptions[5]">Projekte</option>
-                                    <!--<option [ngValue]="editOptions[6]">News</option>-->
+                                    <optgroup label="Dashboard">
+                                        <option [ngValue]="editOptions[5]">Projekte</option>
+                                    </optgroup>
                                 </select>
                             </div>
                         </div>
@@ -77,7 +78,7 @@
                                 <label class="btn btn-default btn-file">
                                     Durchsuchen...
                                     <input type="file" id="data-upload"
-                                           accept="*.txt, *.json, *.csv" (change)="getFile($event)">
+                                           accept="*.txt, *.json, *.md" (change)="getFile($event)">
                                 </label>
                             </div>
                         </div>

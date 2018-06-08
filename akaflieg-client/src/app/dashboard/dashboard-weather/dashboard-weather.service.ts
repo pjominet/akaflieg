@@ -1,8 +1,8 @@
 import 'rxjs';
-import {throwError as observableThrowError, Observable} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 
 @Injectable()
@@ -14,11 +14,7 @@ export class DashboardWeatherService {
 
     public getWeatherData(lat, lon): Observable<any> {
         return this.http.get(environment.weatherServiceURI + '?lat=' + lat + '&lon=' + lon +
-            '&APPID=' + this.apiKey + '&units=metric&lang=de').pipe(
-            map(response => response),
-            catchError(error => {
-                console.error(error);
-                return observableThrowError(error.json());
-            }));
+            '&APPID=' + this.apiKey + '&units=metric&lang=de')
+            .pipe(map(response => response));
     }
 }
