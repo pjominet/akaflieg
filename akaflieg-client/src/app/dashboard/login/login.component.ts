@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get form() {
+    get f() {
         return this.loginForm.controls;
     }
 
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.invalid) return;
 
         this.loading = true;
-        this.authService.login(this.form.username.value, this.form.password.value)
+        this.authService.login(this.f.username.value, this.f.password.value)
             .pipe(first()).subscribe(
             success => {
                 this.router.navigate([this.redirectUrl])
@@ -64,7 +64,10 @@ export class LoginComponent implements OnInit {
             error => {
                 if (error.status === 403)
                     this.alertService.error('Zugang verweigert! Benutzername oder Passwort falsch');
-                console.log(error);
+                if (error.status === 0)
+                    this.alertService.error('Unbekannter Fehler, Server womöglich nicht erreichbar');
+                if (!environment.production)
+                    console.log(error);
                 this.loading = false;
             });
     }
