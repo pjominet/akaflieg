@@ -7,9 +7,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
-import {NgStickyModule} from 'ng-sticky';
 import {GalleryModule} from '@ngx-gallery/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxStickyDirective} from './helpers/sticky/ngx-sticky.directive'
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -66,7 +66,8 @@ registerLocaleData(localeDe, 'de');
         NotFoundComponent,
         DashboardPublicComponent,
         AlertComponent,
-        LoginComponent
+        LoginComponent,
+        NgxStickyDirective
     ],
     imports: [
         BrowserModule,
@@ -76,7 +77,6 @@ registerLocaleData(localeDe, 'de');
         AppRoutingModule,
         NgxPageScrollModule,
         GalleryModule.forRoot(),
-        NgStickyModule,
         NgbModule.forRoot()
     ],
     providers: [

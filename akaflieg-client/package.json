@@ -1,11 +1,11 @@
 {
-  "name": "akaflieg-ui",
+  "name": "akaflieg-client",
   "version": "0.9.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot",
+    "start": "ng serve",
     "build": "ng build --delete-output-path --prod --base-href /",
     "lint": "ng lint"
   },
@@ -17,7 +17,6 @@
     "@angular/core": "^6.0.3",
     "@angular/forms": "^6.0.3",
     "@angular/http": "^6.0.3",
-    "@angular/material": "^6.2.0",
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
@@ -26,7 +25,6 @@
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.7",
     "font-awesome": "^4.7.0",
-    "ng-sticky": "^0.1.5",
     "ngx-page-scroll": "^5.0.0",
     "rxjs": "^6.2.0",
     "rxjs-compat": "^6.2.0",
