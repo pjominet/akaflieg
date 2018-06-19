@@ -9,7 +9,7 @@ import {DatePipe} from '@angular/common';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {GalleryModule} from '@ngx-gallery/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgxStickyDirective} from './helpers/sticky/ngx-sticky.directive'
+import {NgxStickyModule} from 'ng6-sticky';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -66,8 +66,7 @@ registerLocaleData(localeDe, 'de');
         NotFoundComponent,
         DashboardPublicComponent,
         AlertComponent,
-        LoginComponent,
-        NgxStickyDirective
+        LoginComponent
     ],
     imports: [
         BrowserModule,
@@ -77,7 +76,8 @@ registerLocaleData(localeDe, 'de');
         AppRoutingModule,
         NgxPageScrollModule,
         GalleryModule.forRoot(),
-        NgbModule.forRoot()
+        NgbModule.forRoot(),
+        NgxStickyModule
     ],
     providers: [
         NewsService,
