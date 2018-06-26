@@ -17,7 +17,8 @@
                                 <label for="edit-select" class="text-muted">
                                     Den zu editierenden Bereich wählen
                                 </label>
-                                <select class="form-control" id="edit-select" name="editSelect" [(ngModel)]="editSelect">
+                                <select class="form-control" id="edit-select" name="editSelect"
+                                        [(ngModel)]="editSelect">
                                     <option [ngValue]="editOptions[0]">Über Uns</option>
                                     <optgroup label="Ausbildung">
                                         <option [ngValue]="editOptions[1]">Schnuppern</option>
@@ -61,12 +62,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="content-body" class="text-muted">Neuer Inhalt</label>
-                                <textarea class="form-control" id="content-body" rows="8"
-                                          name="body" [(ngModel)]="content.body" #body="ngModel"></textarea>
+                                <label for="mde" class="text-muted">Neuer Inhalt</label>
+                                <td-text-editor [(value)]="content.mde" [options]="options"
+                                                id="mde" #mde></td-text-editor>
                             </div>
                         </div>
                     </div>
+
 
                     <div class="row">
                         <div class="col-md-auto">

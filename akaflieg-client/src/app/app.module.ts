@@ -1,15 +1,15 @@
 /* --- Angular Modules --- */
 import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
-import {registerLocaleData} from '@angular/common';
+import {DatePipe, registerLocaleData} from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {DatePipe} from '@angular/common';
 import {NgxPageScrollModule} from 'ngx-page-scroll';
 import {GalleryModule} from '@ngx-gallery/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxStickyModule} from 'ng6-sticky';
+import {CovalentTextEditorModule} from '@covalent/text-editor';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -48,51 +48,52 @@ import {AppRoutingModule} from './app-routing';
 registerLocaleData(localeDe, 'de');
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        MainPageComponent,
-        NewsComponent,
-        AboutComponent,
-        PlanesComponent,
-        SchoolingComponent,
-        AffiliatesComponent,
-        ContactComponent,
-        DashboardComponent,
-        DashboardCmsComponent,
-        DashboardProjectsComponent,
-        DashboardWeatherComponent,
-        PrivacyPolicyComponent,
-        ImprintComponent,
-        NotFoundComponent,
-        DashboardPublicComponent,
-        AlertComponent,
-        LoginComponent
-    ],
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        FormsModule,
-        HttpClientModule,
-        AppRoutingModule,
-        NgxPageScrollModule,
-        GalleryModule.forRoot(),
-        NgbModule.forRoot(),
-        NgxStickyModule
-    ],
-    providers: [
-        NewsService,
-        DashboardWeatherService,
-        AuthGuard,
-        AlertService,
-        AuthenticationService,
-        UserService,
-        ContactService,
-        DashboardCmsService,
-        DatePipe,
-        {provide: LOCALE_ID, useValue: 'de-DE'},
-        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    MainPageComponent,
+    NewsComponent,
+    AboutComponent,
+    PlanesComponent,
+    SchoolingComponent,
+    AffiliatesComponent,
+    ContactComponent,
+    DashboardComponent,
+    DashboardCmsComponent,
+    DashboardProjectsComponent,
+    DashboardWeatherComponent,
+    PrivacyPolicyComponent,
+    ImprintComponent,
+    NotFoundComponent,
+    DashboardPublicComponent,
+    AlertComponent,
+    LoginComponent
+  ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    NgxPageScrollModule,
+    GalleryModule.forRoot(),
+    NgbModule.forRoot(),
+    NgxStickyModule,
+    CovalentTextEditorModule
+  ],
+  providers: [
+    NewsService,
+    DashboardWeatherService,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    ContactService,
+    DashboardCmsService,
+    DatePipe,
+    {provide: LOCALE_ID, useValue: 'de-DE'},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

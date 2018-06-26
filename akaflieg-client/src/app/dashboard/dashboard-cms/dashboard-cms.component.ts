@@ -1,11 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from '../../helpers/user/user';
-import {UserService} from '../../helpers/user/user.service';
-import {NewsService} from '../../sections/news/news.service';
 import {DashboardCmsService} from './dashboard-cms.service';
 import {AuthenticationService} from '../../helpers/auth/authentication.service';
 import {Router} from '@angular/router';
-import {environment} from '../../../environments/environment';
 
 @Component({
     selector: 'app-dashboard-cms',
@@ -15,10 +11,22 @@ import {environment} from '../../../environments/environment';
 export class DashboardCmsComponent implements OnInit {
     editSelect: any = {};
     editOptions = ['about', 'tryout', 'membership', 'prices', 'info', 'projects'];
-    content: any = {};
+    content: any = {
+        mde: '# Test\nPreview Text'
+    };
     date: any;
     time: any;
     private fileToUpload: FormData;
+
+    options: any = {
+        toolbar: ["bold", "italic", "heading", "|", "link", "table", "|", "preview", "guide"],
+        blockStyles: {
+            italic: '_'
+        },
+        indentWithTabs: false,
+        spellChecker: false,
+        tabSize: 4
+    };
 
     constructor(private cmsService: DashboardCmsService,
                 private loginService: AuthenticationService,
