@@ -62,20 +62,24 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-12">
                             <div class="form-group">
-                                <label for="mde" class="text-muted">Neuer Inhalt</label>
-                                <td-text-editor [(value)]="content.mde" [options]="options"
-                                                id="mde" #mde></td-text-editor>
+                                <label class="text-muted">Neuer Inhalt</label>
+                                <td-text-editor [(value)]="mdeContent" [options]="mdeOptions"></td-text-editor>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-auto">
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="data-upload" class="text-muted">
-                                    Eine vorformatierte Datei hochladen
+                                    Eine vorformatierte Datei hochladen<br>
+                                    <span class="text-sm">* erlaubt sind .txt, .md und .json</span>
                                 </label>
                                 <br>
                                 <label class="btn btn-default btn-file">
@@ -85,14 +89,19 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-info float-right" (click)="openMarkdownGuide()">Markdown Guide</button>
+                        </div>
                     </div>
 
-                    <div class="row justify-content-between">
-                        <div class="col-md-auto align-self-start">
-                            <button type="submit" class="btn btn-primary btn-xl" id="create">Aktualisieren</button>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary btn-xl" id="create" (click)="update()">Aktualisieren</button>
                         </div>
-                        <div class="col-md-auto align-self-end">
-                            <button class="btn btn-danger" (click)="logout()" id="logout">Logout</button>
+                        <div class="col-md-6">
+                            <button class="btn btn-danger float-right" (click)="logout()" id="logout">Logout</button>
                         </div>
                     </div>
                 </form>
@@ -100,3 +109,5 @@
         </div>
     </div>
 </section>
+
+<app-modal></app-modal>

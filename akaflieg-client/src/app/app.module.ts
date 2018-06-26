@@ -32,6 +32,8 @@ import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component'
 import {ImprintComponent} from './imprint/imprint.component';
 import {NotFoundComponent} from './helpers/not-found/not-found.component';
 import {AlertComponent} from './helpers/alert/alert.component';
+import {ModalComponent} from './helpers/modal/modal.component';
+
 /* --- Services --- */
 import {NewsService} from './sections/news/news.service';
 import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
@@ -42,58 +44,61 @@ import {UserService} from './helpers/user/user.service';
 import {ContactService} from './sections/contact/contact.service'
 import {DashboardCmsService} from './dashboard/dashboard-cms/dashboard-cms.service';
 import {JwtInterceptor} from './helpers/auth/jwt.interceptor';
+import {ModalService} from './helpers/modal/modal.service';
 /* --- Routing --- */
 import {AppRoutingModule} from './app-routing';
 
 registerLocaleData(localeDe, 'de');
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainPageComponent,
-    NewsComponent,
-    AboutComponent,
-    PlanesComponent,
-    SchoolingComponent,
-    AffiliatesComponent,
-    ContactComponent,
-    DashboardComponent,
-    DashboardCmsComponent,
-    DashboardProjectsComponent,
-    DashboardWeatherComponent,
-    PrivacyPolicyComponent,
-    ImprintComponent,
-    NotFoundComponent,
-    DashboardPublicComponent,
-    AlertComponent,
-    LoginComponent
-  ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NgxPageScrollModule,
-    GalleryModule.forRoot(),
-    NgbModule.forRoot(),
-    NgxStickyModule,
-    CovalentTextEditorModule
-  ],
-  providers: [
-    NewsService,
-    DashboardWeatherService,
-    AuthGuard,
-    AlertService,
-    AuthenticationService,
-    UserService,
-    ContactService,
-    DashboardCmsService,
-    DatePipe,
-    {provide: LOCALE_ID, useValue: 'de-DE'},
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MainPageComponent,
+        NewsComponent,
+        AboutComponent,
+        PlanesComponent,
+        SchoolingComponent,
+        AffiliatesComponent,
+        ContactComponent,
+        DashboardComponent,
+        DashboardCmsComponent,
+        DashboardProjectsComponent,
+        DashboardWeatherComponent,
+        PrivacyPolicyComponent,
+        ImprintComponent,
+        NotFoundComponent,
+        DashboardPublicComponent,
+        AlertComponent,
+        LoginComponent,
+        ModalComponent
+    ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NgxPageScrollModule,
+        GalleryModule.forRoot(),
+        NgbModule.forRoot(),
+        NgxStickyModule,
+        CovalentTextEditorModule
+    ],
+    providers: [
+        NewsService,
+        DashboardWeatherService,
+        AuthGuard,
+        AlertService,
+        AuthenticationService,
+        UserService,
+        ContactService,
+        DashboardCmsService,
+        DatePipe,
+        ModalService,
+        {provide: LOCALE_ID, useValue: 'de-DE'},
+        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

@@ -17,16 +17,18 @@ export class AlertService {
                 if (this.keepAfterRouteChange) {
                     // only keep for a single route change
                     this.keepAfterRouteChange = false;
-                } else {
-                    // clear alert messages
-                    this.clear();
-                }
+                } else this.clear();
             }
         });
     }
 
     getAlert(): Observable<any> {
         return this.subject.asObservable();
+    }
+
+    alert(type: AlertType, message: string, keepAfterRouteChange = false) {
+        this.keepAfterRouteChange = keepAfterRouteChange;
+        this.subject.next(<Alert>{type: type, message: message});
     }
 
     success(message: string, keepAfterRouteChange = false) {
@@ -43,11 +45,6 @@ export class AlertService {
 
     warn(message: string, keepAfterRouteChange = false) {
         this.alert(AlertType.Warning, message, keepAfterRouteChange);
-    }
-
-    alert(type: AlertType, message: string, keepAfterRouteChange = false) {
-        this.keepAfterRouteChange = keepAfterRouteChange;
-        this.subject.next(<Alert>{type: type, message: message});
     }
 
     clear() {
