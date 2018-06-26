@@ -11,10 +11,22 @@ import {Router} from '@angular/router';
 export class DashboardCmsComponent implements OnInit {
     editSelect: any = {};
     editOptions = ['club', 'advantages', 'tryout', 'membership', 'prices', 'info', 'projects'];
-    content: any = {};
+    content: any = {
+        mde: '# Test\nPreview Text'
+    };
     date: any;
     time: any;
     private fileToUpload: FormData;
+
+    options: any = {
+        toolbar: ["bold", "italic", "heading", "|", "link", "table", "|", "preview", "guide"],
+        blockStyles: {
+            italic: '_'
+        },
+        indentWithTabs: false,
+        spellChecker: false,
+        tabSize: 4
+    };
 
     constructor(private cmsService: DashboardCmsService,
                 private loginService: AuthenticationService,

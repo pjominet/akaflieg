@@ -64,9 +64,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="content-body" class="text-muted">Neuer Inhalt</label>
-                                <textarea class="form-control" id="content-body" rows="8"
-                                          name="body" [(ngModel)]="content.body" #body="ngModel"></textarea>
+                                <label for="mde" class="text-muted">Neuer Inhalt</label>
+                                <td-text-editor [(value)]="content.mde" [options]="options"
+                                                id="mde" #mde></td-text-editor>
                             </div>
                         </div>
                     </div>
