@@ -18,15 +18,18 @@
                                     Den zu editierenden Bereich wählen
                                 </label>
                                 <select class="form-control" id="edit-select" name="editSelect" [(ngModel)]="editSelect">
-                                    <option [ngValue]="editOptions[0]">Über Uns</option>
+                                    <optgroup label="Über Uns">
+                                        <option [ngValue]="editOptions[0]">Verein</option>
+                                        <option [ngValue]="editOptions[1]">Vorteile</option>
+                                    </optgroup>
                                     <optgroup label="Ausbildung">
-                                        <option [ngValue]="editOptions[1]">Schnuppern</option>
-                                        <option [ngValue]="editOptions[2]">Mitgliedschaft</option>
-                                        <option [ngValue]="editOptions[3]">Fluggebühren</option>
-                                        <option [ngValue]="editOptions[4]">Infos</option>
+                                        <option [ngValue]="editOptions[2]">Schnuppern</option>
+                                        <option [ngValue]="editOptions[3]">Mitgliedschaft</option>
+                                        <option [ngValue]="editOptions[4]">Fluggebühren</option>
+                                        <option [ngValue]="editOptions[5]">Infos</option>
                                     </optgroup>
                                     <optgroup label="Dashboard">
-                                        <option [ngValue]="editOptions[5]">Projekte</option>
+                                        <option [ngValue]="editOptions[6]">Projekte</option>
                                     </optgroup>
                                 </select>
                             </div>
@@ -89,7 +92,7 @@
                             <button type="submit" class="btn btn-primary btn-xl" id="create">Aktualisieren</button>
                         </div>
                         <div class="col-md-auto align-self-end">
-                            <button class="btn btn-secondary" (click)="logout()" id="logout">Logout</button>
+                            <button class="btn btn-danger" (click)="logout()" id="logout">Logout</button>
                         </div>
                     </div>
                 </form>
