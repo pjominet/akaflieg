@@ -6,7 +6,6 @@
                 <a class="navbar-brand" routerLink="/index">Akaflieg Köln e.V.</a>
             </div>
 
-
             <button type="button" class="navbar-toggler navbar-toggler-right mr-2"
                     (click)="isCollapsed = !isCollapsed"
                     aria-controls="dashnav-hamburger" [attr.aria-expanded]="!isCollapsed">
@@ -27,10 +26,12 @@
                        (click)="isCollapsed = !isCollapsed">
                         Bilder Gallerie
                     </a>
+                    <!-- disabled until full implementation
                     <a routerLink="./login" class="nav-item nav-link ml-auto"
                        (click)="isCollapsed = !isCollapsed">
                         Verwaltung&nbsp;<i class="fa fa-key" aria-hidden="true"></i>
                     </a>
+                    -->
                     <a routerLink="/index" class="nav-item nav-link ml-auto">
                         <i class="fa fa-lg fa-home" aria-hidden="true"></i>
                         <span class="symbol-spacer"></span>
