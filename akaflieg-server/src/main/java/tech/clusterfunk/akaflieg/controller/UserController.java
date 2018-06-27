@@ -7,29 +7,31 @@ import tech.clusterfunk.akaflieg.services.UserService;
 
 import java.util.List;
 
+import static tech.clusterfunk.akaflieg.controller.RestURIs.USER_LIST_URI;
+
 @RestController
-@RequestMapping("/user")
+@RequestMapping(USER_LIST_URI)
 public class UserController {
 
-    private UserService userService;
+  private UserService userService;
 
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+  @Autowired
+  public UserController(UserService userService) {
+    this.userService = userService;
+  }
 
-    @PostMapping("/register")
-    public void register(@RequestBody User user) {
-        userService.register(user);
-    }
+  @GetMapping
+  public List<User> listUsers() {
+    return userService.listUsers();
+  }
 
-    @GetMapping
-    public List<User> listUsers() {
-        return userService.listUsers();
-    }
+  @GetMapping("/{id}")
+  public User getUserById(@PathVariable long id) {
+    return userService.getUserById(id);
+  }
 
-    @GetMapping("/{id}")
-    public User getUserById(@PathVariable long id) {
-        return userService.getUserById(id);
-    }
+  @PostMapping("/register")
+  public void register(@RequestBody User user) {
+    userService.register(user);
+  }
 }

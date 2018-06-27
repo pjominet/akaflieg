@@ -1,16 +1,17 @@
 package tech.clusterfunk.akaflieg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import tech.clusterfunk.akaflieg.services.UploadService;
 
-import javax.websocket.server.PathParam;
+import static tech.clusterfunk.akaflieg.controller.RestURIs.UPLOAD_URI;
 
 @RestController
-@RequestMapping("/fileupload")
+@RequestMapping(UPLOAD_URI)
 public class UploadController {
 
     private UploadService uploadService;
@@ -21,7 +22,7 @@ public class UploadController {
     }
 
     @PostMapping(value = "{filename}", consumes = "multipart/form-data")
-    public void uploadFile(@PathParam("filename") String filename, MultipartFile file) {
+    public void uploadFile(@PathVariable("filename") String filename, MultipartFile file) {
         uploadService.uploadFile(filename, file);
     }
 

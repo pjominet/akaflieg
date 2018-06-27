@@ -2,8 +2,12 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {DashboardCmsService} from './dashboard-cms.service';
 import {AuthenticationService} from '../../helpers/auth/authentication.service';
 import {Router} from '@angular/router';
-import {NgbDateStruct, NgbModal, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateStruct, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import {ModalService} from '../../helpers/modal/modal.service';
+import {first} from "rxjs/operators";
+import {AlertService} from "../../helpers/alert/alert.service";
+import {environment} from "../../../environments/environment";
+import {TdTextEditorComponent} from "@covalent/text-editor";
 
 const now = new Date();
 
@@ -13,12 +17,13 @@ const now = new Date();
     styleUrls: ['./dashboard-cms.component.scss']
 })
 export class DashboardCmsComponent implements OnInit {
-    editSelect: any = {};
+    @ViewChild('helpModal') helpModal: any;
+    @ViewChild('mde') mde: TdTextEditorComponent;
+
+    editSelect: string;
     editOptions = ['club', 'advantages', 'tryout', 'membership', 'prices', 'info', 'projects'];
 
-    @ViewChild('helpModal') helpModal: any;
-
-    mdeContent = '# Test\nPreview Text';
+    mdeContent = '# Heading\nText with [Link](http://example.com)';
     mdeOptions: any = {
         toolbar: ['bold', 'italic', 'heading', '|', 'link', 'table', '|', 'preview', {
             name: 'guide',
@@ -36,13 +41,15 @@ export class DashboardCmsComponent implements OnInit {
 
     date: NgbDateStruct;
     time: NgbTimeStruct;
+    publicationDateTime: string;
 
-    fileToUpload: FormData;
+    formData: FormData;
 
     constructor(private cmsService: DashboardCmsService,
                 private loginService: AuthenticationService,
                 private router: Router,
-                private modalService: ModalService) {
+                private modalService: ModalService,
+                private alertService: AlertService) {
     }
 
     ngOnInit() {
@@ -51,8 +58,29 @@ export class DashboardCmsComponent implements OnInit {
         this.time = {hour: 0, minute: 0, second: 0};
     }
 
-    public upload() {
-        this.cmsService.upload(this.fileToUpload);
+    public update() {
+        this.formData = new FormData();
+        this.formData.append('section', this.editSelect);
+        this.formData.append('content', this.mdeContent);
+        this.publicationDateTime = new Date(
+            this.date.year, this.date.month, this.date.day,
+            this.time.hour, this.time.minute, this.time.second).toString();
+        this.formData.append('pubDate', this.publicationDateTime);
+
+        this.alertService.clear();
+        this.cmsService.upload(this.formData).pipe(first()).subscribe(
+            success => {
+                this.alertService.success('Aktualisierung erfolgreich!');
+                if (!environment.production) console.log(success);
+            },
+            error => {
+                if (error.status === 503)
+                    this.alertService.error('Fehler beim Hochladen der Daten: Server antwortet nicht.');
+                if (error.status === 500)
+                    this.alertService.error('Fehler beim Hochladen der Daten: Bearbeitungsfehler auf dem Server.');
+                if (!environment.production) console.log(error);
+            }
+        );
     }
 
     public getFile(event) {
@@ -61,12 +89,8 @@ export class DashboardCmsComponent implements OnInit {
             const file: File = fileList[0];
             const formData: FormData = new FormData();
             formData.append('cmsFile', file, file.name);
-            this.fileToUpload = formData;
+            this.formData = formData;
         }
-    }
-
-    public update() {
-
     }
 
     public logout() {

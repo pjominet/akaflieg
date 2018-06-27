@@ -17,7 +17,8 @@
                                 <label for="edit-select" class="text-muted">
                                     Den zu editierenden Bereich wählen
                                 </label>
-                                <select class="form-control" id="edit-select" name="editSelect" [(ngModel)]="editSelect">
+                                <select class="form-control" id="edit-select" name="editSelect"
+                                        [(ngModel)]="editSelect" required>
                                     <optgroup label="Über Uns">
                                         <option [ngValue]="editOptions[0]">Verein</option>
                                         <option [ngValue]="editOptions[1]">Vorteile</option>
@@ -65,13 +66,10 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label class="text-muted">Neuer Inhalt</label>
-                                <td-text-editor [(value)]="mdeContent" [options]="mdeOptions"></td-text-editor>
+                                <td-text-editor [value]="mdeContent" [options]="mdeOptions"
+                                                required #mde></td-text-editor>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-
                     </div>
 
                     <div class="row">
@@ -105,6 +103,12 @@
                         </div>
                     </div>
                 </form>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-auto">
+                        <app-alert></app-alert>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
