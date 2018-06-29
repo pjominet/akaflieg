@@ -5,7 +5,7 @@
          ngx-sticky [addClass]="'affix'" id="navigation">
         <div class="container-fluid">
             <div class="mr-auto ml-4">
-                <a class="navbar-brand" href="#page-top">Akaflieg Köln e.V.</a>
+                <a pageScroll class="navbar-brand" href="#page-top">Akaflieg Köln e.V.</a>
             </div>
 
             <button type="button" class="navbar-toggler navbar-toggler-right mr-2"
@@ -60,6 +60,10 @@
     </header>
 
     <main data-spy="scroll" data-target="#navigation" data-offset="5">
+        <a pageScroll class="btn btn-primary btn-circle back-to-top"
+           href="#page-top">
+            <i class="fa fa-lg fa-caret-up"></i>
+        </a>
         <!-- About Section -->
         <app-about></app-about>
         <!-- Planes Section -->
@@ -97,11 +101,11 @@
                     <ul class="list-inline quicklinks">
                         <li class="list-inline-item">
                             <a pageScroll href="#pageEnd"
-                               (click)="togglePrivacyExtension()">Datenschutzbestimmungen</a>
+                               (click)="hidePrivacy = !hidePrivacy">Datenschutzbestimmungen</a>
                         </li>
                         <li class="list-inline-item">
                             <a pageScroll href="#pageEnd"
-                               (click)="toggleTermsExtension()">Impressum</a>
+                               (click)="hideTerms = !hideTerms">Impressum</a>
                         </li>
                     </ul>
                 </div>
