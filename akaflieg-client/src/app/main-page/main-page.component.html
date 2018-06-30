@@ -45,7 +45,7 @@
     </nav>
 
     <!-- Header -->
-    <header>
+    <header trackScroll (trackScrollEnter)="enter()" (trackScrollLeave)="leave()">
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">Willkommen bei der Akaflieg Köln!</div>
@@ -55,9 +55,9 @@
         </div>
     </header>
 
-    <main data-spy="scroll" data-target="#navigation" data-offset="5" trackScroll (trackScrollEnter)="enter()" (trackScrollLeave)="leave()">
+    <main data-target="#navigation">
         <a pageScroll class="btn btn-primary btn-circle back-to-top"
-           href="#page-top" *ngIf="showScrollTopButton">
+           href="#page-top" [hidden]="!showScrollTopButton">
             <i class="fa fa-3x fa-angle-up shift-sm"></i>
         </a>
         <!-- About Section -->

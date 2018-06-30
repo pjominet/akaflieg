@@ -22,10 +22,10 @@ export class MainPageComponent implements OnInit {
     }
 
     public enter() {
-        this.showScrollTopButton = true;
+        this.showScrollTopButton = false;
     }
 
     public leave() {
-        this.showScrollTopButton = false;
+        this.showScrollTopButton = true;
     }
 }
