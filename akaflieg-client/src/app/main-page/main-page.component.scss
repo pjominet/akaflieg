@@ -11,6 +11,10 @@
     margin-left: -.05em;
 }
 
+#page-change:hover {
+    color: $warning !important;
+}
+
 /* --- Main Navbar --- */
 .navbar-main {
     background-color: transparent;
@@ -103,10 +107,6 @@
 
     .navbar-main #single-link {
         display: none;
-    }
-
-    .navbar-main #separated {
-        border-left: 2px solid white;
     }
 }
 
