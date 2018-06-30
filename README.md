@@ -4,7 +4,7 @@
 
 This is the new web appearance of the Akaflieg Köln e.V. 
 
-This project is build with the Angular 4 as Frontend and Java Spring Boot as Backend.
+This project is build with the Angular 6 as Frontend and Java Spring Boot as Backend.
 
 ## Development
 
@@ -13,7 +13,7 @@ This project is build with the Angular 4 as Frontend and Java Spring Boot as Bac
 * nodejs 8.x or newer
 * npm
 * Maven 2
-* Java 1.8 or newer
+* Java 1.8
 
 Switch to the correct dev-branch!
 
@@ -26,7 +26,7 @@ Switch to the correct dev-branch!
     npm start
     
 ### Build correct dist for deployment
-    npm run-script build
+    npm run build
 Check if base-href option is correct in package.json 
     
 ## Backend (akaflieg-server)
@@ -35,7 +35,7 @@ Check if base-href option is correct in package.json
     adapt application.properties
 
 ### Run locally
-    just run the from IDE or start builded JAR
+    just run the from IDE or run JAR
 
 ### Build for deployment
     mvn clean validate package

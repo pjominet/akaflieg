@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DashboardWeatherService} from './dashboard-weather.service';
 import {WeatherItem} from './weather-item';
 import {AlertService} from '../../helpers/alert/alert.service';
@@ -9,11 +9,9 @@ import {environment} from "../../../environments/environment";
     templateUrl: './dashboard-weather.component.html',
     styleUrls: ['./dashboard-weather.component.scss']
 })
-export class DashboardWeatherComponent implements OnInit, AfterViewInit {
+export class DashboardWeatherComponent implements OnInit {
     public weatherItem: WeatherItem;
     public weatherItems;
-    public loading = false;
-    public success = true;
 
     constructor(private weatherService: DashboardWeatherService, private alertService: AlertService) {
     }
@@ -22,14 +20,9 @@ export class DashboardWeatherComponent implements OnInit, AfterViewInit {
         this.loadWeather();
     }
 
-    ngAfterViewInit() {
-        if (!this.success)
-            this.alertService.error('Fehler: API antwortet nicht. Keine Wetterdaten verfügbar.');
-    }
-
     loadWeather(): void {
         this.weatherItems = [];
-        this.loading = true;
+        this.alertService.clear();
         // 50.40°, 6.52° = Dahlemer Binz Flugplatz, unknown to api
         // 50.42°, 6.57° = Schmidtheim
         this.weatherService.getWeatherData(50.42, 6.57).subscribe(
@@ -45,9 +38,9 @@ export class DashboardWeatherComponent implements OnInit, AfterViewInit {
                     this.degToCompass(data.wind.deg)
                 );
                 this.weatherItems.push(this.weatherItem);
-                this.success = true;
             }, error => {
-                this.success = false;
+                this.alertService.clear();
+                this.alertService.error('Fehler: API antwortet nicht. Keine Wetterdaten verfügbar.');
                 if (!environment.production)
                     console.log(error);
             }
@@ -66,18 +59,13 @@ export class DashboardWeatherComponent implements OnInit, AfterViewInit {
                     this.degToCompass(data.wind.deg)
                 );
                 this.weatherItems.push(this.weatherItem);
-                this.success = true;
             }, error => {
-                this.success = false;
+                this.alertService.clear();
+                this.alertService.error('Fehler: API antwortet nicht. Keine Wetterdaten verfügbar.');
                 if (!environment.production)
                     console.log(error);
             }
         );
-
-        if (!this.success) {
-            this.alertService.clear();
-            this.alertService.error('Fehler: API antwortet nicht. Keine Wetterdaten verfügbar.');
-        } else this.loading = false;
     }
 
     private degToCompass(deg: number): string {

@@ -12,6 +12,7 @@ a.active {
 
 .btn-primary {
   background-color: $default;
+    border-color: $default;
 }
 
 .btn-primary:hover,
@@ -88,4 +89,22 @@ ul.social-buttons li a:active {
 .btn-gp:hover {
   color: #fff;
   background-color: $gp-light;
+}
+
+.btn-circle,
+.btn-circle:focus {
+    background-color: $btn-trans-default;
+    @include border-radius(50%);
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    line-height: 1em;
+    height: 40px;
+    width: 40px;
+}
+
+.btn-circle:hover,
+.btn-circle:active,
+.btn-circle.active {
+    background-color: $default-light;
 }
