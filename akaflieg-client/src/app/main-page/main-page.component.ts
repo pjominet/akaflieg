@@ -18,14 +18,4 @@ export class MainPageComponent implements OnInit {
 
     ngOnInit(): void {
     }
-
-    public togglePrivacyExtension(): void {
-        this.hideTerms = true;
-        this.hidePrivacy = !this.hidePrivacy;
-    }
-
-    public toggleTermsExtension(): void {
-        this.hidePrivacy = true;
-        this.hideTerms = !this.hideTerms;
-    }
 }

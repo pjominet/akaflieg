@@ -20,10 +20,6 @@
 
             <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="navbar-hamburger">
                 <div class="nav navbar-nav ml-auto mr-4">
-                    <a pageScroll href="#page-top" class="nav-item nav-link ml-auto"
-                       (click)="isCollapsed = !isCollapsed">
-                        <span class="mobile-only">Top</span>
-                    </a>
                     <a pageScroll href="#about" class="nav-item nav-link ml-auto"
                        (click)="isCollapsed = !isCollapsed">
                         Über uns
@@ -40,7 +36,7 @@
                        (click)="isCollapsed = !isCollapsed">
                         Kontakt
                     </a>
-                    <a routerLink="/dashboard/weather" class="nav-item nav-link ml-auto">
+                    <a routerLink="/dashboard/weather" class="nav-item nav-link ml-auto" id="separated">
                         Verein&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -97,11 +93,11 @@
                     <ul class="list-inline quicklinks">
                         <li class="list-inline-item">
                             <a pageScroll href="#pageEnd"
-                               (click)="togglePrivacyExtension()">Datenschutzbestimmungen</a>
+                               (click)="hidePrivacy = !hidePrivacy">Datenschutzbestimmungen</a>
                         </li>
                         <li class="list-inline-item">
                             <a pageScroll href="#pageEnd"
-                               (click)="toggleTermsExtension()">Impressum</a>
+                               (click)="hideTerms = !hideTerms">Impressum</a>
                         </li>
                     </ul>
                 </div>

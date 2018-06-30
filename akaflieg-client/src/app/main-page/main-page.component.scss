@@ -2,160 +2,156 @@
 
 /* --- Main Navbar --- */
 .navbar-main {
-  background-color: transparent;
-  @include transition(all 0.3s);
-  border: none;
+    background-color: transparent;
+    @include transition(all 0.3s);
+    border: none;
 }
 
 .navbar-main.affix {
-  background-color: $default;
-  padding: 10px 0;
+    background-color: $default;
+    padding: 10px 0;
 }
 
 .navbar-main button {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .navbar-main.affix button {
-  visibility: visible;
+    visibility: visible;
 }
 
 .navbar-main.affix #single-link {
-  display: none;
+    display: none;
 }
 
 .navbar-main.affix .navbar-brand {
-  visibility: visible;
-  font-size: 1.3em;
+    visibility: visible;
+    font-size: 1.3em;
 }
 
 .navbar-main .navbar-brand {
-  font-family: 'Courgette', serif;
-  color: white;
+    font-family: 'Courgette', serif;
+    color: white;
 }
 
 .navbar-main .navbar-brand {
-  visibility: hidden;
-  @include transition(all 0.3s);
+    visibility: hidden;
+    @include transition(all 0.3s);
 }
 
 .navbar-main .navbar-brand:hover,
 .navbar-main .navbar-brand:active,
 .navbar-main .navbar-brand.active {
-  color: white;
+    color: white;
 }
 
 .navbar-main .nav-link {
-  text-transform: uppercase;
-  font-weight: 400;
-  letter-spacing: 1px;
-  color: white !important;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: white !important;
 }
 
 .navbar-main .nav-link:hover,
 .navbar-main .nav-link:active,
 .navbar-main .nav-link.active {
-  color: $default-highlight !important;
-  outline: none;
+    color: $default-highlight !important;
+    outline: none;
 }
 
 .no-mobile {
-  visibility: hidden;
-}
-
-.mobile-only {
-  visibility: visible;
+    visibility: hidden;
 }
 
 @media (max-width: 385px) {
-  .navbar-main #single-link {
-    margin-top: -30px;
-    font-size: 17px;
-  }
+    .navbar-main #single-link {
+        margin-top: -30px;
+        font-size: 17px;
+    }
 }
 
 @media (min-width: 768px) {
-  .navbar-main {
-    padding: 25px 0;
-  }
+    .navbar-main {
+        padding: 25px 0;
+    }
 
-  .no-mobile {
-    visibility: visible;
-  }
-
-  .mobile-only {
-    visibility: hidden;
-  }
+    .no-mobile {
+        visibility: visible;
+    }
 }
 
 @media (min-width: 1024px) {
-  .navbar-main.affix .navbar-brand {
-    visibility: visible;
-    font-size: 1.8em;
-  }
+    .navbar-main.affix .navbar-brand {
+        visibility: visible;
+        font-size: 1.8em;
+    }
 
-  .navbar-main button {
-    visibility: visible;
-  }
+    .navbar-main button {
+        visibility: visible;
+    }
 
-  .navbar-main #single-link {
-    display: none;
-  }
+    .navbar-main #single-link {
+        display: none;
+    }
+
+    .navbar-main #separated {
+        border-left: 2px solid white;
+    }
 }
 
 /* --- Main Header --- */
 header {
-  background: $bg-default url('../../assets/img/header-bg.jpg') no-repeat center center scroll;
-  @include background-size(cover);
-  text-align: center;
-  color: $text-default;
+    background: $bg-default url('../../assets/img/header-bg.jpg') no-repeat center center scroll;
+    @include background-size(cover);
+    text-align: center;
+    color: $text-default;
 }
 
 header .intro-text {
-  padding-top: 10vh;
-  padding-bottom: 5vh;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
 }
 
 header .intro-text .intro-lead-in {
-  font-family: 'Courgette', serif;
-  font-size: 20px;
-  line-height: 20px;
-  margin-bottom: 25px;
+    font-family: 'Courgette', serif;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 25px;
 }
 
 header .intro-text .intro-heading {
-  font-family: 'Montserrat', cursive;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 35px;
-  line-height: 35px;
-  margin-bottom: 25px;
-}
-
-@media (min-width: 768px) {
-  header .intro-text {
-    padding-top: 20vh;
-    padding-bottom: 20vh;
-  }
-  header .intro-text .intro-lead-in {
-    font-family: 'Courgette', serif;
-    font-size: 40px;
-    line-height: 40px;
-    margin-bottom: 25px;
-  }
-  header .intro-text .intro-heading {
     font-family: 'Montserrat', cursive;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 60px;
-    line-height: 60px;
-    margin-bottom: 50px;
-  }
+    font-size: 35px;
+    line-height: 35px;
+    margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+    header .intro-text {
+        padding-top: 20vh;
+        padding-bottom: 20vh;
+    }
+    header .intro-text .intro-lead-in {
+        font-family: 'Courgette', serif;
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 25px;
+    }
+    header .intro-text .intro-heading {
+        font-family: 'Montserrat', cursive;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 60px;
+        line-height: 60px;
+        margin-bottom: 50px;
+    }
 }
 
 @media (min-width: 1024px) {
-  header .intro-text {
-    padding-top: 40vh;
-    padding-bottom: 35vh;
-  }
+    header .intro-text {
+        padding-top: 40vh;
+        padding-bottom: 35vh;
+    }
 }
