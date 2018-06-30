@@ -1,25 +1,25 @@
 @import '../sections';
 
 table {
-  margin-bottom: 1em;
-  margin-left: auto;
-  margin-right: auto;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table th, td {
-  padding: .7em;
+    padding: .7em;
 }
 
 table tr:nth-child(even) {
-  background-color: $bg-alt;
+    background-color: $bg-alt;
 }
 
 table tr:nth-child(odd) {
-  background-color: $bg-default;
+    background-color: $bg-default;
 }
 
-h5 {
-  font-weight: bold;
-  color: $text-light;
-  font-size: 15px;
+.text-highlight {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: $text-light;
 }
