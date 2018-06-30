@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 declare const $: any;
 
@@ -13,9 +13,19 @@ export class MainPageComponent implements OnInit {
     public hidePrivacy = true;
     public hideTerms = true;
 
+    public showScrollTopButton = false;
+
     constructor() {
     }
 
     ngOnInit(): void {
+    }
+
+    public enter() {
+        this.showScrollTopButton = true;
+    }
+
+    public leave() {
+        this.showScrollTopButton = false;
     }
 }

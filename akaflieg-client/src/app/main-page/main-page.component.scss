@@ -1,5 +1,16 @@
 @import '../app.component';
 
+.back-to-top {
+    position: fixed;
+    top: 88.5vh;
+    right: 2vh;
+}
+
+.shift-sm {
+    margin-top: -.2em;
+    margin-left: -.05em;
+}
+
 /* --- Main Navbar --- */
 .navbar-main {
     background-color: transparent;
@@ -154,15 +165,4 @@ header .intro-text .intro-heading {
         padding-top: 40vh;
         padding-bottom: 35vh;
     }
-}
-
-.back-to-top {
-    position: fixed;
-    top: 88.5vh;
-    right: 2vh;
-}
-
-.shift-sm {
-    margin-top: -.2em;
-    margin-left: -.05em;
 }

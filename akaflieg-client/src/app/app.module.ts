@@ -10,6 +10,7 @@ import {GalleryModule} from '@ngx-gallery/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxStickyModule} from 'ng6-sticky';
 import {CovalentTextEditorModule} from '@covalent/text-editor';
+import {Ng2TrackScrollModule} from 'ng2-track-scroll';
 /* --- Main App --- */
 import {AppComponent} from './app.component';
 import {MainPageComponent} from './main-page/main-page.component';
@@ -33,7 +34,6 @@ import {ImprintComponent} from './imprint/imprint.component';
 import {NotFoundComponent} from './helpers/not-found/not-found.component';
 import {AlertComponent} from './helpers/alert/alert.component';
 import {ModalComponent} from './helpers/modal/modal.component';
-
 /* --- Services --- */
 import {NewsService} from './sections/news/news.service';
 import {DashboardWeatherService} from './dashboard/dashboard-weather/dashboard-weather.service';
@@ -82,7 +82,8 @@ registerLocaleData(localeDe, 'de');
         GalleryModule.forRoot(),
         NgbModule.forRoot(),
         NgxStickyModule,
-        CovalentTextEditorModule
+        CovalentTextEditorModule,
+        Ng2TrackScrollModule.forRoot()
     ],
     providers: [
         NewsService,

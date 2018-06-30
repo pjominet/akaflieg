@@ -55,9 +55,9 @@
         </div>
     </header>
 
-    <main data-spy="scroll" data-target="#navigation" data-offset="5">
+    <main data-spy="scroll" data-target="#navigation" data-offset="5" trackScroll (trackScrollEnter)="enter()" (trackScrollLeave)="leave()">
         <a pageScroll class="btn btn-primary btn-circle back-to-top"
-           href="#page-top">
+           href="#page-top" *ngIf="showScrollTopButton">
             <i class="fa fa-3x fa-angle-up shift-sm"></i>
         </a>
         <!-- About Section -->
