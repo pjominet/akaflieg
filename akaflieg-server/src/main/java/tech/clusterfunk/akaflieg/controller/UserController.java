@@ -7,7 +7,7 @@ import tech.clusterfunk.akaflieg.services.UserService;
 
 import java.util.List;
 
-import static tech.clusterfunk.akaflieg.controller.RestURIs.USER_LIST_URI;
+import static tech.clusterfunk.akaflieg.util.RestURIs.USER_LIST_URI;
 
 @RestController
 @RequestMapping(USER_LIST_URI)

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import tech.clusterfunk.akaflieg.services.UploadService;
 
-import static tech.clusterfunk.akaflieg.controller.RestURIs.UPLOAD_URI;
+import static tech.clusterfunk.akaflieg.util.RestURIs.UPLOAD_URI;
 
 @RestController
 @RequestMapping(UPLOAD_URI)
@@ -25,5 +25,4 @@ public class UploadController {
     public void uploadFile(@PathVariable("filename") String filename, MultipartFile file) {
         uploadService.uploadFile(filename, file);
     }
-
 }

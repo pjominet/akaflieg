@@ -15,7 +15,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import tech.clusterfunk.akaflieg.security.JWTAuthenticationFilter;
 import tech.clusterfunk.akaflieg.security.JWTAuthorizationFilter;
 
-import static tech.clusterfunk.akaflieg.controller.RestURIs.*;
+import static tech.clusterfunk.akaflieg.util.RestURIs.*;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

@@ -1,4 +1,4 @@
-package tech.clusterfunk.akaflieg.controller;
+package tech.clusterfunk.akaflieg.util;
 
 public class RestURIs {
     public static final String SIGN_UP_URI = "/user/register";
