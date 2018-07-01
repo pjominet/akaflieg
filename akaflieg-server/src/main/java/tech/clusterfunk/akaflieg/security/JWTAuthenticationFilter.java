@@ -3,6 +3,8 @@ package tech.clusterfunk.akaflieg.security;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,6 +24,7 @@ import static tech.clusterfunk.akaflieg.security.SecurityConstants.*;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private AuthenticationManager authenticationManager;
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
@@ -31,16 +34,16 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest req,
                                                 HttpServletResponse res) throws AuthenticationException {
         try {
-            User creds = new ObjectMapper()
-                    .readValue(req.getInputStream(), User.class);
+            User user = new ObjectMapper().readValue(req.getInputStream(), User.class);
 
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            creds.getUsername(),
-                            creds.getPassword(),
+                            user.getUsername(),
+                            user.getPassword(),
                             new ArrayList<>())
             );
         } catch (IOException e) {
+            logger.error("Failed attempted user login");
             throw new RuntimeException(e);
         }
     }

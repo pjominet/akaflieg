@@ -3,7 +3,7 @@ package tech.clusterfunk.akaflieg.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BasicValidation {
+public class BasicEmailValidation {
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)$", Pattern.CASE_INSENSITIVE);
 

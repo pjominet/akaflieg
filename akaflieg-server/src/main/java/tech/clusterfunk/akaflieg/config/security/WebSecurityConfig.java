@@ -32,10 +32,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, SIGN_UP_URI).permitAll()
+                .antMatchers(HttpMethod.POST, USER_URI + "/register").permitAll()
                 .antMatchers(HttpMethod.POST, LOGIN_URI).permitAll()
-                .antMatchers(HttpMethod.GET, MAIL_INFO_URI).permitAll()
-                .antMatchers(HttpMethod.POST, MAIL_SEND_URI).permitAll()
+                .antMatchers(HttpMethod.GET, MAIL_URI + "/info").permitAll()
+                .antMatchers(HttpMethod.POST, MAIL_URI + "/send").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))

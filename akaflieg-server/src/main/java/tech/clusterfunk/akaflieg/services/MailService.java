@@ -7,7 +7,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import tech.clusterfunk.akaflieg.dto.EmailDTO;
-import tech.clusterfunk.akaflieg.util.BasicValidation;
+import tech.clusterfunk.akaflieg.util.BasicEmailValidation;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -41,7 +41,7 @@ public class MailService {
 
         // Check if sender address has email address format
         String sender = emailDTO.getSender();
-        if (BasicValidation.validateEmail(sender)) {
+        if (BasicEmailValidation.validateEmail(sender)) {
             EmailDTO mail = new EmailDTO(
                     sender,
                     recipient,

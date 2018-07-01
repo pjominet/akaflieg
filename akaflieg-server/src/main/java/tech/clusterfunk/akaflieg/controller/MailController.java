@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.*;
 import tech.clusterfunk.akaflieg.dto.EmailDTO;
 import tech.clusterfunk.akaflieg.services.MailService;
 
+import static tech.clusterfunk.akaflieg.util.RestURIs.MAIL_URI;
+
 @RestController
-@RequestMapping("/mail")
+@RequestMapping(MAIL_URI)
 public class MailController {
 
     private MailService mailService;
