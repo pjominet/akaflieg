@@ -25,6 +25,6 @@ public class MailController {
 
     @PostMapping("/send")
     public void sendMail(@RequestBody EmailDTO emailDTO) {
-       mailService.sendMail(emailDTO);
+        mailService.sendMail(emailDTO);
     }
 }

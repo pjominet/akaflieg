@@ -1,11 +1,10 @@
 package tech.clusterfunk.akaflieg.entities;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "CMS_USER")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue
@@ -18,10 +17,11 @@ public class User {
 
     /*
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "creator", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<NewsItem> articles;
+    private List<NewsEntity> articles;
     */
 
-    public User() {}
+    public UserEntity() {
+    }
 
     public long getId() {
         return id;
@@ -48,11 +48,11 @@ public class User {
     }
 
     /*
-    public List<NewsItem> getArticles() {
+    public List<NewsEntity> getArticles() {
         return articles;
     }
 
-    public void setArticles(List<NewsItem> articles) {
+    public void setArticles(List<NewsEntity> articles) {
         this.articles = articles;
     }
     */

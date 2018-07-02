@@ -43,11 +43,11 @@ public class MailService {
         String sender = emailDTO.getSender();
         if (BasicEmailValidation.validateEmail(sender)) {
             EmailDTO mail = new EmailDTO(
-                    sender,
-                    recipient,
-                    emailDTO.getName(),
-                    subject,
-                    emailDTO.getMessage());
+                sender,
+                recipient,
+                emailDTO.getName(),
+                subject,
+                emailDTO.getMessage());
 
             // Create mail object
             MimeMessage message = jMailSender.createMimeMessage();

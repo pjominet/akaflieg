@@ -1,14 +1,14 @@
 package tech.clusterfunk.akaflieg.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import tech.clusterfunk.akaflieg.entities.NewsItem;
+import tech.clusterfunk.akaflieg.entities.NewsEntity;
 
 import java.util.List;
 
-public interface NewsRepository extends JpaRepository<NewsItem, Long> {
+public interface NewsRepository extends JpaRepository<NewsEntity, Long> {
 
-    List<NewsItem> findAll();
+    List<NewsEntity> findAll();
 
-    List<NewsItem> findFirst5ByOrderByCreationDateDesc();
+    List<NewsEntity> findFirst5ByOrderByCreationDateDesc();
 
 }

@@ -2,6 +2,7 @@ package tech.clusterfunk.akaflieg.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,6 +18,7 @@ import tech.clusterfunk.akaflieg.security.JWTAuthorizationFilter;
 
 import static tech.clusterfunk.akaflieg.util.RestURIs.*;
 
+@Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -32,18 +34,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, USER_URI + "/register").permitAll()
-                .antMatchers(HttpMethod.POST, LOGIN_URI).permitAll()
-                .antMatchers(HttpMethod.GET, MAIL_URI + "/info").permitAll()
-                .antMatchers(HttpMethod.POST, MAIL_URI + "/send").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
-                .addFilter(new JWTAuthorizationFilter(authenticationManager()));
+            .antMatchers(HttpMethod.POST, LOGIN_URI).permitAll()
+            .antMatchers(HttpMethod.GET, MAIL_URI + "/info").permitAll()
+            .antMatchers(HttpMethod.POST, MAIL_URI + "/send").permitAll()
+            .antMatchers(HttpMethod.GET, FILE_URI + "/**").permitAll()
+            .antMatchers(HttpMethod.POST, FILE_URI + "/upload/file").permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+            .addFilter(new JWTAuthorizationFilter(authenticationManager()));
     }
 
     @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 

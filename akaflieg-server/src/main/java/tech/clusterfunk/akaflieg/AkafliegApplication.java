@@ -7,12 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import tech.clusterfunk.akaflieg.entities.NewsItem;
-import tech.clusterfunk.akaflieg.entities.User;
-import tech.clusterfunk.akaflieg.repository.NewsRepository;
+import tech.clusterfunk.akaflieg.entities.FileEntity;
+import tech.clusterfunk.akaflieg.entities.UserEntity;
+import tech.clusterfunk.akaflieg.repository.FileRepository;
 import tech.clusterfunk.akaflieg.repository.UserRepository;
-
-import java.time.LocalDate;
 
 @SpringBootApplication
 public class AkafliegApplication {
@@ -28,28 +26,40 @@ public class AkafliegApplication {
     }
 
     @Bean
-    CommandLineRunner init(UserRepository userRepo, NewsRepository newsRepo, BCryptPasswordEncoder encoder) {
-        return (evt) -> {
-            User user = userRepo.findByUsername("aka-admin");
+    CommandLineRunner init(UserRepository userRepo, FileRepository fileRepo, BCryptPasswordEncoder encoder) {
+        return (event) -> {
+            // create root user TODO: should be set with launch param
+            UserEntity user = userRepo.findByUsername("root");
             if (user == null) {
                 logger.info("Creating user: \"root\"");
-                User newUser = new User();
+                UserEntity newUser = new UserEntity();
                 newUser.setUsername("root");
                 newUser.setPassword(encoder.encode("q1w2e3"));
                 userRepo.save(newUser);
-                user = newUser;
-            }else{
-                logger.warn("User \"" + user.getUsername() + "\" already exists");
+            } else {
+                logger.warn("UserEntity \"" + user.getUsername() + "\" already exists");
             }
 
-            /* ignored until further notice
-            NewsItem newsItem = new NewsItem();
-            newsItem.setTitle("TEST POST");
-            newsItem.setContent("This is a test news post, please ignore");
-            newsItem.setCreationDate(LocalDate.now());
-            newsItem.setCreator(user);
-            newsRepo.save(newsItem);
-            */
+            // Create test files TODO: remove in live
+            logger.info("creating test files...");
+            int i;
+            for(i = 0; i < 4; i++) {
+                String filename;
+                byte[] data;
+                String mimetype;
+                if (i < 2) {
+                    filename = "Testfile" + i + ".txt";
+                    data = ("Lorem Ipsum Test" + i).getBytes();
+                    mimetype = "text/plain";
+                } else {
+                    filename = "Testfile" + i + ".md";
+                    data = ("# Lorem Ipsum" + i + "\nDolor sit").getBytes();
+                    mimetype = "text/markdown";
+                }
+                FileEntity file = new FileEntity(filename, data, mimetype);
+                fileRepo.save(file);
+            }
+            logger.info("added " + i + " test files to file repo");
         };
     }
 }

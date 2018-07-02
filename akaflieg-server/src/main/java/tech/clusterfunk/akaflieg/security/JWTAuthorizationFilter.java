@@ -42,10 +42,10 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         if (token != null) {
             // parse the token.
             String user = Jwts.parser()
-                    .setSigningKey(SECRET.getBytes())
-                    .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
-                    .getBody()
-                    .getSubject();
+                .setSigningKey(SECRET.getBytes())
+                .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
+                .getBody()
+                .getSubject();
 
             if (user != null) {
                 return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());

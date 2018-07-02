@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "NEWS_ITEM")
-public class NewsItem {
+public class NewsEntity {
 
     @Id
     @GeneratedValue
@@ -21,7 +21,7 @@ public class NewsItem {
     //@Column(name = "IMAGE")
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FILE_ID", nullable = true)
-    private UploadedFile image;
+    private FileEntity image;
 
     @Column(name = "CREATION_DATE")
     private LocalDate creationDate;
@@ -31,9 +31,10 @@ public class NewsItem {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
-    private User creator;
+    private UserEntity creator;
 
-    public NewsItem() {}
+    public NewsEntity() {
+    }
 
     public long getId() {
         return id;
@@ -59,19 +60,19 @@ public class NewsItem {
         this.content = content;
     }
 
-    public UploadedFile getImage() {
+    public FileEntity getImage() {
         return image;
     }
 
-    public void setImage(UploadedFile pictures) {
-        this.image = pictures;
+    public void setImage(FileEntity picture) {
+        this.image = picture;
     }
 
-    public User getCreator() {
+    public UserEntity getCreator() {
         return creator;
     }
 
-    public void setCreator(User creator) {
+    public void setCreator(UserEntity creator) {
         this.creator = creator;
     }
 
