@@ -43,7 +43,8 @@ export class DashboardCmsComponent implements OnInit {
     date: NgbDateStruct;
     time: NgbTimeStruct;
 
-    formData: FormData;
+    fileData: FormData = undefined;
+    filePreview: string;
 
     constructor(private cmsService: DashboardCmsService,
                 private loginService: AuthenticationService,
@@ -58,42 +59,63 @@ export class DashboardCmsComponent implements OnInit {
         this.time = {hour: 0, minute: 0, second: 0};
     }
 
+    private getErrorAlert(error: any) {
+        if (error.status === 503)
+            this.alertService.error('Fehler beim Hochladen der Daten: Server antwortet nicht.');
+        if (error.status === 500)
+            this.alertService.error('Fehler beim Hochladen der Daten: Bearbeitungsfehler auf dem Server.');
+        if (error.status === 415)
+            this.alertService.warn('Aktualisierung abgebrochen: Datei Typ wird nicht unterstützt.');
+        if (error.status === 400)
+            this.alertService.warn('Aktualisierung abgebrochen: Der Inhalt wurde nicht verändert.');
+    }
+
     public update() {
         this.alertService.clear();
 
         let section = this.editSelect;
-        let data = this.mdeContent;
+        // TODO: check date generation
         let publicationDateTime = new Date(
             this.date.year, this.date.month - 1, this.date.day + 1,
             this.time.hour, this.time.minute, this.time.second).toISOString();
-        let mimetype = 'text/markdown';
 
-        this.cmsService.upload(section, data, publicationDateTime, mimetype).pipe(first()).subscribe(
-            success => {
-                this.alertService.success('Aktualisierung erfolgreich!');
-                if (!environment.production) console.log("success");
-            },
-            error => {
-                if (error.status === 503)
-                    this.alertService.error('Fehler beim Hochladen der Daten: Server antwortet nicht.');
-                if (error.status === 500)
-                    this.alertService.error('Fehler beim Hochladen der Daten: Bearbeitungsfehler auf dem Server.');
-                if (error.status === 415)
-                    this.alertService.warn('Aktualisierung abgebrochen: Datei Typ wird nicht unterstützt.');
-                if (error.status === 400)
-                    this.alertService.warn('Aktualisierung abgebrochen: Der Inhalt wurde nicht verändert.');
-                if (!environment.production) console.log(error);
-            }
-        );
+        // TODO: add better separation of upload methods
+        if (this.fileData != undefined) {
+            this.cmsService.uploadFile(this.fileData).pipe(first()).subscribe(
+                success => {
+                    this.alertService.success('Aktualisierung erfolgreich!');
+                    if (!environment.production) console.log("success");
+                },
+                error => {
+                    this.getErrorAlert(error);
+                    if (!environment.production) console.log(error);
+                }
+            )
+        } else if (this.mdeContent != undefined && this.mdeContent.trim() != '') {
+            let data = this.mdeContent;
+            let mimetype = 'text/markdown';
+
+            this.cmsService.uploadData(section, data, publicationDateTime, mimetype).pipe(first()).subscribe(
+                success => {
+                    this.alertService.success('Aktualisierung erfolgreich!');
+                    if (!environment.production) console.log("success");
+                },
+                error => {
+                    this.getErrorAlert(error);
+                    if (!environment.production) console.log(error);
+                }
+            );
+        }
     }
 
     public getFile(event) {
         const fileList = event.target.files;
-        if (fileList > 0) {
+        if (fileList.length > 0) {
             const file: File = fileList[0];
-            const formData: FormData = new FormData();
-            formData.append('cmsFile', file, file.name);
-            this.formData = formData;
+            this.fileData = new FormData();
+            this.fileData.append('cmsFile', file, file.name);
+            this.filePreview = file.name;
+            // TODO: add pubDate
         }
     }
 

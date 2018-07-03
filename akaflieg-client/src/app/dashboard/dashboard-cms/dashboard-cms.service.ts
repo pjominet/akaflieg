@@ -10,8 +10,8 @@ export class DashboardCmsService {
     constructor(private http: HttpClient) {
     }
 
-    public upload(section: string, data: string, pubDate: string, mimetype: string) {
-        return this.http.post(environment.dataServiceURI + '/files/upload',
+    public uploadData(section: string, data: string, pubDate: string, mimetype: string) {
+        return this.http.post(environment.dataServiceURI + '/files/upload/data',
             JSON.stringify(
                 {
                     section: section,
@@ -21,5 +21,10 @@ export class DashboardCmsService {
                 }
             ), {headers: this.headers}).pipe(
             map((response: HttpResponse<any>) => response));
+    }
+
+    public uploadFile(file: FormData) {
+        return this.http.post(environment.dataServiceURI + '/files/upload/file', file)
+            .pipe(map((response: HttpResponse<any>) => response));
     }
 }

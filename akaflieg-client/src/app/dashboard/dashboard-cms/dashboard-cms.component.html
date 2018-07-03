@@ -85,6 +85,9 @@
                                     <input type="file" id="data-upload"
                                            accept="*.txt, *.md" (change)="getFile($event)">
                                 </label>
+                                <div *ngIf="filePreview">
+                                    <span class="text-muted text-sm">Ausgewählte Datei: <strong>{{filePreview}}</strong></span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">

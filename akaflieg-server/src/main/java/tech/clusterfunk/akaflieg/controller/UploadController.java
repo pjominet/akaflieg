@@ -1,12 +1,11 @@
 package tech.clusterfunk.akaflieg.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import tech.clusterfunk.akaflieg.dto.FileDTO;
 import tech.clusterfunk.akaflieg.entities.FileEntity;
 import tech.clusterfunk.akaflieg.services.UploadService;
@@ -20,7 +19,6 @@ import static tech.clusterfunk.akaflieg.util.RestURIs.FILE_URI;
 public class UploadController {
 
     private UploadService uploadService;
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     public UploadController(UploadService uploadService) {
@@ -59,10 +57,19 @@ public class UploadController {
         } else return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/upload")
+    @PostMapping("/upload/data")
     public ResponseEntity<?> handleFormUpload(@RequestBody FileDTO fileDTO) {
-        int status = uploadService.storeFile(fileDTO);
-        logger.info(status + "");
+        int status = uploadService.storeData(fileDTO);
+        return getResponseEntity(status);
+    }
+
+    @PostMapping("/upload/file")
+    public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
+        int status = uploadService.storeDataFromFile(file);
+        return getResponseEntity(status);
+    }
+
+    private ResponseEntity<?> getResponseEntity(int status) {
         if (status == 200) return new ResponseEntity<>(HttpStatus.OK);
         else if (status == 400) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         else return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
