@@ -1,7 +1,7 @@
 package tech.clusterfunk.akaflieg.entities;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "FILE")
@@ -22,15 +22,22 @@ public class FileEntity {
     private String mimetype;
 
     @Column(name = "CREATION_DATE")
-    private LocalDate creationDate;
+    private LocalDateTime creationDate;
 
     @Column(name = "LAST_MODIFIED")
-    private LocalDate lastModified;
+    private LocalDateTime lastModified;
 
-    public FileEntity(String name, byte[] data, String mimetype) {
+    @Column(name = "PUB_DATE_TIME")
+    private LocalDateTime publicationDateTime;
+
+    public FileEntity(String name, byte[] data, String mimetype,
+                      LocalDateTime publicationDateTime, LocalDateTime creationDate, LocalDateTime lastModified) {
         this.name = name;
         this.data = data;
         this.mimetype = mimetype;
+        this.publicationDateTime = publicationDateTime;
+        this.creationDate = creationDate;
+        this.lastModified = lastModified;
     }
 
     public FileEntity() {
@@ -68,19 +75,27 @@ public class FileEntity {
         this.mimetype = mimetype;
     }
 
-    public LocalDate getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(LocalDate creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 
-    public LocalDate getLastModified() {
+    public LocalDateTime getLastModified() {
         return lastModified;
     }
 
-    public void setLastModified(LocalDate lastModified) {
+    public void setLastModified(LocalDateTime lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public LocalDateTime getPublicationDateTime() {
+        return publicationDateTime;
+    }
+
+    public void setPublicationDateTime(LocalDateTime publicationDateTime) {
+        this.publicationDateTime = publicationDateTime;
     }
 }

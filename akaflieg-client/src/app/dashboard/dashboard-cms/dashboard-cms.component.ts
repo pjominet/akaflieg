@@ -8,6 +8,7 @@ import {first} from "rxjs/operators";
 import {AlertService} from "../../helpers/alert/alert.service";
 import {environment} from "../../../environments/environment";
 import {TdTextEditorComponent} from "@covalent/text-editor";
+import DateTimeFormat = Intl.DateTimeFormat;
 
 const now = new Date();
 
@@ -41,7 +42,6 @@ export class DashboardCmsComponent implements OnInit {
 
     date: NgbDateStruct;
     time: NgbTimeStruct;
-    publicationDateTime: string;
 
     formData: FormData;
 
@@ -59,25 +59,29 @@ export class DashboardCmsComponent implements OnInit {
     }
 
     public update() {
-        this.formData = new FormData();
-        this.formData.append('section', this.editSelect);
-        this.formData.append('content', this.mdeContent);
-        this.publicationDateTime = new Date(
-            this.date.year, this.date.month, this.date.day,
-            this.time.hour, this.time.minute, this.time.second).toString();
-        this.formData.append('pubDate', this.publicationDateTime);
-
         this.alertService.clear();
-        this.cmsService.upload(this.formData).pipe(first()).subscribe(
+
+        let section = this.editSelect;
+        let data = this.mdeContent;
+        let publicationDateTime = new Date(
+            this.date.year, this.date.month - 1, this.date.day + 1,
+            this.time.hour, this.time.minute, this.time.second).toISOString();
+        let mimetype = 'text/markdown';
+
+        this.cmsService.upload(section, data, publicationDateTime, mimetype).pipe(first()).subscribe(
             success => {
                 this.alertService.success('Aktualisierung erfolgreich!');
-                if (!environment.production) console.log(success);
+                if (!environment.production) console.log("success");
             },
             error => {
                 if (error.status === 503)
                     this.alertService.error('Fehler beim Hochladen der Daten: Server antwortet nicht.');
                 if (error.status === 500)
                     this.alertService.error('Fehler beim Hochladen der Daten: Bearbeitungsfehler auf dem Server.');
+                if (error.status === 415)
+                    this.alertService.warn('Aktualisierung abgebrochen: Datei Typ wird nicht unterstützt.');
+                if (error.status === 400)
+                    this.alertService.warn('Aktualisierung abgebrochen: Der Inhalt wurde nicht verändert.');
                 if (!environment.production) console.log(error);
             }
         );

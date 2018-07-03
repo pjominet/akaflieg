@@ -5,13 +5,21 @@ import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class DashboardCmsService {
-    private headers = new HttpHeaders({'Content-Type': 'multipart/form-data'});
+    private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     constructor(private http: HttpClient) {
     }
 
-    public upload(file: FormData) {
-        return this.http.post(environment.dataServiceURI + '/upload', file, {headers: this.headers}).pipe(
+    public upload(section: string, data: string, pubDate: string, mimetype: string) {
+        return this.http.post(environment.dataServiceURI + '/files/upload',
+            JSON.stringify(
+                {
+                    section: section,
+                    data: data,
+                    pubDate: pubDate,
+                    mimetype: mimetype
+                }
+            ), {headers: this.headers}).pipe(
             map((response: HttpResponse<any>) => response));
     }
 }

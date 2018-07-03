@@ -40,26 +40,7 @@ public class AkafliegApplication {
                 logger.warn("UserEntity \"" + user.getUsername() + "\" already exists");
             }
 
-            // Create test files TODO: remove in live
-            logger.info("creating test files...");
-            int i;
-            for(i = 0; i < 4; i++) {
-                String filename;
-                byte[] data;
-                String mimetype;
-                if (i < 2) {
-                    filename = "Testfile" + i + ".txt";
-                    data = ("Lorem Ipsum Test" + i).getBytes();
-                    mimetype = "text/plain";
-                } else {
-                    filename = "Testfile" + i + ".md";
-                    data = ("# Lorem Ipsum" + i + "\nDolor sit").getBytes();
-                    mimetype = "text/markdown";
-                }
-                FileEntity file = new FileEntity(filename, data, mimetype);
-                fileRepo.save(file);
-            }
-            logger.info("added " + i + " test files to file repo");
+            // TODO: load content into db on startup
         };
     }
 }

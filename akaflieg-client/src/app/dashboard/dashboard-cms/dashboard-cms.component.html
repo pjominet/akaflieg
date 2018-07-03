@@ -77,13 +77,13 @@
                             <div class="form-group">
                                 <label for="data-upload" class="text-muted">
                                     Eine vorformatierte Datei hochladen<br>
-                                    <span class="text-sm">* erlaubt sind .txt, .md und .json</span>
+                                    <span class="text-sm">* erlaubt sind .txt und .md</span>
                                 </label>
                                 <br>
                                 <label class="btn btn-default btn-file">
                                     Durchsuchen...
                                     <input type="file" id="data-upload"
-                                           accept="*.txt, *.json, *.md" (change)="getFile($event)">
+                                           accept="*.txt, *.md" (change)="getFile($event)">
                                 </label>
                             </div>
                         </div>
@@ -94,7 +94,13 @@
 
                     <hr>
 
-                    <div class="row">
+                    <div class="row justify-content-center">
+                        <div class="col-md-auto">
+                            <app-alert></app-alert>
+                        </div>
+                    </div>
+
+                    <div class="row space-bottom">
                         <div class="col-md-6">
                             <button type="submit" class="btn btn-primary btn-xl">Aktualisieren</button>
                         </div>
@@ -104,11 +110,6 @@
                     </div>
                 </form>
 
-                <div class="row justify-content-center">
-                    <div class="col-md-auto">
-                        <app-alert></app-alert>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

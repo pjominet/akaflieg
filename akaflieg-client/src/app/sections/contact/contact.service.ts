@@ -23,8 +23,7 @@ export class ContactService {
                     recipient: this.to,
                     subject: subject,
                     message: message
-                })).pipe(
-            map((response: HttpResponse<any>) => {
+                })).pipe(map((response: HttpResponse<any>) => {
                 // sending mail successful
                 return response;
             }));
