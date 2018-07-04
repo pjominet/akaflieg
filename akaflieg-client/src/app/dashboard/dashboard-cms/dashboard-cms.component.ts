@@ -21,10 +21,12 @@ export class DashboardCmsComponent implements OnInit {
     @ViewChild('helpModal') helpModal: any;
     @ViewChild('mde') mde: TdTextEditorComponent;
 
+    editMethod = 1;
+
     editSelect: string;
     editOptions = ['club', 'advantages', 'tryout', 'membership', 'prices', 'info', 'projects'];
 
-    mdeContent = '# Heading\nText with [Link](http://example.com)';
+    mdeContent = '# Überschrift\nText mit [Link](http://example.com)';
     mdeOptions: any = {
         toolbar: ['bold', 'italic', 'heading', '|', 'link', 'table', '|', 'preview', {
             name: 'guide',

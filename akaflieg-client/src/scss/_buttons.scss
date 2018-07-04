@@ -17,9 +17,24 @@ a.active {
 
 .btn-primary:hover,
 .btn-primary:active,
+.btn-primary.active,
 .btn-primary:focus {
-  background-color: $default-light;
+  background-color: $default;
   border-color: $default;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    border-color: $default;
+    color: $default;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary.active,
+.btn-outline-primary:focus {
+    background-color: $default !important;
+    border-color: $default !important;
 }
 
 .btn-xl {
@@ -33,6 +48,7 @@ a.active {
 
 .btn-xl:hover,
 .btn-xl:active,
+.btn-xl.active,
 .btn-xl:focus {
   color: white;
   background-color: $default-light;
@@ -63,7 +79,8 @@ ul.social-buttons li a {
 
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
-ul.social-buttons li a:active {
+ul.social-buttons li a:active,
+ul.social-buttons li a.active {
   background-color: $default-highlight;
 }
 

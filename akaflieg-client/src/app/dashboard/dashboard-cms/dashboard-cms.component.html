@@ -5,116 +5,133 @@
                 <h2 class="section-heading">Verwaltung&nbsp;<i class="fa fa-unlock" aria-hidden="true"></i></h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
 
-                <form name="CMS" id="cmsForm" (ngSubmit)="f.form.valid && update()" #f="ngForm"
-                      enctype="multipart/form-data" accept-charset="UTF-8">
+        <form name="CMS" id="cmsForm" (ngSubmit)="f.form.valid && update()" #f="ngForm"
+              enctype="multipart/form-data" accept-charset="UTF-8">
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="edit-select" class="text-muted">
-                                    Den zu editierenden Bereich wählen
-                                </label>
-                                <select class="form-control" id="edit-select" name="editSelect"
-                                        [(ngModel)]="editSelect" required>
-                                    <optgroup label="Über Uns">
-                                        <option [ngValue]="editOptions[0]">Verein</option>
-                                        <option [ngValue]="editOptions[1]">Vorteile</option>
-                                    </optgroup>
-                                    <optgroup label="Ausbildung">
-                                        <option [ngValue]="editOptions[2]">Schnuppern</option>
-                                        <option [ngValue]="editOptions[3]">Mitgliedschaft</option>
-                                        <option [ngValue]="editOptions[4]">Fluggebühren</option>
-                                        <option [ngValue]="editOptions[5]">Infos</option>
-                                    </optgroup>
-                                    <optgroup label="Dashboard">
-                                        <option [ngValue]="editOptions[6]">Projekte</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="date-picker" class="text-muted">
-                                    Veröffentlichungsdatum wählen
-                                </label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" [(ngModel)]="date" placeholder="yyyy-mm-dd"
-                                           id="date-picker" ngbDatepicker #d="ngbDatepicker" name="datePicker">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" (click)="d.toggle()" type="button">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="time-picker" class="text-muted">
-                                    Veröffentlichungszeit wählen
-                                </label>
-                                <ngb-timepicker [(ngModel)]="time" [spinners]="false"
-                                                id="time-picker" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="edit-select" class="text-muted">
+                            Den zu editierenden Bereich wählen
+                        </label>
+                        <select class="form-control" id="edit-select" name="editSelect"
+                                [(ngModel)]="editSelect" required>
+                            <optgroup label="Über Uns">
+                                <option [ngValue]="editOptions[0]">Verein</option>
+                                <option [ngValue]="editOptions[1]">Vorteile</option>
+                            </optgroup>
+                            <optgroup label="Ausbildung">
+                                <option [ngValue]="editOptions[2]">Schnuppern</option>
+                                <option [ngValue]="editOptions[3]">Mitgliedschaft</option>
+                                <option [ngValue]="editOptions[4]">Fluggebühren</option>
+                                <option [ngValue]="editOptions[5]">Infos</option>
+                            </optgroup>
+                            <optgroup label="Dashboard">
+                                <option [ngValue]="editOptions[6]">Projekte</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="date-picker" class="text-muted">
+                            Veröffentlichungsdatum wählen
+                        </label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" [(ngModel)]="date" placeholder="yyyy-mm-dd"
+                                   id="date-picker" ngbDatepicker #d="ngbDatepicker" name="datePicker">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" (click)="d.toggle()" type="button">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="text-muted">Neuer Inhalt</label>
-                                <td-text-editor [value]="mdeContent" [options]="mdeOptions"
-                                                required #mde></td-text-editor>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="time-picker" class="text-muted">
+                            Veröffentlichungszeit wählen
+                        </label>
+                        <ngb-timepicker [(ngModel)]="time" [spinners]="false"
+                                        id="time-picker" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="file-upload" class="text-muted">
-                                    Eine vorformatierte Datei hochladen<br>
-                                    <span class="text-sm">* erlaubt sind .txt und .md</span>
-                                </label>
-                                <br>
-                                <label class="btn btn-default btn-file">
-                                    Durchsuchen...
-                                    <input type="file" id="file-upload" name="file"
-                                           accept="*.txt, *.md" (change)="getFile($event)">
-                                </label>
-                                <div *ngIf="filePreview">
-                                    <span class="text-muted text-sm">Ausgewählte Datei: <strong>{{filePreview}}</strong></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <button class="btn btn-info float-right" (click)="openMarkdownGuide()">Markdown Guide</button>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row justify-content-center">
-                        <div class="col-md-auto">
-                            <app-alert></app-alert>
-                        </div>
-                    </div>
-
-                    <div class="row space-bottom">
-                        <div class="col-md-6">
-                            <button type="submit" class="btn btn-primary btn-xl">Aktualisieren</button>
-                        </div>
-                        <div class="col-md-6">
-                            <button class="btn btn-danger float-right" (click)="logout()">Logout</button>
-                        </div>
-                    </div>
-                </form>
-
+                </div>
             </div>
-        </div>
+
+            <div class="row justify-content-center space-bottom">
+                <div class="col-md-auto">
+                    <div class="btn-group btn-group-toggle" ngbRadioGroup
+                         name="edit-method-selection" [(ngModel)]="editMethod">
+                        <label ngbButtonLabel class="btn btn-outline-primary btn-radio">
+                            <input ngbButton type="radio" [value]="1">Händisch editieren
+                        </label>
+                        <label ngbButtonLabel class="btn btn-outline-primary btn-radio">
+                            <input ngbButton type="radio" [value]="2">Vorformatierte Datei hochladen
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="editMethod === 1">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="text-muted">Neuer Inhalt</label>
+                            <td-text-editor [value]="mdeContent" [options]="mdeOptions"
+                                            required #mde></td-text-editor>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-info float-right" (click)="openMarkdownGuide()">
+                            Markdown Guide
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="editMethod === 2">
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <div class="form-group">
+                            <label for="file-upload" class="text-muted">
+                                <span class="text-sm">* erlaubt sind .txt und .md</span>
+                            </label>
+                            <br>
+                            <label class="btn btn-default btn-file">
+                                Durchsuchen...
+                                <input type="file" id="file-upload" name="file"
+                                       accept="*.txt, *.md" (change)="getFile($event)">
+                            </label>
+                            <div *ngIf="filePreview">
+                                <span class="text-muted text-sm">Ausgewählte Datei: <strong>{{filePreview}}</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                    <app-alert></app-alert>
+                </div>
+            </div>
+
+            <div class="row space-bottom">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary">Aktualisieren</button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-danger float-right" (click)="logout()">Logout</button>
+                </div>
+            </div>
+        </form>
+
     </div>
 </section>
 
