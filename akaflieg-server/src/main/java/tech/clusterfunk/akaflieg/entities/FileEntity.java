@@ -16,7 +16,7 @@ public class FileEntity {
     private String name;
 
     @Column(name = "DATA")
-    private byte[] data;
+    private String data;
 
     @Column(name = "MIMETYPE")
     private String mimetype;
@@ -30,7 +30,7 @@ public class FileEntity {
     @Column(name = "PUB_DATE_TIME")
     private LocalDateTime publicationDateTime;
 
-    public FileEntity(String name, byte[] data, String mimetype,
+    public FileEntity(String name, String data, String mimetype,
                       LocalDateTime publicationDateTime, LocalDateTime creationDate, LocalDateTime lastModified) {
         this.name = name;
         this.data = data;
@@ -59,11 +59,11 @@ public class FileEntity {
         this.name = name;
     }
 
-    public byte[] getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(byte[] data) {
+    public void setData(String data) {
         this.data = data;
     }
 

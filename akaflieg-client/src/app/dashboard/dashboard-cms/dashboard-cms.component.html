@@ -75,14 +75,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="data-upload" class="text-muted">
+                                <label for="file-upload" class="text-muted">
                                     Eine vorformatierte Datei hochladen<br>
                                     <span class="text-sm">* erlaubt sind .txt und .md</span>
                                 </label>
                                 <br>
                                 <label class="btn btn-default btn-file">
                                     Durchsuchen...
-                                    <input type="file" id="data-upload"
+                                    <input type="file" id="file-upload" name="file"
                                            accept="*.txt, *.md" (change)="getFile($event)">
                                 </label>
                                 <div *ngIf="filePreview">

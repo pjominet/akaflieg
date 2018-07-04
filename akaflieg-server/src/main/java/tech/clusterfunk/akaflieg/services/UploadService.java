@@ -7,10 +7,11 @@ import tech.clusterfunk.akaflieg.dto.FileDTO;
 import tech.clusterfunk.akaflieg.entities.FileEntity;
 import tech.clusterfunk.akaflieg.repository.FileRepository;
 
-import java.io.IOException;
+import javax.validation.constraints.NotNull;
+import java.io.*;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UploadService {
@@ -39,7 +40,7 @@ public class UploadService {
         if (fileDTO != null) {
             String filename = fileDTO.getFilename();
             LocalDateTime pubDate = fileDTO.getPubDate();
-            byte[] data = fileDTO.getData().getBytes();
+            String data = fileDTO.getData();
             String mimetype = fileDTO.getMimetype();
 
             FileEntity file = fileRepository.findByName(filename);
@@ -54,9 +55,11 @@ public class UploadService {
 
         try {
             String filename = multipartFile.getOriginalFilename();
-            byte[] data = multipartFile.getBytes();
+            String data = new BufferedReader(new InputStreamReader(multipartFile.getInputStream()))
+                .lines().collect(Collectors.joining("\n"));
             String mimetype = multipartFile.getContentType();
             LocalDateTime pubDate = LocalDateTime.now(); // TODO: get date from request
+
 
             FileEntity file = fileRepository.findByName(filename);
 
@@ -72,12 +75,12 @@ public class UploadService {
         return fileRepository.findByName(filename);
     }
 
-    private boolean saveToDB(String filename, LocalDateTime pubDate, byte[] data, String mimetype, FileEntity file) {
+    private boolean saveToDB(String filename, LocalDateTime pubDate, String data, String mimetype, FileEntity file) {
         LocalDateTime modDate;
         LocalDateTime creationDate;
 
         if (file != null) {
-            if (!Arrays.equals(file.getData(), data) &&
+            if (!file.getData().equals(data) &&
                 file.getLastModified().isBefore(modDate = LocalDateTime.now())) {
                 file.setLastModified(modDate);
                 file.setData(data);
@@ -95,5 +98,15 @@ public class UploadService {
             ));
         }
         return true;
+    }
+
+    private String convertStreamToString(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream result = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = inputStream.read(buffer)) != -1) {
+            result.write(buffer, 0, length);
+        }
+        return result.toString("UTF-8");
     }
 }

@@ -64,7 +64,7 @@ public class UploadController {
     }
 
     @PostMapping("/upload/file")
-    public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<?> handleFileUpload(@RequestParam("cmsFile") MultipartFile file) {
         int status = uploadService.storeDataFromFile(file);
         return getResponseEntity(status);
     }
