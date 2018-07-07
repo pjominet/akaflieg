@@ -29,7 +29,7 @@ export class DashboardCmsComponent implements OnInit {
     mdeOptions: any = {
         toolbar: ['bold', 'italic', 'heading', '|', 'link', 'table', '|', 'preview', {
             name: 'guide',
-            action: this.openMarkdownGuide(),
+            action: this.openMarkdownGuide,
             className: 'fa fa-question-circle',
             title: 'Markdown Guide'
         }],
