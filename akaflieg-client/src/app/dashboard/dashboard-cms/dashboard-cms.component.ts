@@ -4,11 +4,10 @@ import {AuthenticationService} from '../../helpers/auth/authentication.service';
 import {Router} from '@angular/router';
 import {NgbDateStruct, NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
 import {ModalService} from '../../helpers/modal/modal.service';
-import {first} from "rxjs/operators";
-import {AlertService} from "../../helpers/alert/alert.service";
-import {environment} from "../../../environments/environment";
-import {TdTextEditorComponent} from "@covalent/text-editor";
-import DateTimeFormat = Intl.DateTimeFormat;
+import {first} from 'rxjs/operators';
+import {AlertService} from '../../helpers/alert/alert.service';
+import {environment} from '../../../environments/environment';
+import {TdTextEditorComponent} from '@covalent/text-editor';
 
 const now = new Date();
 
@@ -75,32 +74,31 @@ export class DashboardCmsComponent implements OnInit {
     public update() {
         this.alertService.clear();
 
-        let section = this.editSelect;
+        const section = this.editSelect;
         // TODO: check date generation
-        let publicationDateTime = new Date(
+        const publicationDateTime = new Date(
             this.date.year, this.date.month - 1, this.date.day + 1,
             this.time.hour, this.time.minute, this.time.second).toISOString();
 
-        // TODO: add better separation of upload methods
-        if (this.fileData != undefined) {
+        if (this.fileData !== undefined && this.editMethod === 2) {
             this.cmsService.uploadFile(this.fileData).pipe(first()).subscribe(
                 success => {
                     this.alertService.success('Aktualisierung erfolgreich!');
-                    if (!environment.production) console.log("success");
+                    if (!environment.production) console.log('success');
                 },
                 error => {
                     this.getErrorAlert(error);
                     if (!environment.production) console.log(error);
                 }
             )
-        } else if (this.mdeContent != undefined && this.mdeContent.trim() != '') {
-            let data = this.mdeContent;
-            let mimetype = 'text/markdown';
+        } else if (this.mdeContent !== undefined && this.mdeContent.trim() !== '' && this.editMethod === 1) {
+            const data = this.mdeContent;
+            const mimetype = 'text/markdown';
 
             this.cmsService.uploadData(section, data, publicationDateTime, mimetype).pipe(first()).subscribe(
                 success => {
                     this.alertService.success('Aktualisierung erfolgreich!');
-                    if (!environment.production) console.log("success");
+                    if (!environment.production) console.log('success');
                 },
                 error => {
                     this.getErrorAlert(error);
@@ -112,12 +110,15 @@ export class DashboardCmsComponent implements OnInit {
 
     public getFile(event) {
         const fileList = event.target.files;
+        const publicationDateTime = new Date(
+            this.date.year, this.date.month - 1, this.date.day + 1,
+            this.time.hour, this.time.minute, this.time.second).toISOString();
         if (fileList.length > 0) {
             const file: File = fileList[0];
             this.fileData = new FormData();
             this.fileData.append('cmsFile', file, file.name);
+            this.fileData.append('pubDate', publicationDateTime);
             this.filePreview = file.name;
-            // TODO: add pubDate
         }
     }
 
@@ -128,7 +129,7 @@ export class DashboardCmsComponent implements OnInit {
                 console.log('Logged out');
             })
             .catch(function () {
-                console.log('Logging out failed');
+                console.log('Log out failed');
             });
     }
 

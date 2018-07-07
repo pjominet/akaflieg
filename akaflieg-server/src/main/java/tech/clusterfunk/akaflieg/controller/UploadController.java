@@ -1,6 +1,7 @@
 package tech.clusterfunk.akaflieg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import tech.clusterfunk.akaflieg.dto.FileDTO;
 import tech.clusterfunk.akaflieg.entities.FileEntity;
 import tech.clusterfunk.akaflieg.services.UploadService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static tech.clusterfunk.akaflieg.util.RestURIs.FILE_URI;
@@ -64,8 +66,10 @@ public class UploadController {
     }
 
     @PostMapping("/upload/file")
-    public ResponseEntity<?> handleFileUpload(@RequestParam("cmsFile") MultipartFile file) {
-        int status = uploadService.storeDataFromFile(file);
+    public ResponseEntity<?> handleFileUpload(
+        @RequestParam("cmsFile") MultipartFile file,
+        @RequestParam("pubDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)LocalDateTime pubDate) {
+        int status = uploadService.storeDataFromFile(file, pubDate);
         return getResponseEntity(status);
     }
 

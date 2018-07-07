@@ -7,7 +7,6 @@ import tech.clusterfunk.akaflieg.dto.FileDTO;
 import tech.clusterfunk.akaflieg.entities.FileEntity;
 import tech.clusterfunk.akaflieg.repository.FileRepository;
 
-import javax.validation.constraints.NotNull;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -51,15 +50,17 @@ public class UploadService {
         return 500;
     }
 
-    public int storeDataFromFile(MultipartFile multipartFile) {
+    public int storeDataFromFile(MultipartFile multipartFile, LocalDateTime pubDate) {
 
         try {
-            String filename = multipartFile.getOriginalFilename();
+            String originalFilename = multipartFile.getOriginalFilename();
+            String[] fileParts = originalFilename.split("\\.");
+            String filename = fileParts[0];
             String data = new BufferedReader(new InputStreamReader(multipartFile.getInputStream()))
                 .lines().collect(Collectors.joining("\n"));
-            String mimetype = multipartFile.getContentType();
-            LocalDateTime pubDate = LocalDateTime.now(); // TODO: get date from request
-
+            String mimetype;
+            if (fileParts[1].equals("md")) mimetype = "text/markdown";
+            else mimetype = "text/plain";
 
             FileEntity file = fileRepository.findByName(filename);
 
