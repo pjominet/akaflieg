@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DashboardCmsService} from './dashboard-cms.service';
 import {AuthenticationService} from '../../helpers/auth/authentication.service';
 import {Router} from '@angular/router';
@@ -7,7 +7,6 @@ import {ModalService} from '../../helpers/modal/modal.service';
 import {first} from 'rxjs/operators';
 import {AlertService} from '../../helpers/alert/alert.service';
 import {environment} from '../../../environments/environment';
-import {TdTextEditorComponent} from '@covalent/text-editor';
 
 const now = new Date();
 
@@ -17,29 +16,13 @@ const now = new Date();
     styleUrls: ['./dashboard-cms.component.scss']
 })
 export class DashboardCmsComponent implements OnInit {
-    @ViewChild('helpModal') helpModal: any;
-    @ViewChild('mde') mde: TdTextEditorComponent;
 
-    editMethod = 1;
-
+    editMethod: number;
     editSelect: string;
     editOptions = ['club', 'advantages', 'tryout', 'membership', 'prices', 'info', 'projects'];
 
-    mdeContent = '# Überschrift\nText mit [Link](http://example.com)';
-    mdeOptions: any = {
-        toolbar: ['bold', 'italic', 'heading', '|', 'link', 'table', '|', 'preview', {
-            name: 'guide',
-            action: this.openMarkdownGuide,
-            className: 'fa fa-question-circle',
-            title: 'Markdown Guide'
-        }],
-        blockStyles: {
-            italic: '_'
-        },
-        indentWithTabs: false,
-        spellChecker: false,
-        tabSize: 4
-    };
+    mdeContent: string;
+    mdeOptions: any;
 
     date: NgbDateStruct;
     time: NgbTimeStruct;
@@ -55,9 +38,27 @@ export class DashboardCmsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.editMethod = 1;
         this.editSelect = this.editOptions[0];
+
         this.date = {year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate()};
         this.time = {hour: 0, minute: 0, second: 0};
+
+        this.mdeContent = '# Überschrift\nText mit [Link](http://example.com)';
+        this.mdeOptions = {
+            toolbar: ['bold', 'italic', 'heading', '|', 'link', 'table', '|', 'preview', {
+                name: 'guide',
+                action: this.openMarkdownGuide,
+                className: 'fa fa-question-circle',
+                title: 'Markdown Guide'
+            }],
+            blockStyles: {
+                italic: '_'
+            },
+            indentWithTabs: false,
+            spellChecker: false,
+            tabSize: 4
+        };
     }
 
     private getErrorAlert(error: any) {
