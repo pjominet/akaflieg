@@ -2,9 +2,10 @@
 
 .back-to-top {
     position: fixed;
-    top: 88.5vh;
+    top: 82.5vh;
     right: 2vh;
     border: none;
+    z-index: 9999;
 }
 
 .shift-sm {
