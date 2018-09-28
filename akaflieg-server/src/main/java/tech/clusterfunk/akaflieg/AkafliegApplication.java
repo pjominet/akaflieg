@@ -2,6 +2,7 @@ package tech.clusterfunk.akaflieg;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,10 @@ import tech.clusterfunk.akaflieg.repository.UserRepository;
 @SpringBootApplication
 public class AkafliegApplication {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Value("${cms.user}")
+    private String cms_user;
+    @Value("${cms.password}")
+    private String cms_password;
 
     public static void main(String[] args) {
         SpringApplication.run(AkafliegApplication.class, args);
@@ -31,10 +36,10 @@ public class AkafliegApplication {
             // create root user TODO: should be set with launch param
             UserEntity user = userRepo.findByUsername("root");
             if (user == null) {
-                logger.info("Creating user: \"root\"");
+                logger.info("Creating user: \"" + cms_user + "\"");
                 UserEntity newUser = new UserEntity();
-                newUser.setUsername("root");
-                newUser.setPassword(encoder.encode("q1w2e3"));
+                newUser.setUsername(cms_user);
+                newUser.setPassword(encoder.encode(cms_password));
                 userRepo.save(newUser);
             } else {
                 logger.warn("UserEntity \"" + user.getUsername() + "\" already exists");

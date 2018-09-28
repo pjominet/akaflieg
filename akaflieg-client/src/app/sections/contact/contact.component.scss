@@ -4,32 +4,43 @@
 section#contact {
   background-color: $default-highlight;
 }
+
 section#contact .section-heading {
   color: $bg-default;
 }
+
 section#contact .form-group {
   margin-bottom: 25px;
 }
+
 section#contact .form-group input,
 section#contact .form-group textarea {
   padding: 20px;
 }
+
 section#contact .form-group input.form-control {
   height: auto;
 }
+
 section#contact .form-group textarea.form-control {
   height: 236px;
 }
+
 section#contact .form-control:focus {
   border-color: $default;
   box-shadow: none;
 }
+
 section#contact .message-block {
   font-size: larger;
   color: $text-light;
 }
 
+section#contact form {
+    margin-bottom: 1em;
+}
+
 .space-appendix {
-  margin-top: -1em;
-  margin-bottom: 1em;
+    margin-top: -1em;
+    margin-bottom: 1em;
 }

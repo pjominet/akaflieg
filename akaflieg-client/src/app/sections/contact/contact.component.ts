@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
                 this.sending = false;
                 this.alertService.success('Nachricht erfolgreich versendet')
             }, error => {
-                this.alertService.error(error);
+                this.alertService.error('Fehler: ' + error.status + ', Email konnte nicht versendet werden');
                 this.sending = false;
             });
     }
