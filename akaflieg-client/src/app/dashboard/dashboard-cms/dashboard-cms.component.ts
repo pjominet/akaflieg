@@ -45,7 +45,6 @@ export class DashboardCmsComponent implements OnInit {
         this.time = {hour: 0, minute: 0, second: 0};
 
         this.mdeContent = '# Überschrift\nText mit [Link](http://example.com)';
-        const self = this;
         this.mdeOptions = {
             toolbar: ['bold', 'italic', 'heading', '|', 'link', 'table', '|', 'preview', {
                 name: 'guide',

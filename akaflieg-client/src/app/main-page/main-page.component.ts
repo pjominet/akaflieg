@@ -1,6 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
-
-declare const $: any;
+import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-main-page',
