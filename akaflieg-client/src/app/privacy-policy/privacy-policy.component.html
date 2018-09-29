@@ -1,32 +1,258 @@
-<section id="privacyPolicy" class="bg-alt">
-    <div class="container">
+<div id="privacy-policy">
+    <nav id="privacyNav" class="navbar navbar-expand-lg navbar-dark fixed-top navbar-privacy">
+        <div class="container-fluid">
+            <div class="mr-auto ml-4">
+                <a class="navbar-brand" routerLink="/index">Akaflieg Köln e.V.</a>
+            </div>
+
+            <button type="button" class="navbar-toggler navbar-toggler-right mr-2"
+                    (click)="isCollapsed = !isCollapsed"
+                    aria-controls="privacyNav-hamburger" [attr.aria-expanded]="!isCollapsed">
+                <i class="fa fa-lg fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse" id="privacyNav-hamburger">
+                <div class="nav navbar-nav ml-auto mr-4">
+                    <div class="nav-item mr-5">
+                        <span class="mr-2">Vollständige Datenschutzerklärung</span>
+                        <a href="../assets/data/Datenschutzerklärung_Akaflieg_Köln.pdf" download class="btn btn-success">
+                            Download
+                        </a>
+                    </div>
+                    <a routerLink="/index" class="nav-item nav-link">
+                        <i class="fa fa-lg fa-home" aria-hidden="true"></i>
+                        <span class="symbol-spacer"></span>
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="offset_top container-fluid">
         <div class="row">
-            <div class="col-lg-12">
-                <h1>Datenschutzbestimmungen</h1>
-                <p>
-                    <strong class="text-muted">Inhalte von Dritten</strong><br>
-                    Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer
-                    Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
-                </p>
-                <p>
-                    <strong class="text-muted">Widerruf, Änderungen, Berichtigungen und Aktualisierungen</strong><br>
-                    Der Nutzer hat das Recht, auf Antrag unentgeltlich Auskunft zu erhalten über die personenbezogenen
-                    Daten, die über ihn gespeichert wurden. Zusätzlich hat der Nutzer das Recht auf Berichtigung
-                    unrichtiger Daten, Sperrung und Löschung seiner personenbezogenen Daten, soweit dem keine
-                    gesetzliche Aufbewahrungspflicht entgegensteht.
-                </p>
-                <p>
-                    <strong class="text-muted">Cookies</strong><br>
-                    Cookies sind kleine Dateien, die es ermöglichen, auf dem Zugriffsgerät der Nutzer (PC, Smartphone
-                    o.ä.) spezifische, auf das Gerät bezogene Informationen zu speichern. Sie dienen zum einem der
-                    Benutzerfreundlichkeit von Webseiten und damit den Nutzern (z.B. Speicherung von Logindaten).
-                    Zum anderen dienen sie, um die statistische Daten der Webseitennutzung zu erfassen und sie
-                    zwecks Verbesserung des Angebotes analysieren zu können. Die Nutzer können auf den Einsatz der
-                    Cookies Einfluss nehmen. Die meisten Browser verfügen eine Option mit der das Speichern von Cookies
-                    eingeschränkt oder komplett verhindert wird. Allerdings wird darauf hingewiesen, dass die Nutzung
-                    und insbesondere der Nutzungskomfort ohne Cookies eingeschränkt werden.
-                </p>
+            <div class="col-10 offset-md-2">
+                <h2>Datenschutzerklärung gemäß DSGVO</h2>
+                <h3 class="subheading text-muted">Stand 07.06.2018</h3>
             </div>
         </div>
+        <hr>
+        <div class="row">
+            <aside id="left" class="col-md-4 col-xs-0">
+                <div ngx-sticky [useParentOffset]="true">
+                    <h5>Quicklinks</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" pageScroll href="#1">1. Nutzung der Website</a>
+                        <a class="nav-link" pageScroll href="#2">2. Verwendung von Cookies auf unserer Website</a>
+                        <a class="nav-link" pageScroll href="#3">3. Verwendung von Cookies durch Dritte</a>
+                        <a class="nav-link" pageScroll href="#4">4. Webanalyse mit Google Analytics</a>
+                        <a class="nav-link" pageScroll href="#5">5. Verwendung von externen Links</a>
+                        <a class="nav-link indent" pageScroll href="#5a">a) Nutzung von Facebook-Plugins</a>
+                        <a class="nav-link indent" pageScroll href="#5b">b) Nutzung von Twitter</a>
+                        <a class="nav-link" pageScroll href="#6">6. Verwendung personenbezogener Daten und
+                            Zweckbindung</a>
+                    </nav>
+                </div>
+            </aside>
+
+            <main class="col-md-8 col-xs-12 space-bottom">
+                <h3 id="1">1. Nutzung der Website</h3>
+                <p>
+                    Bei der bloß informatorischen Nutzung der Website, also wenn Sie sich nicht registrieren
+                    oder uns anderweitig Informationen übermitteln, erheben wir nur die personenbezogenen
+                    Daten, die Ihr Browser an unseren Server übermittelt. Dies sind die folgenden, für die
+                    Anzeige unsere Website auf Ihrem Browser technisch erforderlichen Daten (Rechtsgrundlage
+                    hierfür ist Art. 6 Abs. 1 Satz 1 lit f) DS-GVO):
+                </p>
+                <ul>
+                    <li>Ihre IP-Adresse</li>
+                    <li>Datum und Uhrzeit Ihres Besuches auf unseren Webseiten</li>
+                    <li>welche unserer Webseiten Sie besucht haben und die Verweildauer</li>
+                    <li>Zugriffsstatus/http-Statuscode</li>
+                    <li>jeweils übertragene Datenmenge</li>
+                    <li>den von Ihnen genutzten Webbrowser</li>
+                    <li>Sprache und Version der Browsersoftware</li>
+                    <li>das von Ihnen verwendete Betriebssystem und dessen Oberfläche</li>
+                    <li>den Domainnamen Ihres Internet Service Providers</li>
+                    <li>die Website von der Sie auf unserer Website gelangt sind</li>
+                </ul>
+
+                <h3 id="2">2. Verwendung von Cookies auf unserer Website</h3>
+                <p>
+                    Zusätzlich zu den zuvor genannten Daten werden bei der Nutzung unserer Website Cookies
+                    auf Ihrem Rechner gespeichert. Bei Cookies handelt es sich um kleine Textdateien, die auf
+                    Ihrer Festplatte dem von Ihnen verwendeten Browser zugeordnet gespeichert werden und
+                    durch welche der Stelle, die den Cookie setzt (hier durch uns), bestimmte Informationen
+                    zufließen. Cookies können keine Programme ausführen oder Viren auf Ihren Computer
+                    übertragen. Sie dienen dazu, das Internetangebot insgesamt nutzerfreundlicher und
+                    effektiver zu machen. Rechtsgrundlage für die Verwendung von Cookies ist Art. 6 Abs. 1 Satz
+                    1 lit f) DS-GVO.
+                </p>
+                <p>
+                    a) Diese Website nutzt folgende Arten von Cookies, deren Umfang und Funktion im
+                    Folgenden erläutert werden:
+                </p>
+                <ul>
+                    <li>Transistente Cookies (dazu b)</li>
+                    <li>Persistente Cookies (dazu c)</li>
+                </ul>
+                <p>
+                    b) Transistente Cookies werden automatisiert gelöscht, wenn Sie den Browser schließen.
+                    Dazu zählen insbesondere die Session-Cookies. Diese speichern eine sogenannte Session-ID,
+                    mit welcher sich verschiedene Anfragen Ihres Browsers der gemeinsamen Sitzung zuordnen
+                    lassen. Dadurch kann Ihr Rechner wiedererkannt werden, wenn Sie auf unsere Website
+                    zurückkehren. Die Session-Cookies werden gelöscht, wenn Sie sich ausloggen oder den
+                    Browser schließen.
+                </p>
+                <p>
+                    c) Persistente Cookies werden automatisiert nach einer vorgegebener Dauer gelöscht, die
+                    sich je nach Cookie unterscheiden kann. Sie können die Cookies in den
+                    Sicherheitseinstellungen Ihres Browsers jederzeit löschen.
+                </p>
+                <p>
+                    d) Sie können Ihre Browser-Einstellung entsprechend Ihren Wünschen konfigurieren und z.B.
+                    die Annahme von Third-Party-Cookies oder allen Cookies ablehnen. Wir weisen Sie darauf
+                    hin, dass Sie dann eventuell nicht alle Funktionen dieser Website nutzen können.
+                </p>
+                <p>
+                    e) Wir setzen Cookies ein, um Sie für Folgebesuche identifizieren zu können, falls Sie über
+                    einen Account bei uns verfügen. Andernfalls müssten Sie sich für den Besuch erneut
+                    einloggen.
+                </p>
+                <p>
+                    f) Die genutzten Flash-Cookies werden nicht durch Ihren Browser erfasst, sondern durch Ihre
+                    Flash-Plug-in. Weiterhin nutzen wir HTML5 storage objects, die auf Ihrem Endgerät abgelegt
+                    werden. Diese Objekte speichern die erforderlichen Daten unabhängig von Ihrem
+                    verwendeten Browser und haben kein automatisches Ablaufdatum. Wenn Sie keine
+                    Verarbeitung der Flash-Cookies wünschen, müssen Sie in Ihrem Browser ein entsprechendes
+                    Add-On installieren. Die Nutzung von HTML5 storage objects können Sie verhindern, indem
+                    Sie in Ihrem Browser den privaten Modus einsetzen bzw. die Einstellung „keine Cookies
+                    akzeptieren“. Verwenden. Zudem empfehlen wir, regelmäßig Ihre Cookies und den Browser-
+                    Verlauf manuell zu löschen.
+                </p>
+
+                <h3 id="3">3. Verwendung von Cookies durch Dritte</h3>
+                <p>
+                    Auf einigen unserer Internetseiten sind Inhalte und Dienste von anderen Anbietern (z.B.
+                    YouTube, Facebook, Twitter) eingebunden, die ihrerseits Cookies und aktive Komponenten
+                    verwenden können. Wir haben auf die Verarbeitung von personenbezogenen Daten durch
+                    diese Anbieter keinen Einfluss.
+                    Bitte beachten Sie, dass die von uns bereitgestellte Möglichkeit zur Einstellung der zu
+                    verwendenden Cookies keine Auswirkungen auf Cookies und aktive Komponenten anderer
+                    Anbieter (z.B. YouTube, Facebook, Twitter) hat.
+                    Bitte informieren Sie sich auf den Internetseiten der jeweiligen Anbieter über den Umgang
+                    mit Ihren Daten.
+                </p>
+
+                <h3 id="4">4. Webanalyse mit Google Analytics</h3>
+                <p>
+                    Zur internen Auswertung der Nutzung unserer Website verwenden wir Google Analytics,
+                    einen Webanalysedienst der Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA
+                    94043, USA („Google“).
+                </p>
+                <p>
+                    Google Analytics verwendet Cookies, die eine Analyse der Nutzung unserer Website
+                    ermöglichen. Die durch den Cookie erzeugten Informationen über die Nutzung von daec.de
+                    werden in der Regel an einen Server von Google in den USA übertragen und dort
+                    gespeichert. Wir verwenden Google Analytics jedoch ausschließlich mit einer IPAnonymisierung.
+                    Dadurch wird Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten
+                    der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den
+                    Europäischen Wirtschaftsraum zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-
+                    Adresse an einen Server von Google in den USA übertragen und dort gekürzt. In unserem
+                    Auftrag wird Google diese Informationen verwenden, um die Nutzung von daec.de
+                    auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere
+                    mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen uns
+                    gegenüber zu erbringen.
+                </p>
+                <p>
+                    Die im Rahmen von Google Analytics von dem Browser übermittelte IP-Adresse wird laut
+                    Google nicht mit anderen Daten von Google zusammengeführt. Die Speicherung der Cookies
+                    kann durch die Browser-Einstellung „keine Cookies akzeptieren“ verhindert werden.
+                </p>
+                <p>
+                    Darüber hinaus kann die Erfassung der durch den Cookie erzeugten und auf die Nutzung
+                    unserer Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung
+                    dieser Daten durch Google unterbunden werden, indem das unter dem folgenden Link
+                    verfügbare Browser-Plugin installiert wird: http://tools.google.com/dlpage/gaoptout?hl=de
+                </p>
+                <p>
+                    Dadurch wird ein Opt-Out-Cookie gesetzt, das die zukünftige Erfassung der Daten durch
+                    Google Analytics verhindert. Zugriff auf diese anonymisierten Daten erhalten ausschließlich
+                    berechtigte Personen.
+                </p>
+
+                <h3 id="5">5. Verwendung von externen Links</h3>
+                <p>
+                    Unsere Internetseiten können Links zu Internetseiten Dritter − mit uns nicht verbundener
+                    Anbieter − enthalten. Nach Anklicken des Links haben wir keinen Einfluss mehr auf die
+                    Erhebung, Speicherung, Verarbeitung etwaiger mit dem Anklicken des Links an den Dritten
+                    übertragener, personenbezogener Daten (wie zum Beispiel die IP-Adresse oder die URL der
+                    Seite, auf der sich der Link befindet), da das Verhalten Dritter naturgemäß unserer Kontrolle
+                    entzogen ist. Für die Verarbeitung derartiger personenbezogener Daten durch Dritte
+                    übernehmen wir keine Verantwortung. Dieses vorangeschickt bitten wir um Beachtung der
+                    folgenden Hinweise
+                </p>
+                <h4 id="5a">a) Nutzung von Facebook-Plugins</h4>
+                <p>
+                    Auf unseren Seiten sind Plugins des sozialen Netzwerks Facebook (Facebook Inc., 1601
+                    Willow Road, Menlo Park, California, 94025, USA) integriert. Die Facebook-Plugins erkennen
+                    Sie an dem Facebook-Logo auf unserer Seite. Eine Übersicht über die Facebook-Plugins
+                    finden Sie hier:
+                    <a href="http://developers.facebook.com/docs/plugins" target="_blank">http://developers.facebook.com/docs/plugins</a>.
+                </p>
+                <p>
+                    Wenn Sie unsere Seiten besuchen, wird über das Plugin eine direkte Verbindung zwischen
+                    Ihrem Browser und dem Facebook-Server hergestellt. Facebook erhält dadurch die
+                    Information, dass Sie mit Ihrer IP-Adresse unsere Seite besucht haben. Wenn Sie den
+                    Facebook “Like-Button” anklicken während Sie in Ihrem Facebook-Account eingeloggt sind,
+                    können Sie die Inhalte unserer Seiten auf Ihrem Facebook-Profil verlinken. Dadurch kann
+                    Facebook den Besuch unserer Seiten Ihrem Benutzerkonto zuordnen. Wir weisen darauf hin,
+                    dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie
+                    deren Nutzung durch Facebook erhalten. Weitere Informationen hierzu finden Sie in der
+                    Datenschutzerklärung von facebook unter
+                    <a href="http://de-de.facebook.com/policy.php"
+                       target="_blank">http://de-de.facebook.com/policy.php</a>
+                </p>
+                <p>
+                    Wenn Sie nicht wünschen, dass Facebook den Besuch unserer Seiten Ihrem Facebook-
+                    Nutzerkonto zuordnen kann, loggen Sie sich bitte aus Ihrem Facebook-Benutzerkonto aus.
+                </p>
+                <h4 id="5b">b) Nutzung von Twitter</h4>
+                <p>
+                    Auf unseren Seiten sind Funktionen des Dienstes Twitter eingebunden. Diese Funktionen
+                    werden angeboten durch die Twitter Inc., Twitter, Inc. 1355 Market St, Suite 900, San
+                    Francisco, CA 94103, USA. Durch das Benutzen von Twitter und der Funktion “Re-Tweet”
+                    werden die von Ihnen besuchten Webseiten mit Ihrem Twitter-Account verknüpft und
+                    anderen Nutzern bekannt gegeben. Dabei werden auch Daten an Twitter übertragen. Wir
+                    weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der
+                    übermittelten Daten sowie deren Nutzung durch Twitter erhalten. Weitere Informationen
+                    hierzu finden Sie in der Datenschutzerklärung von Twitter unter
+                    <a href="http://twitter.com/privacy" target="_blank">http://twitter.com/privacy</a>.
+                </p>
+                <p>
+                    Ihre Datenschutzeinstellungen bei Twitter können Sie in den Konto-Einstellungen unter
+                    <a href="http://twitter.com/account/settings"
+                       target="_blank">http://twitter.com/account/settings</a> ändern.
+                </p>
+
+                <h3 id="6">6. Verwendung personenbezogener Daten und Zweckbindung</h3>
+                <p>
+                    Wir oder ein von uns beauftragtes Dienstleistungsunternehmen nutzt Ihre
+                    personenbezogenen Daten zu Zwecken der technischen Administration der Webseiten und
+                    für Ihre Anfragen nur im jeweils dafür erforderlichen Umfang oder gemäß den Angaben der
+                    Verarbeitungszwecke an den entsprechenden Stellen unserer Webseiten. Unsere
+                    Mitarbeiter und die von uns beauftragten Dienstleistungsunternehmen sind zur
+                    Verschwiegenheit und zur Einhaltung der Bestimmungen der Datenschutzgrundverordnung
+                    der Europäischen Union sowie des Bundesdatenschutzgesetzes verpflichtet. Die
+                    beauftragten Dienstleistungsunternehmen wurden sorgfältig ausgewählt und beauftragt,
+                    sind an unsere Weisungen gebunden und werden regelmäßig kontrolliert.
+                </p>
+                <p>
+                    Des Weiteren werden alle erforderlichen technischen und organisatorischen Maßnahmen
+                    zur Einhaltung des Datenschutzes ergriffen.
+                </p>
+            </main>
+        </div>
     </div>
-</section>
+</div>

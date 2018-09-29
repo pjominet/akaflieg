@@ -1,1 +1,81 @@
 @import '../app.component';
+
+.subheading {
+    font-size: small;
+}
+
+.indent {
+    margin-left: 20px;
+}
+
+main {
+    font-size: 14px;
+    h3 {
+        margin-top: 1em;
+    }
+
+    h4 {
+        color: $text-light;
+        text-transform: none;
+        font-size: 1.5em;
+        margin-left: 20px;
+    }
+
+    p {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+aside {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    aside {
+        display: block;
+    }
+
+    aside h5 {
+        font-size: 15px;
+    }
+}
+
+/* --- Privacy Navbar --- */
+.navbar-privacy {
+    background-color: $default;
+    border-color: transparent;
+    padding: 10px 0;
+}
+
+.navbar-privacy .nav-link {
+    color: white !important;
+}
+
+.navbar-privacy .nav-link:hover,
+.navbar-privacy .nav-link:active,
+.navbar-privacy .nav-link.active {
+    color: $default-highlight !important;
+    outline: none;
+}
+
+.navbar-privacy .navbar-brand {
+    color: white;
+    font-family: 'Courgette', serif;
+}
+
+.navbar-privacy .nav-item {
+    color: white;
+    a.btn:focus,
+    a.btn:active,
+    a.btn.active {
+        color: white;
+        outline: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-privacy .nav-item {
+        margin-left: 3em;
+    }
+}

@@ -8,7 +8,6 @@ import {Component, OnInit} from '@angular/core';
 export class MainPageComponent implements OnInit {
 
     public isCollapsed = true;
-    public hidePrivacy = true;
     public hideTerms = true;
 
     public showScrollTopButton = false;

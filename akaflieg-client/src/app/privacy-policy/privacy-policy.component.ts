@@ -6,11 +6,11 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./privacy-policy.component.scss']
 })
 export class PrivacyPolicyComponent implements OnInit {
+    public isCollapsed = true;
 
     constructor() {
     }
 
     ngOnInit() {
     }
-
 }

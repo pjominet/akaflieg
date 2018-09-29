@@ -1,18 +1,5 @@
 @import '../app.component';
 
-.back-to-top {
-    position: fixed;
-    top: 82.5vh;
-    right: 2vh;
-    border: none;
-    z-index: 9999;
-}
-
-.shift-sm {
-    margin-top: -.2em;
-    margin-left: -.05em;
-}
-
 #page-change:hover {
     color: $warning !important;
 }

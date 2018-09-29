@@ -9,10 +9,12 @@ import {NotFoundComponent} from './helpers/not-found/not-found.component';
 import {DashboardPublicComponent} from './dashboard/dashboard-public/dashboard-public.component';
 import {AuthGuard} from './helpers/auth/auth.guard';
 import {LoginComponent} from './dashboard/login/login.component';
+import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 
 const appRoutes: Routes = [
     {path: '404', component: NotFoundComponent},
     {path: 'index', component: MainPageComponent},
+    {path: 'privacy-policy', component: PrivacyPolicyComponent},
     {
         path: 'dashboard', component: DashboardComponent,
         children: [
@@ -30,7 +32,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'})
     ],
     exports: [RouterModule]
 })

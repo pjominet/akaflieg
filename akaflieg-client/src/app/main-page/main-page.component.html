@@ -1,11 +1,11 @@
-<div id="page-top">
+<div id="index">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-dark fixed-top navbar-main"
          ngx-sticky [addClass]="'affix'" id="navigation">
         <div class="container-fluid">
             <div class="mr-auto ml-4">
-                <a pageScroll class="navbar-brand" href="#page-top">Akaflieg Köln e.V.</a>
+                <a pageScroll class="navbar-brand" href="#index">Akaflieg Köln e.V.</a>
             </div>
 
             <button type="button" class="navbar-toggler navbar-toggler-right mr-2"
@@ -57,7 +57,7 @@
 
     <main data-target="#navigation">
         <a pageScroll class="btn btn-primary btn-circle back-to-top"
-           href="#page-top" [hidden]="!showScrollTopButton">
+           href="#index" [hidden]="!showScrollTopButton">
             <i class="fa fa-3x fa-angle-up shift-sm"></i>
         </a>
         <!-- About Section -->
@@ -96,8 +96,7 @@
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
                         <li class="list-inline-item">
-                            <a pageScroll href="#pageEnd"
-                               (click)="hidePrivacy = !hidePrivacy">Datenschutzbestimmungen</a>
+                            <a routerLink="/privacy-policy">Datenschutzbestimmungen</a>
                         </li>
                         <li class="list-inline-item">
                             <a pageScroll href="#pageEnd"
@@ -109,8 +108,7 @@
         </div>
     </footer>
 
-    <app-privacy-policy *ngIf="!hidePrivacy"></app-privacy-policy>
     <app-imprint *ngIf="!hideTerms"></app-imprint>
-    <div id="pageEnd"></div>
+    <span id="pageEnd"></span>
 
 </div>
