@@ -1,0 +1,41 @@
+{
+    "paragraphs": [
+        {
+            "header": "Schnuppern",
+            "body": "Du kannst in Begleitung eines Fluglehrers direkt in 4 <i>aufeinanderfolgenden</i> Samstagen loslegen. Du sitzt direkt mit am Knüppel und kannst den ganzen Flug über mitfühlen, erste Flugerfahrung sammeln und dich vom Segelfliegen überzeugenlassen. Sämtliche gewonnenen Kenntnisse werden dir, solltest du dich nach deiner Schnuppermitgliedschaft für einen Beitritt entsscheiden, für deine weitere Ausbildung angerechnet. Das Schnuppern kostet einmalig <i>10&euro;</i> für die Versicherung, <i>5&euro;</i> für jeden Start sowie <i>0,25&euro;</i> für jede Flugminute. Im Schnitt ergeben sich so ca. <strong>25-50&euro;</strong> pro Flugtag."
+        },
+        {
+            "header": "Mitgliedschaft",
+            "body": "Der Beitritt zum Verein kostet einmalig <strong>160&euro;</strong> (<i>80&euro;</i> für Vergünstigte*) und es fallen ab dann monatliche Beiträge in der Höhe von <strong>30&euro;</strong> (<i>16&euro;</i> für Vergünstigte*) an. Als Mitglied ist man voll ausbildungsfähig und man ist stimmberechtigt in den Vollversammlungen des Vereins.<br>* <i>Vergünstigungen gelten für Stundenten, Azubis und Geringstverdiener</i>"
+        },
+        {
+            "header": "Fluggebühren",
+            "body": {
+                "table": [
+                    {"legend": [
+                        "Windenstart", "Flugminute (0-180 min)", "Flugminute ab 180 min"
+                    ]},
+                    {"student": [
+                        "3,50&euro;", "0,15&euro;", "frei"
+                    ]},
+                    {"pilot": [
+                        "4&euro;", "0,25&euro;", "frei"
+                    ]}
+                ],
+                "text": "Flüge über 3 Stunden werden damit belohnt, dass ab der 180. Minute keine Fluggebühren mehr erhoben werden. Ein 5 Stunden Flug kostet also dasselbe wie einer von 3 Stunden."
+            }
+        },
+        {
+            "header": "Ausbildungsablauf",
+            "body": [
+                "Der erste Ausbildungsabschnitt ist zugleich der wichtigste und vermittelt dir die Grundlagen des Segelfliegens. Er wird mit der A-Prüfung abgeschlossen, welche aus deinen ersten drei Alleinflügen besteht und von vielen \"alten Hasen\" heute noch als das größte Erlebnis ihrer Fliegerlaufbahn bezeichnet wird. Bis dahin werden etwa 70 Starts und Landungen benötigt, was jedoch stark von der persönlichen Vorraussetzung und Motivation variiert. Nach einigen Alleinflügen mit dem Doppelsitzer wirst Du auf eines unserer einsitzigen Flugzeuge umgeschult.",
+                "Im zweiten und dritten Ausbildungsabschnitt (B und C Prüfungen) wirst Du mit den Feinheiten des Segelfliegens und den Grundlagen des Streckensegelfluges vertraut gemacht. Abschließend führst Du allein deinen ersten Streckenflug über 50 km durch. Insgesamt sind für den Erwerb des Pilotenscheins für Segelflugzeuge mindestens 30 Flugstunden vorgeschrieben, von welchen mindestens 15 Stunden im Alleinflug durchzuführen sind.",
+                "Der theoretische Teil beinhaltet die Fächer Luftrecht, Navigation, Meteorologie, Technik, Verhalten in besonderen Fällen und menschliches Leistungsvermögen. Die Theorie umfasst 60 Unterrichtsstunden die normalerweise im Winter stattfinden. Außerdem ist der Erwerb eines Flugsprechfunkzeugnisses und eines Erste-Hilfe-Zeugnisses erforderlich."
+            ]
+        },
+        {
+            "header": "Amtliche Prüfungen",
+            "body": "Die theoretische Prüfung kann bereits nach der praktischen C-Prüfung erfolgen, die finale praktische Prüfung, die aus drei Flügen mit einem Mitglied der Prüfungskommission besteht, darf allenfalls ein Jahr später abgelegt werden. Danach händigt dir die zuständige Behörde auf Antrag den Luftfahrerschein für Segelflugzeugführer aus."
+        }
+    ]
+}

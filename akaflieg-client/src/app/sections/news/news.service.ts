@@ -24,7 +24,7 @@ export class NewsService {
     }
 
     public getMock() {
-        return this.http.get( './assets/data/news-mock.json').pipe(
+        return this.http.get( './assets/data/news.json').pipe(
             map((response: HttpResponse<any>) => response));
     }
 }
