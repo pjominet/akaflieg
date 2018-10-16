@@ -75,16 +75,21 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-4">
                     <span class="copyright">Copyright &copy; Akaflieg Köln e.V. 2018</span>
                 </div>
-                <div class="col-md-4">
+                <div class="col-4">
                     <ul class="list-inline social-buttons">
                         <li class="list-inline-item">
-                            <a href="https://twitter.com/Akaflieg" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="https://twitter.com/Akaflieg" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                            </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="#" placement="top"
+                               ngbTooltip="Wir haben noch keine Facebook-Seite">
+                                <i class="fa fa-facebook"></i>
+                            </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="https://plus.google.com/113051736365017647290" target="_blank">
@@ -93,22 +98,16 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-4">
                     <ul class="list-inline quicklinks">
                         <li class="list-inline-item">
                             <a routerLink="/privacy-policy">Datenschutzbestimmungen</a>
                         </li>
-                        <li class="list-inline-item">
-                            <a pageScroll href="#pageEnd"
-                               (click)="hideTerms = !hideTerms">Impressum</a>
-                        </li>
                     </ul>
                 </div>
             </div>
+            <app-imprint></app-imprint>
         </div>
     </footer>
-
-    <app-imprint *ngIf="!hideTerms"></app-imprint>
-    <span id="pageEnd"></span>
 
 </div>
