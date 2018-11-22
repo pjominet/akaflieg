@@ -12,11 +12,11 @@ import tech.clusterfunk.akaflieg.repository.UserRepository;
 import static java.util.Collections.emptyList;
 
 @Service
-public class UserDetailServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
     private UserRepository userRepo;
 
     @Autowired
-    public UserDetailServiceImpl(UserRepository userRepo) {
+    public UserDetailsServiceImpl(UserRepository userRepo) {
         this.userRepo = userRepo;
     }
 
